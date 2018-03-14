@@ -1,0 +1,6 @@
+/.laya/
+/bin/
+/.DS_Store
+
+!/bin/res/audio
+
