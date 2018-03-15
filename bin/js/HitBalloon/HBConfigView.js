@@ -45,7 +45,7 @@ var HBConfigView = /** @class */ (function () {
         for (var _i = 0, texts_1 = texts; _i < texts_1.length; _i++) {
             var text = texts_1[_i];
             var textSp = text.split(":");
-            if (textSp.length != 2 || textSp[0] == "" || textSp[1] == "") {
+            if (text == "" || textSp.length != 2 || textSp[0] == "" || textSp[1] == "") {
                 HitBalloon.hitBalloonMain.showTip("配置格式错误，请参考示例！");
                 return;
             }

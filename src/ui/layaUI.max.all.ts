@@ -23,6 +23,28 @@ module ui {
 }
 
 module ui {
+    export class BalloonOppositesUI extends View {
+		public startBtn:Laya.Button;
+		public replayBtn:Laya.Image;
+		public configBox:Laya.Box;
+		public tip:laya.display.Text;
+		public setting:Laya.Image;
+		public wellDone:Laya.Image;
+
+        public static  uiView:any ={"type":"View","props":{"width":1024,"height":768},"child":[{"type":"Image","props":{"y":0,"x":0,"skin":"BalloonOpposites/bg.jpg"}},{"type":"Text","props":{"y":54,"x":318,"width":405,"text":"Find the opposites","height":59,"fontSize":45,"color":"#e3e345","bold":true}},{"type":"Button","props":{"y":346,"x":423,"var":"startBtn","stateNum":2,"skin":"common/btn_start.png"}},{"type":"Image","props":{"y":348,"x":426,"var":"replayBtn","skin":"common/replay.png"}},{"type":"Box","props":{"y":124,"x":581,"width":985,"var":"configBox","pivotY":100,"pivotX":554,"height":249},"child":[{"type":"Image","props":{"y":91,"x":626,"width":315,"skin":"template/Text/TextBox.png","height":39}},{"type":"Image","props":{"y":9,"x":514,"width":471,"skin":"common/configBG.png","height":235,"alpha":1}},{"type":"Label","props":{"y":55,"x":558,"text":"左边：","fontSize":20,"color":"#2a2121"}},{"type":"Image","props":{"y":46,"x":626,"width":315,"skin":"template/Text/TextBox.png","height":39}},{"type":"Label","props":{"y":100,"x":558,"text":"右边：","fontSize":20,"color":"#2a2121"}},{"type":"TextInput","props":{"y":49,"x":641,"width":286,"name":"leftInput","height":31,"fontSize":16,"color":"#3b3232"}},{"type":"TextInput","props":{"y":94,"x":641,"width":286,"name":"rightInput","height":31,"fontSize":16,"color":"#3b3232"}},{"type":"Button","props":{"y":151,"x":645,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32}},{"type":"Text","props":{"y":3,"x":947,"width":40,"text":"+","rotation":45,"pivotY":-1,"pivotX":-10,"name":"closeBtn","height":40,"fontSize":40,"color":"#5d5454","bold":false,"align":"center"}}]},{"type":"Text","props":{"y":135,"x":141,"width":300,"var":"tip","text":"操作不正确！","pivotY":2,"pivotX":8,"height":30,"fontSize":30,"color":"#17a817","align":"center"}},{"type":"Image","props":{"y":24,"x":27,"width":30,"var":"setting","skin":"common/setting.png","height":30}},{"type":"Image","props":{"y":256,"x":336,"var":"wellDone","skin":"BalloonOpposites/bg_welldone.png"},"child":[{"type":"Label","props":{"y":95,"x":60,"text":"Well done","fontSize":50,"color":"red"}}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.createView(ui.BalloonOppositesUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
     export class HitBalloonUI extends View {
 		public startBtn:Laya.Button;
 		public replayBtn:Laya.Image;

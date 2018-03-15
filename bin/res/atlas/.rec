@@ -1,4 +1,35 @@
 D .
+D BalloonOpposites
+R 672A3162 bg.jpg
+P C362DC6D bg_welldone.png
+P E8716165 left-1-0.png
+P 93F36580 left-1-1.png
+P 0C8F79FD left-2-0.png
+P 14429A2B left-2-1.png
+P 3C335A32 left-3-0.png
+P CE7431BE left-3-1.png
+P 6E6919E9 left-4-0.png
+P 77A6EEF4 left-4-1.png
+P C654D648 left-5-0.png
+P 62F79FCA left-5-1.png
+P 66CAD10C left-6-0.png
+P CE5DCA7A left-6-1.png
+P E3113C80 left-7-0.png
+P 6531AF1A left-7-1.png
+P 2211A06F right-1-0.png
+P 29AF6502 right-1-1.png
+P 95AAAE10 right-2-0.png
+P 4AF407A4 right-2-1.png
+P B1D2EFAC right-3-0.png
+P AB9EB66D right-3-1.png
+P F53CA3D5 right-4-0.png
+P 52FCFD6D right-4-1.png
+P F1DA60F0 right-5-0.png
+P 24C37191 right-5-1.png
+P CF857F31 right-6-0.png
+P E62D4916 right-6-1.png
+P 95AAAE10 right-7-0.png
+P 4AF407A4 right-7-1.png
 D common
 P 96015AC9 btn_start.png
 P 5A05FAAE configBG.png
