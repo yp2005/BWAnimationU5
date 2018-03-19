@@ -22,8 +22,8 @@ if(gameName == "opposites") {
     //气球爆炸消失游戏
     let config: any = {
         gameModel: false,
-        leftWords: ["pink", "orange", "green", "black", "white", "ssss", "aaa"],
-        rightWords: ["pink", "orange", "green", "black", "white", "ssss", "aaa"]
+        leftWords: ["sad"],
+        rightWords: ["happy"]
     };
     new BalloonOpposites(config);
 }

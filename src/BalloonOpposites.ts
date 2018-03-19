@@ -4,9 +4,14 @@ import WebGL   = Laya.WebGL;
 import Sprite = Laya.Sprite;
 class BalloonOpposites {
     public static balloonOppositesMain: BalloonOppositesMain; // 拍气球主界面
-    public static currentBalloon: Balloon; // 当前炸开的气球
-    public static finishedWordsNumber: number = 0;
+    public static currentBallName: string = ''; // 当前翻转的气球name
+    public static currentBallWord: string = ''; // 当前翻转的气球word
+    public static ballWordMap: any; // 反义词对应关系
     public static gameConfig: any; // 游戏配置
+    public static gameChecking: boolean = false; // 正在验证对错
+
+    private middleY:number = 400;
+    private leftX1:number = 250; 
     
     constructor(config: any)
     {
@@ -14,8 +19,8 @@ class BalloonOpposites {
         if(!config) {
             config = {
                 gameModel: false,
-                leftWords: ["pink", "orange", "green", "black", "white", "ssss", "aaa"],
-                rightWords: ["pink", "orange", "green", "black", "white", "ssss", "aaa"]
+                leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
+                rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
             };
         }
         BalloonOpposites.gameConfig = config;
@@ -46,6 +51,17 @@ class BalloonOpposites {
         BalloonOpposites.balloonOppositesMain.startBtn.on(Laya.Event.CLICK, this, this.gameStart);
         Laya.stage.addChild(BalloonOpposites.balloonOppositesMain);
         BalloonOpposites.balloonOppositesMain.replayBtn.visible = false;
+        
+        BalloonOpposites.initOpposites();
+    }
+
+    public static initOpposites(){
+        // 初始化反义词对应关系
+        BalloonOpposites.ballWordMap = {};
+        for(var i =0;i<BalloonOpposites.gameConfig.leftWords.length;i++){
+            BalloonOpposites.ballWordMap[BalloonOpposites.gameConfig.leftWords[i]] = BalloonOpposites.gameConfig.rightWords[i];
+            BalloonOpposites.ballWordMap[BalloonOpposites.gameConfig.rightWords[i]] = BalloonOpposites.gameConfig.leftWords[i];
+        }
     }
 
     // 游戏开始
@@ -58,14 +74,115 @@ class BalloonOpposites {
 
     // 初始化
     private init() {
-        // let balloons: Balloon[] = new Array<Balloon>();
-        // let pictures: Picture[] = new Array<Picture>();
-        // for(let word of HitBalloon.gameConfig.words) {
-        //     let balloon = new Balloon(word.word);
-        //     balloons.push(balloon);
-        //     let picture = new Picture(word.word, word.picture);
-        //     pictures.push(picture); 
-        // }
-        // HitBalloon.hitBalloonMain.addElement(balloons, pictures);
+        this.initSideBall('left');
+        this.initSideBall('right');
+        BalloonOpposites.gameChecking = false;
+    }
+
+    private initSideBall(side:string){
+        let length = BalloonOpposites.gameConfig.leftWords.length;
+        let randArr = this.getRandomArr(length);
+        // for(let i = 0;i< BalloonOpposites.gameConfig.leftWords.length;i++) {
+        for(let i = 0;i< 7;i++) {
+            let randNum = randArr[i];
+            let ball0 = BalloonOpposites.balloonOppositesMain.getChildByName(side+'-'+(i+1)+'-0') as Laya.Image;
+            let ball1 = BalloonOpposites.balloonOppositesMain.getChildByName(side+'-'+(i+1)+'-1') as Laya.Image;
+            // 配置到
+            if(randNum){
+                // console.log(side+'-'+(i+1)+'-0');
+                let _word = (side === 'left') ? BalloonOpposites.gameConfig.leftWords[randNum-1] 
+                                                : BalloonOpposites.gameConfig.rightWords[randNum-1];
+                ball0.visible = true;
+                ball1.visible = false;
+                let wordtxt = ball1.getChildByName('wordtxt') as Laya.Text;
+                wordtxt.text = _word;
+                ball0.on(Laya.Event.CLICK,this,this.ballTap,[ball0.name, wordtxt.text]);
+            }else{
+                //未配置，该隐藏
+                ball0.visible = false;
+                ball1.visible = false;
+            }
+        }
+    }
+
+    private ballTap(name:string,word:string){
+        if(BalloonOpposites.gameChecking) return;
+        // console.log(BalloonOpposites.currentBallName+'-----'+name);
+        let nameSplit = name.split('-');
+        let name1 = nameSplit[0]+'-'+nameSplit[1]+'-'+'1';
+        let ball0 = BalloonOpposites.balloonOppositesMain.getChildByName(name) as Laya.Image;
+        let ball1 = BalloonOpposites.balloonOppositesMain.getChildByName(name1) as Laya.Image;
+            ball0.visible = false;
+            ball1.visible = true;
+        if(!BalloonOpposites.currentBallName){
+            BalloonOpposites.currentBallName = name;
+            BalloonOpposites.currentBallWord = word;
+        }else{
+            // 如果是同一侧的气球被点中，无反应
+            if(BalloonOpposites.currentBallName.indexOf(nameSplit[0]) != -1){
+                ball0.visible = true;
+                ball1.visible = false;
+                return;
+            }
+
+            BalloonOpposites.gameChecking = true;
+
+            // console.log('word::::'+BalloonOpposites.currentBallWord+'-----'+word);
+            if(BalloonOpposites.ballWordMap[word] === BalloonOpposites.currentBallWord){
+                //TODO 正确
+                Laya.timer.once(2000, this, function(){
+                    let _nameSplit = BalloonOpposites.currentBallName.split('-');
+                    let _name1 = _nameSplit[0]+'-'+_nameSplit[1]+'-'+'1';
+                    let _ball0 = BalloonOpposites.balloonOppositesMain.getChildByName(BalloonOpposites.currentBallName) as Laya.Image;
+                    let _ball1 = BalloonOpposites.balloonOppositesMain.getChildByName(_name1) as Laya.Image;
+                    _ball0.visible = false;
+                    _ball1.visible = false;
+                    ball0.visible = false;
+                    ball1.visible = false;
+                    BalloonOpposites.currentBallName = '';
+                    BalloonOpposites.currentBallWord = '';
+                    BalloonOpposites.gameChecking = false;
+                    if(this.checkOver()){
+                        BalloonOpposites.balloonOppositesMain.gameOver();
+                    }
+                });
+            }else{
+                //TODO 错误
+                // Laya.Tween.from(ball1,{y:ball1.y},1000,Laya.Ease.bounceIn,Laya.Handler.create(this,function(){
+                //     ball0.visible = true;
+                //     ball1.visible = false;
+                // }),1000);
+                Laya.timer.once(2000, this, function(){
+                    ball0.visible = true;
+                    ball1.visible = false;
+                    BalloonOpposites.gameChecking = false;
+                });
+            }
+        }
+    }
+
+    private checkOver(){
+        let isOver = true;
+        for(let i = 0;i< 7;i++) {
+            let ball0 = BalloonOpposites.balloonOppositesMain.getChildByName('left-'+(i+1)+'-0') as Laya.Image;
+            let ball1 = BalloonOpposites.balloonOppositesMain.getChildByName('left-'+(i+1)+'-1') as Laya.Image;
+            // 左侧所有气球都隐藏了。游戏结束
+            if(ball0.visible || ball1.visible){
+                isOver = false;
+                break;
+            }
+        }
+        return isOver;
+    }
+    
+    // 返回随机数组
+    public getRandomArr(length:number = 0){
+        let arr = [];
+        for(var i = 0;i<length;i++){
+            arr.push(i+1);
+        }
+        return arr.sort((a,b)=>{
+            return Math.random()>.5 ? -1 : 1
+        });
     }
 }

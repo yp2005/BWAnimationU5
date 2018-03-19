@@ -38,12 +38,41 @@ class BOConfigView {
 
     // 提交配置
     private submit() {
+        let _map = {};
         let leftTexts = this.leftInput.text.split(",");
         let rightTexts = this.rightInput.text.split(",");
+        let leftLength = leftTexts.length,rightLength = rightTexts.length;
+        if(leftLength <1 || leftLength > 7 || rightLength <1 || rightLength > 7){
+            BalloonOpposites.balloonOppositesMain.showTip("左右两边的单词数量必须都在1-7之间！");
+            return;
+        }
         if(leftTexts.length != rightTexts.length){
             BalloonOpposites.balloonOppositesMain.showTip("左右两边的单词必须一一对应，互为相反！");
             return;
         }
+
+        let isExit = false;
+        for(let i = 0; i < leftTexts.length; i++){
+            if(_map[leftTexts[i]]){
+                isExit = true;
+                break;
+            }else{
+                _map[leftTexts[i]] = rightTexts[i];
+            }
+
+            if(_map[rightTexts[i]]){
+                isExit = true;
+                break;
+            }else{
+                _map[rightTexts[i]] = leftTexts[i];
+            }
+        }
+        if(isExit){
+            BalloonOpposites.balloonOppositesMain.showTip("单词重复！");
+            return;
+        }
+        BalloonOpposites.ballWordMap = _map;
+
         BalloonOpposites.gameConfig.leftWords = leftTexts;
         BalloonOpposites.gameConfig.rightWords = rightTexts;
         BalloonOpposites.balloonOppositesMain.showTip("提交成功！");
