@@ -51,8 +51,13 @@ class BOConfigView {
             return;
         }
 
-        let isExit = false;
+        let isExit = false,isEmpty = false;
         for(let i = 0; i < leftTexts.length; i++){
+            if(leftTexts[i] == '' || rightTexts[i] == ''){
+                isEmpty = true;
+                break;
+            }
+
             if(_map[leftTexts[i]]){
                 isExit = true;
                 break;
@@ -66,6 +71,10 @@ class BOConfigView {
             }else{
                 _map[rightTexts[i]] = leftTexts[i];
             }
+        }
+        if(isEmpty){
+            BalloonOpposites.balloonOppositesMain.showTip("单词不能为空");
+            return;
         }
         if(isExit){
             BalloonOpposites.balloonOppositesMain.showTip("单词重复！");

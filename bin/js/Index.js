@@ -20,8 +20,8 @@ if (gameName == "opposites") {
     //气球爆炸消失游戏
     var config = {
         gameModel: false,
-        leftWords: ["sad"],
-        rightWords: ["happy"]
+        leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
+        rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
     };
     new BalloonOpposites(config);
 }

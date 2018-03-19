@@ -126,10 +126,12 @@ class BalloonOpposites {
             }
 
             BalloonOpposites.gameChecking = true;
+            Laya.SoundManager.playSound("res/audio/bo-click.mp3", 1);
 
             // console.log('word::::'+BalloonOpposites.currentBallWord+'-----'+word);
             if(BalloonOpposites.ballWordMap[word] === BalloonOpposites.currentBallWord){
                 //TODO 正确
+                Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
                 Laya.timer.once(2000, this, function(){
                     let _nameSplit = BalloonOpposites.currentBallName.split('-');
                     let _name1 = _nameSplit[0]+'-'+_nameSplit[1]+'-'+'1';
@@ -147,11 +149,7 @@ class BalloonOpposites {
                     }
                 });
             }else{
-                //TODO 错误
-                // Laya.Tween.from(ball1,{y:ball1.y},1000,Laya.Ease.bounceIn,Laya.Handler.create(this,function(){
-                //     ball0.visible = true;
-                //     ball1.visible = false;
-                // }),1000);
+                this.shake(ball1);
                 Laya.timer.once(2000, this, function(){
                     ball0.visible = true;
                     ball1.visible = false;
@@ -184,5 +182,22 @@ class BalloonOpposites {
         return arr.sort((a,b)=>{
             return Math.random()>.5 ? -1 : 1
         });
+    }
+
+    // 图片晃动
+    private shake(picture:Laya.Image) {
+        Laya.SoundManager.playSound("res/audio/bo-fail.mp3", 1);
+        let _x = picture.x;
+        Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+            Laya.Tween.to(picture, {x:_x+15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+                Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+                    Laya.Tween.to(picture, {x:_x+15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+                        Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+                            Laya.Tween.to(picture, {x:_x}, 50, Laya.Ease.elasticInOut)
+                        }))
+                    } ))
+                }))
+            }))
+        }));
     }
 }
