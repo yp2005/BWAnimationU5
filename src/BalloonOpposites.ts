@@ -96,6 +96,7 @@ class BalloonOpposites {
                 ball1.visible = false;
                 let wordtxt = ball1.getChildByName('wordtxt') as Laya.Text;
                 wordtxt.text = _word;
+                
                 ball0.on(Laya.Event.CLICK,this,this.ballTap,[ball0.name, wordtxt.text]);
             }else{
                 //未配置，该隐藏
