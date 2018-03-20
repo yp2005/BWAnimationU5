@@ -6,9 +6,9 @@ class Picture extends ui.PictureUI {
         super();
         this.word = word;
         this.picture.skin = "HitBalloon/" + pic;
-        // 设置图片居中显示
-        this.picture.centerX = 0;
-        this.picture.centerY = 0;
+        // 设置图片位置
+        this.picture.x = (204 - this.picture.width) / 2;
+        this.picture.y = 204 - this.picture.height - 22;
         this.on(Laya.Event.CLICK, this, this.match);
     }
 
@@ -60,6 +60,6 @@ class Picture extends ui.PictureUI {
                     } ))
                 }))
             }))
-        }));
+        })); 
     }
 }
