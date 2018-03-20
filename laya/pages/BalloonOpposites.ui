@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":31,
+    "selectedBox":69,
+    "selecteID":97,
     "props":{"width":1024,"sceneColor":"#ffffff","height":768},
     "nodeParent":-1,
     "label":"View",
@@ -438,15 +438,16 @@
             "props":{"y":74,"x":89,"visible":false,"skin":"BalloonOpposites/left-1-1.png","name":"left-7-1"},
             "nodeParent":1,
             "label":"Image(left-7-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":55,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":46,"x":32,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":46,"x":26,"width":135,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":55,
                     "label":"Image",
                     "isOpen":true,
@@ -458,8 +459,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":51,"x":34,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":51,"x":26,"width":135,"text":"text","name":"wordtxt","height":50,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":55,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -476,15 +478,16 @@
             "props":{"y":246,"x":-10,"visible":false,"skin":"BalloonOpposites/left-2-1.png","name":"left-3-1"},
             "nodeParent":1,
             "label":"Image(left-3-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":57,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":40,"x":104,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":40,"x":90,"width":147,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":57,
                     "label":"Image",
                     "isOpen":true,
@@ -496,8 +499,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":46,"x":107,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":46,"x":90,"width":147,"text":"text","name":"wordtxt","height":50,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":57,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -514,15 +518,16 @@
             "props":{"y":402,"x":-20,"visible":false,"skin":"BalloonOpposites/left-3-1.png","name":"left-4-1"},
             "nodeParent":1,
             "label":"Image(left-4-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":58,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":46,"x":118,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":46,"x":106,"width":143,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":58,
                     "label":"Image",
                     "isOpen":true,
@@ -534,8 +539,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":52,"x":121,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":54,"x":106,"width":143,"text":"text","name":"wordtxt","height":48,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":58,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -552,15 +558,16 @@
             "props":{"y":565,"x":95,"visible":false,"skin":"BalloonOpposites/left-4-1.png","name":"left-6-1"},
             "nodeParent":1,
             "label":"Image(left-6-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":59,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":54,"x":3,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":54,"x":-1,"width":133,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":59,
                     "label":"Image",
                     "isOpen":true,
@@ -572,8 +579,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":60,"x":6,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":66,"x":-1,"width":133,"text":"text","name":"wordtxt","height":44,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":59,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -590,15 +598,16 @@
             "props":{"y":182,"x":261,"visible":false,"skin":"BalloonOpposites/left-5-1.png","name":"left-1-1"},
             "nodeParent":1,
             "label":"Image(left-1-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":60,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":48,"x":11,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":48,"x":1,"width":145,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":60,
                     "label":"Image",
                     "isOpen":true,
@@ -610,8 +619,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":54,"x":14,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":58,"x":1,"width":145,"text":"text","name":"wordtxt","height":46,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":60,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -628,15 +638,16 @@
             "props":{"y":373,"x":261,"visible":false,"skin":"BalloonOpposites/left-6-1.png","name":"left-2-1"},
             "nodeParent":1,
             "label":"Image(left-2-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":61,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":50,"x":9,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":50,"x":0,"width":130,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":61,
                     "label":"Image",
                     "isOpen":true,
@@ -648,8 +659,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":56,"x":12,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":60,"x":0,"width":130,"text":"beautiful","name":"wordtxt","height":46,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":61,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -666,15 +678,16 @@
             "props":{"y":574,"x":255,"visible":false,"skin":"BalloonOpposites/left-7-1.png","name":"left-5-1"},
             "nodeParent":1,
             "label":"Image(left-5-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":62,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":45,"x":13,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":45,"x":0,"width":152,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":62,
                     "label":"Image",
                     "isOpen":true,
@@ -686,8 +699,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":51,"x":16,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":55,"x":0,"width":152,"text":"text","name":"wordtxt","height":46,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":62,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -704,15 +718,16 @@
             "props":{"y":179,"x":534,"visible":false,"skin":"BalloonOpposites/right-1-1.png","name":"right-1-1"},
             "nodeParent":1,
             "label":"Image(right-1-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":63,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":49,"x":86,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":49,"x":76,"width":147,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":63,
                     "label":"Image",
                     "isOpen":true,
@@ -724,8 +739,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":55,"x":89,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":55,"x":76,"width":147,"text":"text","name":"wordtxt","height":50,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":63,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -742,15 +758,16 @@
             "props":{"y":366,"x":638,"visible":false,"skin":"BalloonOpposites/right-2-1.png","name":"right-2-1"},
             "nodeParent":1,
             "label":"Image(right-2-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":64,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":58,"x":8,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":58,"x":4,"width":131,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":64,
                     "label":"Image",
                     "isOpen":true,
@@ -762,8 +779,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":64,"x":11,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":64,"x":4,"width":131,"text":"text","name":"wordtxt","height":50,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":64,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -780,15 +798,16 @@
             "props":{"y":568,"x":576,"visible":false,"skin":"BalloonOpposites/right-3-1.png","name":"right-5-1"},
             "nodeParent":1,
             "label":"Image(right-5-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":65,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":52,"x":72,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":52,"x":66,"width":141,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":65,
                     "label":"Image",
                     "isOpen":true,
@@ -800,8 +819,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":58,"x":75,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":58,"x":66,"width":141,"text":"text","name":"wordtxt","height":50,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":65,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -818,15 +838,16 @@
             "props":{"y":76,"x":778,"visible":false,"skin":"BalloonOpposites/right-4-1.png","name":"right-7-1"},
             "nodeParent":1,
             "label":"Image(right-7-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":66,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":52,"x":9,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":52,"x":5,"width":137,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":66,
                     "label":"Image",
                     "isOpen":true,
@@ -838,8 +859,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":58,"x":12,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":58,"x":5,"width":137,"text":"text","name":"wordtxt","height":50,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":66,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -856,15 +878,16 @@
             "props":{"y":234,"x":808,"visible":false,"skin":"BalloonOpposites/right-5-1.png","name":"right-3-1"},
             "nodeParent":1,
             "label":"Image(right-3-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":67,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":37,"x":25,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":37,"x":9,"width":157,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":67,
                     "label":"Image",
                     "isOpen":true,
@@ -876,8 +899,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":43,"x":28,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":43,"x":9,"width":157,"text":"text","name":"wordtxt","height":50,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":67,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -894,15 +918,16 @@
             "props":{"y":380,"x":800,"visible":false,"skin":"BalloonOpposites/right-6-1.png","name":"right-4-1"},
             "nodeParent":1,
             "label":"Image(right-4-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":68,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":49,"x":10,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":49,"x":4,"width":137,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":68,
                     "label":"Image",
                     "isOpen":true,
@@ -914,8 +939,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":55,"x":13,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":55,"x":4,"width":137,"text":"text","name":"wordtxt","height":50,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":68,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
@@ -932,15 +958,16 @@
             "props":{"y":555,"x":821,"visible":false,"skin":"BalloonOpposites/right-7-1.png","name":"right-6-1"},
             "nodeParent":1,
             "label":"Image(right-6-1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":69,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":55,"x":8,"width":123,"skin":"template/Text/TextBox.png","height":60},
+                    "props":{"y":55,"x":4,"width":135,"skin":"template/Text/TextBox.png","height":60},
                     "nodeParent":69,
                     "label":"Image",
                     "isOpen":true,
@@ -952,8 +979,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":61,"x":11,"width":114,"text":"text","name":"wordtxt","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":61,"x":4,"width":135,"text":"text","name":"wordtxt","height":50,"fontSize":35,"color":"#000","align":"center"},
                     "nodeParent":69,
                     "label":"Text(wordtxt)",
                     "isDirectory":false,
