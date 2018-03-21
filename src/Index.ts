@@ -1,7 +1,7 @@
 // 程序入口，本工程仅用于切换各个动画进行测试
 
 // 游戏名称，修改这个变量值来切换不同游戏，
-let gameName = "opposites"; 
+let gameName = "fish"; 
 
 if(gameName == "balloon") {
     //气球爆炸消失游戏
@@ -18,12 +18,24 @@ if(gameName == "balloon") {
     };
     new HitBalloon(config);
 }
-if(gameName == "opposites") {
+else if(gameName == "opposites") {
     //气球爆炸消失游戏
     let config: any = {
         gameModel: false,
-                leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
-                rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
+        leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
+        rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
     };
     new BalloonOpposites(config);
+}
+else if(gameName == "fish") {
+    // 触摸小鱼游戏
+    let config: any = {
+        gameModel: false,
+        //hasTitle: true, // 是否有游戏标题
+        backgroundImg: "bg-1.jpeg", // 游戏背景图
+        type: "shell", // 单词背景图类型：fish、bubble、shell
+        words: ["a","b","c","d","a","b","c","d","a","b","c","d","a","b","c","d"],
+        fontSize: 30 // 字号，数字越大字越大
+    };
+    new FishAndWord(config);
 }

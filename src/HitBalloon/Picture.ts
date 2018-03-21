@@ -1,4 +1,4 @@
-// 气球类
+// 图片类
 class Picture extends ui.PictureUI {
     private word: string;
     public position: string; // 位置 top、bottom
