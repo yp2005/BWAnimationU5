@@ -18,15 +18,18 @@ class Fish1 extends ui.Fish1UI {
         this.wordBg.centerY = 0;
     }
 
-    // 被点击
+    // 被点击停止晃动，抖动
     private touch() {
+        // 停止晃动
         if(this.curAni) {
             this.curAni.clear();
         }
         this.y = this.initY;
         this.clicked = true;
         this.off(Laya.Event.CLICK, this, this.touch);
+        // 播放音效
         Laya.SoundManager.playSound("res/audio/hited.mp3", 1);
+        // 抖动
         Laya.Tween.to(this, {y: this.initY - 10}, 50, null, Laya.Handler.create(this, function() {
             Laya.Tween.to(this, {y: this.initY}, 50, null, Laya.Handler.create(this, function() {
                 Laya.Tween.to(this, {y: this.initY - 10}, 50, null, Laya.Handler.create(this, function() {

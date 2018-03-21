@@ -1,8 +1,10 @@
 // 游戏主界面
 class FishAndWordMain extends ui.FishAndWordUI {
-    private fishImg: string = "fish-1.png";
     private configView: FWConfigView; // 配置页
+    private fishImg: string = "fish-1.png"; // 鱼的图片
+    // 泡泡图片
     private bubbleImg: string[] = ["bubble-1.png", "bubble-2.png", "bubble-3.png", "bubble-4.png"];
+    // 贝壳图片
     private shellImg: string[] = ["shell-1.png", "shell-1-big.png", "shell-2.png", "shell-2-big.png", "shell-3.png", "shell-3-big.png", "shell-4.png", "shell-5.png"];
     constructor() {
         super(); 
@@ -60,10 +62,13 @@ class FishAndWordMain extends ui.FishAndWordUI {
             let index = indexes[i];
             indexes.splice(i, 1);
             
+            // 设置单词在有界面的位置
             word.x = FishAndWord.wordPositon[index].x;
             word.y = FishAndWord.wordPositon[index].y;
+            // 让延迟0-1秒随机时间开始晃动
             Laya.timer.once(Math.floor(Math.random() * 1000), word, word.shake1);
             
+            // 不同类型的单词背景图片需要不同的设置
             if(FishAndWord.gameConfig.type == "fish") {
                 word.picture.skin = "FishAndWord/" + this.fishImg;
             }
@@ -73,8 +78,10 @@ class FishAndWordMain extends ui.FishAndWordUI {
             else if(FishAndWord.gameConfig.type == "shell") {
                 let pic = this.shellImg[Math.floor(Math.random() * this.shellImg.length)];
                  word.picture.skin = "FishAndWord/" + pic;
+                 // 贝壳图片有大有小，设置居中
                  word.picture.centerX = 0;
                  word.picture.centerY = 0;
+                 // 大图片和小图片使用不同的包围单词的圆圈图
                  if(pic.indexOf("big") != -1) {
                      word.wordBg.visible = false;
                  }
@@ -82,8 +89,6 @@ class FishAndWordMain extends ui.FishAndWordUI {
                      word.wordBgBig.visible = false;
                  }
             }
-           
-
             this.addChild(word);
         }
     }

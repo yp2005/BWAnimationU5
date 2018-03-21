@@ -60,6 +60,7 @@ class FishAndWord {
 
     // 初始化
     private init() {
+        // 根据类型不同使用不同的单词背景图
         if(FishAndWord.gameConfig.type == "fish") {
             let fish: Fish1[] = new Array<Fish1>();
             for(let word of FishAndWord.gameConfig.words) {
