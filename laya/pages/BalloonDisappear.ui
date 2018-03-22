@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":4,
     "props":{"width":128,"sceneColor":"#ffffff","height":250},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":2,"x":10,"var":"picture","skin":"HitBalloon/balloon-1.png"},
+            "props":{"y":2,"x":10,"var":"picture","skin":"HitBalloonDisappear/balloon-1.png"},
             "nodeParent":1,
             "label":"Image(picture)",
             "isDirectory":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":-5,"x":-37,"width":190,"var":"blastImg","skin":"HitBalloon/blast.png","height":150},
+            "props":{"y":-5,"x":-37,"width":190,"var":"blastImg","skin":"HitBalloonDisappear/blast.png","height":150},
             "nodeParent":1,
             "label":"Image(blastImg)",
             "isDirectory":false,

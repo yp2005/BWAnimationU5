@@ -1,5 +1,5 @@
 // 配置界面
-class HBConfigView {
+class HBDConfigView {
     private configBox: Laya.Box; // 配置页面容器
     private textInput: Laya.TextInput; // 输入框
     private submitBtn: Laya.Image; // 提交按钮
@@ -20,7 +20,7 @@ class HBConfigView {
     // 初始化
     private init() {
         let text = "";
-        for(let word of HitBalloon.gameConfig.words) {
+        for(let word of HitBalloonDisappear.gameConfig.words) {
             if(text == "") {
                 text = word.word + ":" + word.picture;
             }
@@ -46,14 +46,14 @@ class HBConfigView {
     private submit() {
         let texts = this.textInput.text.split(",");
         if(texts.length < 1 || texts.length > 8) {
-            HitBalloon.hitBalloonMain.showTip("单词个数在1-8之间！");
+            HitBalloonDisappear.hitBalloonDisappearMain.showTip("单词个数在1-8之间！");
             return;
         }
         let words = [];
         for(let text of texts) {
             let textSp = text.split(":");
             if(text == "" || textSp.length != 2 || textSp[0] == "" || textSp[1] == "") {
-                 HitBalloon.hitBalloonMain.showTip("配置格式错误，请参考示例！");
+                 HitBalloonDisappear.hitBalloonDisappearMain.showTip("配置格式错误，请参考示例！");
                 return;
             }
             words.push({
@@ -61,8 +61,8 @@ class HBConfigView {
                 picture: textSp[1]
             });
         }
-        HitBalloon.gameConfig.words = words;
-        HitBalloon.hitBalloonMain.showTip("提交成功！");
+        HitBalloonDisappear.gameConfig.words = words;
+        HitBalloonDisappear.hitBalloonDisappearMain.showTip("提交成功！");
         this.hide();
     }
 }

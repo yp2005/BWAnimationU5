@@ -1,5 +1,5 @@
 // 气球类
-class Balloon extends ui.BalloonUI {
+class BalloonDisappear extends ui.BalloonDisappearUI {
     public state: number; // 气球状态0 未连线，1已连线
     public linedNumber: number = 0; // 单词已连线图片数量
     constructor(word: string) {
@@ -19,11 +19,11 @@ class Balloon extends ui.BalloonUI {
     // 气球受到拍打
     private hit() {
         // 如果有气球已经炸开还没完成图片连线，不炸开气球
-        if(HitBalloon.currentBalloon && HitBalloon.currentBalloon.state == 0) {
+        if(HitBalloonDisappear.currentBalloon && HitBalloonDisappear.currentBalloon.state == 0) {
             return;
         }
         this.picture.off(Laya.Event.CLICK, this, this.hit);
-        HitBalloon.currentBalloon = this;
+        HitBalloonDisappear.currentBalloon = this;
         // 停止气球晃动，炸开气球显示单词
         this.shake.stop();
         this.blast.play(0, false);

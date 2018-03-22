@@ -1,11 +1,11 @@
 // 图片类
-class Picture extends ui.PictureUI {
+class Picture extends ui.PictureDisappearUI {
     private word: string;
     public position: string; // 位置 top、bottom
     constructor(word: string, pic: string) {
         super();
         this.word = word;
-        this.picture.skin = "HitBalloon/" + pic;
+        this.picture.skin = "HitBalloonDisappear/" + pic;
         // 设置图片位置
         this.picture.x = (204 - this.picture.width) / 2;
         this.picture.y = 204 - this.picture.height - 22;
@@ -15,17 +15,17 @@ class Picture extends ui.PictureUI {
     // 单词和图片匹配
     private match() {
         // 如果有气球炸开并且单词未匹配才进行配对
-        if(HitBalloon.currentBalloon && HitBalloon.currentBalloon.state == 0) {
-            if(this.word == HitBalloon.currentBalloon.word.text) { // 图片和炸开的单词配对成功
+        if(HitBalloonDisappear.currentBalloon && HitBalloonDisappear.currentBalloon.state == 0) {
+            if(this.word == HitBalloonDisappear.currentBalloon.word.text) { // 图片和炸开的单词配对成功
                 // 播放匹配成功音效
                 Laya.SoundManager.playSound("res/audio/success.mp3", 1);
                 // 图片和气球消失
-                HitBalloon.currentBalloon.disappear();
+                HitBalloonDisappear.currentBalloon.disappear();
                 this.disappear();
-                HitBalloon.currentBalloon.state = 1;
-                HitBalloon.finishedWordsNumber++;
+                HitBalloonDisappear.currentBalloon.state = 1;
+                HitBalloonDisappear.finishedWordsNumber++;
                 // 所有单词都完成配对，结束游戏
-                if(HitBalloon.finishedWordsNumber == HitBalloon.hitBalloonMain.getBalloonsNumber()) {
+                if(HitBalloonDisappear.finishedWordsNumber == HitBalloonDisappear.hitBalloonDisappearMain.getBalloonsNumber()) {
                     Laya.timer.once(2000, this, this.gameOver);
                 }   
             }
@@ -45,7 +45,7 @@ class Picture extends ui.PictureUI {
 
     // 游戏结束
     private gameOver() {
-        HitBalloon.hitBalloonMain.gameOver();
+        HitBalloonDisappear.hitBalloonDisappearMain.gameOver();
     }
 
     // 图片晃动

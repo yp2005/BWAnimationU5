@@ -1,20 +1,20 @@
 // 游戏主界面
-class HitBalloonMain extends ui.HitBalloonUI {
-    private balloons: Balloon[]; // 所有的气球
+class HitBalloonDisappearMain extends ui.HitBalloonDisappearUI {
+    private balloons: BalloonDisappear[]; // 所有的气球
     private pictures: Picture[]; // 所有的图片
     private wellDoneY: number; // well done效果Y坐标
     private wellDoneX: number; // well done效果X坐标
-    private configView: HBConfigView; // 配置页
+    private configView: HBDConfigView; // 配置页
 
     constructor() {
         super(); 
         this.wellDone.visible = false;
         this.wellDoneY = this.wellDone.y;
         this.wellDoneX = this.wellDone.x;
-        this.configView = new HBConfigView(this.configBox);
+        this.configView = new HBDConfigView(this.configBox);
         this.tip.visible = false;
         this.setting.on(Laya.Event.CLICK, this, this.showConfigView)
-        if(HitBalloon.gameConfig.gameModel) {
+        if(HitBalloonDisappear.gameConfig.gameModel) {
             this.setting.visible = false;    
         }
     }
@@ -37,7 +37,7 @@ class HitBalloonMain extends ui.HitBalloonUI {
 
     // 设置设置按钮是否显示
     public showSetting(state: boolean) {
-        if(!HitBalloon.gameConfig.gameModel) {
+        if(!HitBalloonDisappear.gameConfig.gameModel) {
             this.setting.visible = state;
         }
     }
@@ -66,13 +66,13 @@ class HitBalloonMain extends ui.HitBalloonUI {
             picture.removeSelf();
             picture.destroy();
         }
-        HitBalloon.hitBalloonMain.replayBtn.visible = true;
-        HitBalloon.finishedWordsNumber = 0;
+        HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.visible = true;
+        HitBalloonDisappear.finishedWordsNumber = 0;
         this.showSetting(true);
     }
 
     // 将游戏元素添加到游戏主页面
-    public addElement(balloons: Balloon[], pictures: Picture[]) {
+    public addElement(balloons: BalloonDisappear[], pictures: Picture[]) {
         this.balloons = balloons;
         this.pictures = pictures;
         let balloonWidth: number = 1024 / this.balloons.length;
@@ -88,10 +88,10 @@ class HitBalloonMain extends ui.HitBalloonUI {
             let index = indexes[i];
             indexes.splice(i, 1);
             if(index >= 6) {
-                balloon.picture.skin = "HitBalloon/balloon-" + (index - 5) + ".png";
+                balloon.picture.skin = "HitBalloonDisappear/balloon-" + (index - 5) + ".png";
             }
             else {
-                balloon.picture.skin = "HitBalloon/balloon-" + (index + 1)+ ".png";
+                balloon.picture.skin = "HitBalloonDisappear/balloon-" + (index + 1)+ ".png";
             }
             balloon.x = index * balloonWidth + (balloonWidth - balloon.width) / 2;
             balloon.y = 330;
