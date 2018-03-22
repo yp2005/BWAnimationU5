@@ -39,6 +39,26 @@ P 838697A5 img_radio_notCheck.png
 P EA6A5058 replay.png
 P 6F2E1E3C setting.png
 P 5097AE90 well-done.png
+D FishAndWord
+R C87E8CBF bg-1.jpeg
+R DFBE4436 bg-2.png
+R 9F929312 bg-3.png
+P E099DD4B bubble-1.png
+P 487E5BD0 bubble-2.png
+P 9FF44211 bubble-3.png
+P 20B6CCA2 bubble-4.png
+P B3897451 fish-1.png
+P 26FD9C29 shell-1-big.png
+P 0FA69D3A shell-1.png
+P 603A346A shell-2-big.png
+P 466C280F shell-2.png
+P 9A4AFAA2 shell-3-big.png
+P 3BF2CCD8 shell-3.png
+P D0557DA2 shell-4.png
+P 777BAB68 shell-5.png
+P B379FD62 word-bg-1.png
+P 17545409 word-bg-2-big.png
+P 8419D019 word-bg-2.png
 D HitBalloon
 P 0DF6FC46 balloon-1.png
 P 735D276D balloon-2.png
@@ -56,6 +76,39 @@ R DEF0998F mainBG.png
 P E9BB4918 mouse.png
 P 15850473 pic_bg.png
 D template
+D ThrowDice
+R FAC052C7 bg1.png
+R 78D5C4D4 bg2.png
+P CF51AC5D dice-face-1.png
+P EA793FDA dice-face-2.png
+P 2C4A6E6E dice-face-3.png
+P FE75288D dice-face-4.png
+P 54189094 dice-face-5.png
+P DC84A1D3 dice-face-6.png
+P 7985FB55 dice-move-1.png
+P 8F3D3E9C dice-move-2.png
+P 16E4F393 dice-move-3.png
+P 9DAE5308 dice-move-4.png
+P 410A79B3 dice-move-5.png
+P 9022AC80 dice-move-6.png
+P CD1625DF mask-1.png
+P 084B1185 mask-2.png
+P 9835A768 mask-3.png
+P E0307D27 mask-4.png
+P 797752A1 mask-5.png
+P F56FA3AC mask-6.png
+P 0AB33865 pic-1-1.png
+P 58124813 pic-1-2.png
+P 6FD4709A pic-1-3.png
+P C9391C3F pic-1-4.png
+P B88C7390 pic-1-5.png
+P 9143CA68 pic-1-6.png
+P 1E454531 pic-2-1.png
+P 2F822FEE pic-2-2.png
+P F569F2F7 pic-2-3.png
+P B3D9C9D9 pic-2-4.png
+P F48C43CE pic-2-5.png
+P AC773555 pic-2-6.png
 D template/ButtonTab
 P AE499BA2 btn_LargeTabButton_Middle.png
 D template/Text

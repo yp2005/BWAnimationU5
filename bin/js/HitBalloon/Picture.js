@@ -8,16 +8,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-// 气球类
+// 图片类
 var Picture = /** @class */ (function (_super) {
     __extends(Picture, _super);
     function Picture(word, pic) {
         var _this = _super.call(this) || this;
         _this.word = word;
         _this.picture.skin = "HitBalloon/" + pic;
-        // 设置图片居中显示
-        _this.picture.centerX = 0;
-        _this.picture.centerY = 0;
+        // 设置图片位置
+        _this.picture.x = (204 - _this.picture.width) / 2;
+        _this.picture.y = 204 - _this.picture.height - 22;
         _this.on(Laya.Event.CLICK, _this, _this.match);
         return _this;
     }

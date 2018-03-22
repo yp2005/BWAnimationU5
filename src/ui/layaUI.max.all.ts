@@ -64,6 +64,64 @@ module ui {
 }
 
 module ui {
+    export class BubbleUI extends View {
+		public picture:Laya.Image;
+		public word:laya.display.Text;
+
+        public static  uiView:any ={"type":"View","props":{"width":140,"height":98},"child":[{"type":"Image","props":{"y":0,"x":0,"var":"picture","skin":"FishAndWord/bubble-3.png"}},{"type":"Text","props":{"y":31,"x":0,"width":140,"var":"word","text":"E","height":35,"fontSize":30,"color":"#000000","align":"center"}}]};
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.createView(ui.BubbleUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
+    export class Fish1UI extends View {
+		public picture:Laya.Image;
+		public wordBg:Laya.Image;
+		public word:laya.display.Text;
+
+        public static  uiView:any ={"type":"View","props":{"width":140,"height":98},"child":[{"type":"Image","props":{"y":0,"x":0,"var":"picture","skin":"FishAndWord/fish-1.png"}},{"type":"Image","props":{"y":34,"x":42,"var":"wordBg","skin":"FishAndWord/word-bg-1.png"}},{"type":"Text","props":{"y":31,"x":41,"width":58,"var":"word","text":"eee","height":35,"fontSize":30,"color":"#000000","align":"center"}}]};
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.createView(ui.Fish1UI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
+    export class FishAndWordUI extends View {
+		public bg:Laya.Image;
+		public startBtn:Laya.Button;
+		public configBox:Laya.Box;
+		public tip:laya.display.Text;
+		public setting:Laya.Image;
+
+        public static  uiView:any ={"type":"View","props":{"width":1024,"height":768},"child":[{"type":"Image","props":{"y":0,"x":0,"var":"bg","skin":"FishAndWord/bg-2.png"}},{"type":"Button","props":{"y":346,"x":423,"var":"startBtn","stateNum":2,"skin":"common/btn_start.png"}},{"type":"Box","props":{"y":119,"x":575,"width":985,"var":"configBox","pivotY":100,"pivotX":554,"height":249},"child":[{"type":"Image","props":{"y":9,"x":500,"width":485,"skin":"common/configBG.png","sizeGrid":"20,5,20,5","height":419,"alpha":1}},{"type":"Label","props":{"y":265,"x":558,"text":"单词：","fontSize":20,"color":"#2a2121"}},{"type":"Image","props":{"y":256,"x":626,"width":315,"skin":"template/Text/TextBox.png","height":39}},{"type":"TextInput","props":{"y":259,"x":641,"width":286,"name":"word","height":31,"fontSize":16,"color":"#3b3232"}},{"type":"Button","props":{"y":341,"x":645,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32}},{"type":"Text","props":{"y":7,"x":947,"width":40,"text":"+","rotation":45,"pivotY":-1,"pivotX":-10,"name":"closeBtn","height":40,"fontSize":40,"color":"#5d5454","bold":false,"align":"center"}},{"type":"Text","props":{"y":302,"x":634,"text":"示例：\ba,b,c,d","fontSize":17,"color":"#666666"}},{"type":"Label","props":{"y":75,"x":535,"text":"背景图：","fontSize":20,"color":"#2a2121"}},{"type":"Image","props":{"y":66,"x":623,"width":315,"skin":"template/Text/TextBox.png","height":39}},{"type":"TextInput","props":{"y":69,"x":638,"width":286,"name":"backgroundImg","height":31,"fontSize":16,"color":"#3b3232"}},{"type":"Label","props":{"y":130,"x":556,"text":"类型：","fontSize":20,"color":"#2a2121"}},{"type":"Image","props":{"y":121,"x":624,"width":315,"skin":"template/Text/TextBox.png","height":39}},{"type":"TextInput","props":{"y":124,"x":639,"width":286,"text":"30","name":"type","height":31,"fontSize":16,"color":"#3b3232"}},{"type":"Label","props":{"y":209,"x":557,"text":"字号：","fontSize":20,"color":"#2a2121"}},{"type":"Image","props":{"y":200,"x":625,"width":315,"skin":"template/Text/TextBox.png","height":39}},{"type":"TextInput","props":{"y":203,"x":640,"width":286,"name":"fontSize","height":31,"fontSize":16,"color":"#3b3232"}},{"type":"Text","props":{"y":166,"x":634,"text":"注：\bfish、bubble、shell三种","fontSize":17,"color":"#666666"}}]},{"type":"Text","props":{"y":123,"x":152,"width":300,"var":"tip","text":"操作不正确！","pivotY":2,"pivotX":8,"height":30,"fontSize":30,"color":"#17a817","align":"center"}},{"type":"Image","props":{"y":26,"x":31,"width":30,"var":"setting","skin":"common/setting.png","height":30}}]};
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.createView(ui.FishAndWordUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
     export class HitBalloonUI extends View {
 		public startBtn:Laya.Button;
 		public replayBtn:Laya.Image;
@@ -89,12 +147,53 @@ module ui {
     export class PictureUI extends View {
 		public picture:Laya.Image;
 
-        public static  uiView:any ={"type":"View","props":{"width":204,"height":204},"child":[{"type":"Image","props":{"y":113,"x":5,"skin":"HitBalloon/pic_bg.png"}},{"type":"Image","props":{"y":44,"x":43,"var":"picture","skin":"HitBalloon/ball.png"}}]};
+        public static  uiView:any ={"type":"View","props":{"width":204,"height":204},"child":[{"type":"Image","props":{"y":130,"x":5,"skin":"HitBalloon/pic_bg.png"}},{"type":"Image","props":{"y":71,"x":58,"var":"picture","skin":"HitBalloon/fish.png"}}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.PictureUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
+    export class ShellUI extends View {
+		public picture:Laya.Image;
+		public wordBgBig:Laya.Image;
+		public wordBg:Laya.Image;
+		public word:laya.display.Text;
+
+        public static  uiView:any ={"type":"View","props":{"width":137,"height":142},"child":[{"type":"Image","props":{"y":0,"x":0,"var":"picture","skin":"FishAndWord/shell-1-big.png"}},{"type":"Image","props":{"y":49,"x":47,"var":"wordBgBig","skin":"FishAndWord/word-bg-2-big.png"}},{"type":"Image","props":{"y":51,"x":51,"var":"wordBg","skin":"FishAndWord/word-bg-2.png"}},{"type":"Text","props":{"y":60,"x":47,"width":58,"var":"word","text":"eee","height":35,"fontSize":30,"color":"#000000","align":"center"}}]};
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.createView(ui.ShellUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
+    export class ThrowDiceUI extends View {
+		public configBox:Laya.Box;
+		public tip:laya.display.Text;
+		public setting:Laya.Image;
+		public startBtn:Laya.Button;
+		public replayBtn:Laya.Image;
+
+        public static  uiView:any ={"type":"View","props":{"width":1024,"height":768},"child":[{"type":"Image","props":{"width":1024,"skin":"ThrowDice/bg1.png","height":768}},{"type":"Image","props":{"y":120,"x":110,"skin":"ThrowDice/pic-1-1.png"}},{"type":"Image","props":{"y":120,"x":415,"skin":"ThrowDice/pic-1-2.png"}},{"type":"Image","props":{"y":120,"x":719,"skin":"ThrowDice/pic-1-3.png"}},{"type":"Image","props":{"y":520,"x":110,"skin":"ThrowDice/pic-1-4.png"}},{"type":"Image","props":{"y":520,"x":415,"skin":"ThrowDice/pic-1-5.png"}},{"type":"Image","props":{"y":520,"x":719,"skin":"ThrowDice/pic-1-6.png"}},{"type":"Image","props":{"y":120,"x":110,"skin":"ThrowDice/mask-1.png","name":"mask1"}},{"type":"Image","props":{"y":120,"x":415,"skin":"ThrowDice/mask-2.png","name":"mask2"}},{"type":"Image","props":{"y":120,"x":719,"skin":"ThrowDice/mask-3.png","name":"mask3"}},{"type":"Image","props":{"y":520,"x":110,"skin":"ThrowDice/mask-4.png","name":"mask4"}},{"type":"Image","props":{"y":520,"x":415,"skin":"ThrowDice/mask-5.png","name":"mask5"}},{"type":"Image","props":{"y":520,"x":719,"skin":"ThrowDice/mask-6.png","name":"mask6"}},{"type":"Box","props":{"y":134,"x":591,"width":985,"var":"configBox","pivotY":100,"pivotX":554,"height":249},"child":[{"type":"Image","props":{"y":91,"x":626,"width":315,"skin":"template/Text/TextBox.png","height":39}},{"type":"Image","props":{"y":9,"x":514,"width":471,"skin":"common/configBG.png","height":235,"alpha":1}},{"type":"Label","props":{"y":55,"x":558,"text":"左边：","fontSize":20,"color":"#2a2121"}},{"type":"Image","props":{"y":46,"x":626,"width":315,"skin":"template/Text/TextBox.png","height":39}},{"type":"Label","props":{"y":100,"x":558,"text":"右边：","fontSize":20,"color":"#2a2121"}},{"type":"TextInput","props":{"y":49,"x":641,"width":286,"name":"textInput","height":31,"fontSize":16,"color":"#3b3232"}},{"type":"TextInput","props":{"y":94,"x":641,"width":286,"name":"rightInput","height":31,"fontSize":16,"color":"#3b3232"}},{"type":"Button","props":{"y":151,"x":645,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32}},{"type":"Text","props":{"y":3,"x":947,"width":40,"text":"+","rotation":45,"pivotY":-1,"pivotX":-10,"name":"closeBtn","height":40,"fontSize":40,"color":"#5d5454","bold":false,"align":"center"}}]},{"type":"Text","props":{"y":70,"x":102,"wordWrap":true,"width":429,"var":"tip","text":"操作不正确！","pivotY":2,"pivotX":8,"height":169,"fontSize":30,"color":"#17a817","align":"center"}},{"type":"Image","props":{"y":34,"x":37,"width":30,"var":"setting","skin":"common/setting.png","height":30}},{"type":"Button","props":{"y":356,"x":433,"var":"startBtn","stateNum":2,"skin":"common/btn_start.png"}},{"type":"Image","props":{"y":358,"x":436,"var":"replayBtn","skin":"common/replay.png"}}]};
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.createView(ui.ThrowDiceUI.uiView);
 
         }
 

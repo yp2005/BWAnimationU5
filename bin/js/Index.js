@@ -1,6 +1,6 @@
 // 程序入口，本工程仅用于切换各个动画进行测试
 // 游戏名称，修改这个变量值来切换不同游戏，
-var gameName = "opposites";
+var gameName = "dice";
 if (gameName == "balloon") {
     //气球爆炸消失游戏
     var config = {
@@ -16,7 +16,7 @@ if (gameName == "balloon") {
     };
     new HitBalloon(config);
 }
-if (gameName == "opposites") {
+else if (gameName == "opposites") {
     //气球爆炸消失游戏
     var config = {
         gameModel: false,
@@ -24,5 +24,26 @@ if (gameName == "opposites") {
         rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
     };
     new BalloonOpposites(config);
+}
+else if (gameName == "fish") {
+    // 触摸小鱼游戏
+    var config = {
+        gameModel: false,
+        //hasTitle: true, // 是否有游戏标题
+        backgroundImg: "bg-1.jpeg",
+        type: "shell",
+        words: ["a", "b", "c", "d", "a", "b", "c", "d", "a", "b", "c", "d", "a", "b", "c", "d"],
+        fontSize: 30 // 字号，数字越大字越大
+    };
+    new FishAndWord(config);
+}
+else if (gameName == "dice") {
+    //摇骰子游戏
+    var config = {
+        gameModel: false,
+        leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
+        rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
+    };
+    new ThrowDice(config);
 }
 //# sourceMappingURL=Index.js.map

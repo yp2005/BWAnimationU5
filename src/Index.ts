@@ -1,7 +1,7 @@
 // 程序入口，本工程仅用于切换各个动画进行测试
 
 // 游戏名称，修改这个变量值来切换不同游戏，
-let gameName = "fish"; 
+let gameName = "dice"; 
 
 if(gameName == "balloon") {
     //气球爆炸消失游戏
@@ -38,4 +38,13 @@ else if(gameName == "fish") {
         fontSize: 30 // 字号，数字越大字越大
     };
     new FishAndWord(config);
+}
+else if(gameName == "dice") {
+    //摇骰子游戏
+    let config: any = {
+        gameModel: false,
+        leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
+        rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
+    };
+    new ThrowDice(config);
 }
