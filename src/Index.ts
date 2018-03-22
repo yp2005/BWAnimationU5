@@ -43,8 +43,8 @@ else if(gameName == "dice") {
     //摇骰子游戏
     let config: any = {
         gameModel: false,
-        leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
-        rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
+        bg: "bg1.png",
+        pics: ["pic-2-1.png","pic-2-2.png","pic-2-3.png","pic-1-4.png","pic-1-5.png","pic-1-6.png"]
     };
     new ThrowDice(config);
 }

@@ -4,7 +4,8 @@ var TDConfigView = /** @class */ (function () {
         this.configBox = configBox;
         this.hide();
         // 初始化配置页面元素
-        this.textInput = configBox.getChildByName("textInput");
+        this.bgInput = configBox.getChildByName("bgInput");
+        this.picInput = configBox.getChildByName("picInput");
         this.submitBtn = configBox.getChildByName("submitBtn");
         this.closeBtn = configBox.getChildByName("closeBtn");
         // 添加事件监听
@@ -13,17 +14,9 @@ var TDConfigView = /** @class */ (function () {
     }
     // 初始化
     TDConfigView.prototype.init = function () {
-        var text = "";
-        for (var _i = 0, _a = HitBalloon.gameConfig.words; _i < _a.length; _i++) {
-            var word = _a[_i];
-            if (text == "") {
-                text = word.word + ":" + word.picture;
-            }
-            else {
-                text += "," + word.word + ":" + word.picture;
-            }
-        }
-        this.textInput.text = text;
+        var text = ThrowDice.gameConfig.pics.join(",");
+        this.bgInput.text = ThrowDice.gameConfig.bg;
+        this.picInput.text = text;
     };
     // 显示配置
     TDConfigView.prototype.show = function () {
@@ -36,26 +29,15 @@ var TDConfigView = /** @class */ (function () {
     };
     // 提交配置
     TDConfigView.prototype.submit = function () {
-        var texts = this.textInput.text.split(",");
-        if (texts.length < 1 || texts.length > 8) {
-            HitBalloon.hitBalloonMain.showTip("单词个数在1-8之间！");
+        var bg = this.bgInput.text;
+        var texts = this.picInput.text.split(",");
+        if (texts.length !== 6) {
+            ThrowDice.throwDiceMain.showTip("底图数只能为6个！");
             return;
         }
-        var words = [];
-        for (var _i = 0, texts_1 = texts; _i < texts_1.length; _i++) {
-            var text = texts_1[_i];
-            var textSp = text.split(":");
-            if (text == "" || textSp.length != 2 || textSp[0] == "" || textSp[1] == "") {
-                HitBalloon.hitBalloonMain.showTip("配置格式错误，请参考示例！");
-                return;
-            }
-            words.push({
-                word: textSp[0],
-                picture: textSp[1]
-            });
-        }
-        HitBalloon.gameConfig.words = words;
-        HitBalloon.hitBalloonMain.showTip("提交成功！");
+        ThrowDice.gameConfig.bg = bg;
+        ThrowDice.gameConfig.pics = texts;
+        ThrowDice.throwDiceMain.showTip("提交成功！");
         this.hide();
     };
     return TDConfigView;

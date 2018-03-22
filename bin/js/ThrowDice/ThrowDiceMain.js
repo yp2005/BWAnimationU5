@@ -24,6 +24,25 @@ var ThrowDiceMain = /** @class */ (function (_super) {
         }
         return _this;
     }
+    ThrowDiceMain.prototype.changeBg = function (bg) {
+        this.gameBg.skin = "ThrowDice/" + bg;
+    };
+    ThrowDiceMain.prototype.changePics = function (pics) {
+        for (var i = 0; i < 6; i++) {
+            console.log(pics[i]);
+            var pic = ThrowDice.throwDiceMain.getChildByName('pic' + (i + 1));
+            console.log(pic.skin);
+            pic.skin = "ThrowDice/" + pics[i];
+        }
+    };
+    ThrowDiceMain.prototype.changeStatus = function (isVisible) {
+        for (var i = 0; i < 6; i++) {
+            var pic = ThrowDice.throwDiceMain.getChildByName('pic' + (i + 1));
+            pic.visible = isVisible;
+            var mask = ThrowDice.throwDiceMain.getChildByName('mask' + (i + 1));
+            mask.visible = isVisible;
+        }
+    };
     // 显示提示
     ThrowDiceMain.prototype.showTip = function (text) {
         this.tip.text = text;

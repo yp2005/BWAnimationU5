@@ -17,6 +17,28 @@ class ThrowDiceMain extends ui.ThrowDiceUI {
         }
     }
 
+    public changeBg(bg:string){
+        this.gameBg.skin = "ThrowDice/"+bg;
+    }
+
+    public changePics(pics:Array<string>){
+        for(var i = 0;i<6;i++){
+            console.log(pics[i]);
+            let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
+            console.log(pic.skin);
+            pic.skin = "ThrowDice/"+pics[i];
+        }
+    }
+
+    public changeStatus(isVisible:boolean){
+        for(var i = 0;i<6;i++){
+            let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
+            pic.visible = isVisible;
+            let mask = ThrowDice.throwDiceMain.getChildByName('mask'+(i+1)) as Laya.Image;
+            mask.visible = isVisible;
+        }
+    }
+
      // 显示提示
     public showTip(text: string) {
         this.tip.text = text;

@@ -8,8 +8,8 @@ var ThrowDice = /** @class */ (function () {
         if (!config) {
             config = {
                 gameModel: false,
-                leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
-                rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
+                bg: "bg1.png",
+                pics: ["pic-1-1.png", "pic-1-2.png", "pic-1-3.png", "pic-1-4.png", "pic-1-5.png", "pic-1-6.png"]
             };
         }
         ThrowDice.gameConfig = config;
@@ -42,10 +42,12 @@ var ThrowDice = /** @class */ (function () {
         ThrowDice.currentDice.pos(510, 400);
         Laya.stage.addChild(ThrowDice.currentDice);
         ThrowDice.currentDice.body.on(Laya.Event.CLICK, this, this.doThrow);
+        ThrowDice.throwDiceMain.changeStatus(false);
     };
     ThrowDice.prototype.doThrow = function () {
         if (ThrowDice.diceNum !== 6) {
             ThrowDice.currentDice.playAction('dice_throw');
+            Laya.SoundManager.playSound("res/audio/dice.mp3", 1);
             Laya.timer.once(2000, this, function () {
                 ThrowDice.currentDice.playAction('dice_' + ThrowDice.diceArr[ThrowDice.diceNum]);
                 var mask = ThrowDice.throwDiceMain.getChildByName('mask' + ThrowDice.diceArr[ThrowDice.diceNum]);
@@ -63,6 +65,12 @@ var ThrowDice = /** @class */ (function () {
     };
     // 初始化
     ThrowDice.prototype.init = function () {
+        ThrowDice.throwDiceMain.changeBg(ThrowDice.gameConfig.bg);
+        ThrowDice.throwDiceMain.changePics(ThrowDice.gameConfig.pics);
+        if (ThrowDice.gameConfig.bg === 'bg2.png') {
+            ThrowDice.currentDice.pos(310, 400);
+        }
+        ThrowDice.throwDiceMain.changeStatus(true);
         ThrowDice.diceArr = this.getRandomArr(6);
         ThrowDice.diceNum = 0;
         ThrowDice.gameChecking = false;
@@ -78,22 +86,6 @@ var ThrowDice = /** @class */ (function () {
         return arr.sort(function (a, b) {
             return Math.random() > .5 ? -1 : 1;
         });
-    };
-    // 图片晃动
-    ThrowDice.prototype.shake = function (picture) {
-        Laya.SoundManager.playSound("res/audio/bo-fail.mp3", 1);
-        var _x = picture.x;
-        Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-            Laya.Tween.to(picture, { x: _x + 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-                Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-                    Laya.Tween.to(picture, { x: _x + 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-                        Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-                            Laya.Tween.to(picture, { x: _x }, 50, Laya.Ease.elasticInOut);
-                        }));
-                    }));
-                }));
-            }));
-        }));
     };
     ThrowDice.gameChecking = false; // 正在验证对错
     ThrowDice.diceArr = [];
