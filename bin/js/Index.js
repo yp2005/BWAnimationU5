@@ -14,7 +14,7 @@ if (gameName == "balloon") {
             { word: "bird", picture: "bird.png" }
         ]
     };
-    new HitBalloon(config);
+    new HitBalloonDisappear(config);
 }
 else if (gameName == "opposites") {
     //气球爆炸消失游戏

@@ -28,20 +28,26 @@ var ThrowDiceMain = /** @class */ (function (_super) {
         this.gameBg.skin = "ThrowDice/" + bg;
     };
     ThrowDiceMain.prototype.changePics = function (pics) {
-        for (var i = 0; i < 6; i++) {
-            console.log(pics[i]);
-            var pic = ThrowDice.throwDiceMain.getChildByName('pic' + (i + 1));
-            console.log(pic.skin);
-            pic.skin = "ThrowDice/" + pics[i];
-        }
+        // for(var i = 0;i<6;i++){
+        //     let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
+        //     // pic.skin = "ThrowDice/bg2.png";
+        //     pic.skin = "ThrowDice/"+pics[i];
+        // }
+        this.pic1.skin = "ThrowDice/" + pics[0];
+        this.pic1.skin = "ThrowDice/" + pics[1];
+        this.pic1.skin = "ThrowDice/" + pics[2];
+        this.pic1.skin = "ThrowDice/" + pics[3];
+        this.pic1.skin = "ThrowDice/" + pics[4];
+        this.pic1.skin = "ThrowDice/" + pics[5];
     };
     ThrowDiceMain.prototype.changeStatus = function (isVisible) {
         for (var i = 0; i < 6; i++) {
-            var pic = ThrowDice.throwDiceMain.getChildByName('pic' + (i + 1));
-            pic.visible = isVisible;
+            // let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
+            // pic.visible = isVisible;
             var mask = ThrowDice.throwDiceMain.getChildByName('mask' + (i + 1));
-            mask.visible = isVisible;
+            mask.visible = false;
         }
+        // this.pic1.visible = 
     };
     // 显示提示
     ThrowDiceMain.prototype.showTip = function (text) {
