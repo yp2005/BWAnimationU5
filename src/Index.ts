@@ -48,3 +48,12 @@ else if(gameName == "dice") {
     };
     new ThrowDice(config);
 }
+else if(gameName == "egg") {
+    // 砸蛋游戏
+    let config: any = {
+        gameModel: false,
+        fontSize: 30, // 字号
+        words: ["word", "goods", "apple", "red", "beautiful", "high", "big", "bag", "hit", "pen", "pen", "haha"]
+    };
+    new HitEgg(config);
+}

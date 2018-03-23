@@ -57,7 +57,7 @@ class FWConfigView {
             FishAndWord.fishAndWordMain.showTip("你还有配置项未填写！");
             return;
         }
-        if(!/\d+/.test(this.fontSize.text)) {
+        if(!/^\d+$/.test(this.fontSize.text)) {
             FishAndWord.fishAndWordMain.showTip("字号必须为正整数！");
             return;
         }
@@ -69,7 +69,7 @@ class FWConfigView {
         let words = [];
         for(let text of texts) {
             if(text == "") {
-                 FishAndWord.fishAndWordMain.showTip("配置格式错误，请参考示例！");
+                FishAndWord.fishAndWordMain.showTip("配置格式错误，请参考示例！");
                 return;
             }
             words.push(text);

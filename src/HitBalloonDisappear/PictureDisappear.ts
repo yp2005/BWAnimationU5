@@ -26,7 +26,7 @@ class Picture extends ui.PictureDisappearUI {
                 HitBalloonDisappear.finishedWordsNumber++;
                 // 所有单词都完成配对，结束游戏
                 if(HitBalloonDisappear.finishedWordsNumber == HitBalloonDisappear.hitBalloonDisappearMain.getBalloonsNumber()) {
-                    Laya.timer.once(2000, this, this.gameOver);
+                    Laya.timer.once(1000, this, this.gameOver);
                 }   
             }
             else { // 配对不成功
