@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":5,
+    "selecteID":4,
     "props":{"width":140,"sceneColor":"#ffffff","height":98},
     "nodeParent":-1,
     "label":"View",
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Text",
-            "props":{"y":31,"x":41,"width":58,"var":"word","text":"eee","height":35,"fontSize":30,"color":"#000000","align":"center"},
+            "props":{"y":31,"x":41,"width":58,"var":"word","text":"eee","height":35,"fontSize":30,"font":"FF","color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"Text(word)",
             "isDirectory":false,

@@ -1,7 +1,5 @@
 // 游戏主界面
 class BalloonOppositesMain extends ui.BalloonOppositesUI {
-    private balloons: Balloon[]; // 所有的气球
-    private pictures: Picture[]; // 所有的图片
     private wellDoneY: number; // well done效果Y坐标
     private wellDoneX: number; // well done效果X坐标
     private configView: BOConfigView; // 配置页

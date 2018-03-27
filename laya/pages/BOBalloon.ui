@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":3,
+    "selecteID":4,
     "props":{"sceneColor":"#000000","centerY":0,"centerX":0},
     "nodeParent":-1,
     "label":"View",
@@ -54,7 +54,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":54,"x":38,"width":100,"var":"ballword","text":"text","height":50,"fontSize":40,"color":"#000","align":"center"},
+                    "props":{"y":54,"x":38,"width":100,"var":"ballword","text":"text","height":50,"fontSize":40,"font":"FF","color":"#000","align":"center"},
                     "nodeParent":3,
                     "label":"Text(ballword)",
                     "isDirectory":false,

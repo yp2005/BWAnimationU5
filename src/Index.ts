@@ -1,7 +1,7 @@
 // 程序入口，本工程仅用于切换各个动画进行测试
 
 // 游戏名称，修改这个变量值来切换不同游戏，
-let gameName = "dice"; 
+let gameName = "opposites"; 
 
 if(gameName == "balloon") {
     //气球爆炸消失游戏
@@ -19,7 +19,7 @@ if(gameName == "balloon") {
     new HitBalloonDisappear(config);
 }
 else if(gameName == "opposites") {
-    //气球爆炸消失游戏
+    // 气球反义词
     let config: any = {
         gameModel: false,
         leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
@@ -56,4 +56,14 @@ else if(gameName == "egg") {
         words: ["word", "goods", "apple", "red", "beautiful", "high", "big", "bag", "hit", "pen", "pen", "haha"]
     };
     new HitEgg(config);
+}
+else if(gameName == "spotlight") {
+    // 聚光灯游戏
+    let config: any = {
+        gameModel: false,
+        fontSize: 40, // 字号
+        spotlightSize: 80, // 聚光灯大小
+        words: ["word", "good", "apple"]  
+    };
+    new Spotlight(config);
 }

@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":27,
-    "props":{"width":1024,"sceneWidth":1024,"sceneHeight":768,"sceneColor":"#ffffff","height":768},
+    "selectedBox":7,
+    "selecteID":16,
+    "props":{"width":1024,"sceneColor":"#ffffff","height":768},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,54 +14,52 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":0,"var":"bg","skin":"FishAndWord/bg-2.png"},
+            "type":"Text",
+            "props":{"y":341,"x":463,"wordWrap":true,"width":97,"var":"wellDone","text":"Well Done","strokeColor":"#5CB6CB","stroke":5,"height":85,"fontSize":40,"font":"FF","color":"#FFC82C","bold":false,"align":"center"},
             "nodeParent":1,
-            "label":"Image(bg)",
+            "label":"Text(wellDone)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
+            "compId":5,
             "child":[
-                ],
-            "$LOCKED":true
+                ]
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":346,"x":423,"var":"startBtn","stateNum":"2","skin":"common/btn_start.png"},
+            "type":"Image",
+            "props":{"y":668,"x":808,"var":"replayBtn","skin":"common/replay.png"},
             "nodeParent":1,
-            "label":"Button(startBtn)",
+            "label":"Image(replayBtn)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":4,
+            "compId":6,
             "child":[
-                ],
-            "$HIDDEN":false
+                ]
         },
         {
             "x":15,
             "type":"Box",
-            "props":{"y":119,"x":575,"width":985,"var":"configBox","pivotY":100,"pivotX":554,"height":249},
+            "props":{"y":120,"x":575,"width":985,"var":"configBox","pivotY":100,"pivotX":554,"height":249},
             "nodeParent":1,
             "label":"Box(configBox)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":26,
+            "compId":7,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":9,"x":500,"width":485,"skin":"common/configBG.png","sizeGrid":"20,5,20,5","height":419,"alpha":1},
-                    "nodeParent":26,
+                    "props":{"y":9,"x":471,"width":514,"skin":"common/configBG.png","sizeGrid":"20,10,20,10","height":343,"alpha":1},
+                    "nodeParent":7,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":30,
+                    "compId":10,
                     "child":[
                         ],
                     "$LOCKED":true
@@ -69,52 +67,52 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":265,"x":558,"text":"单词：","fontSize":20,"font":"FF","color":"#2a2121"},
-                    "nodeParent":26,
+                    "props":{"y":191,"x":558,"text":"单词：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "nodeParent":7,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":31,
+                    "compId":11,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":256,"x":626,"width":315,"skin":"template/Text/TextBox.png","height":39},
-                    "nodeParent":26,
+                    "props":{"y":182,"x":626,"width":315,"skin":"template/Text/TextBox.png","height":39},
+                    "nodeParent":7,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":32,
+                    "compId":12,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":259,"x":641,"width":286,"name":"word","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
-                    "nodeParent":26,
+                    "props":{"y":185,"x":641,"width":286,"name":"word","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
+                    "nodeParent":7,
                     "label":"TextInput(word)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":33,
+                    "compId":13,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":341,"x":645,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32},
-                    "nodeParent":26,
+                    "props":{"y":267,"x":645,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32},
+                    "nodeParent":7,
                     "label":"Button(submitBtn)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":34,
+                    "compId":14,
                     "child":[
                         ]
                 },
@@ -122,38 +120,38 @@
                     "x":30,
                     "type":"Text",
                     "props":{"y":7,"x":947,"width":40,"text":"+","rotation":45,"pivotY":-1,"pivotX":-10,"name":"closeBtn","height":40,"fontSize":40,"color":"#5d5454","bold":false,"align":"center"},
-                    "nodeParent":26,
+                    "nodeParent":7,
                     "label":"Text(closeBtn)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":35,
+                    "compId":15,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":302,"x":634,"text":"示例：\ba,b,c,d","fontSize":17,"font":"FF","color":"#666666"},
-                    "nodeParent":26,
+                    "props":{"y":228,"x":634,"text":"示例：\bword,good,apple","fontSize":17,"font":"FF","color":"#666666"},
+                    "nodeParent":7,
                     "label":"Text",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":36,
+                    "compId":16,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":75,"x":535,"text":"背景图：","fontSize":20,"font":"FF","color":"#2a2121"},
-                    "nodeParent":26,
+                    "props":{"y":75,"x":498,"text":"聚光灯半径：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "nodeParent":7,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":37,
+                    "compId":17,
                     "child":[
                         ]
                 },
@@ -161,116 +159,64 @@
                     "x":30,
                     "type":"Image",
                     "props":{"y":66,"x":623,"width":315,"skin":"template/Text/TextBox.png","height":39},
-                    "nodeParent":26,
+                    "nodeParent":7,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":38,
+                    "compId":18,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":69,"x":638,"width":286,"name":"backgroundImg","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
-                    "nodeParent":26,
-                    "label":"TextInput(backgroundImg)",
+                    "props":{"y":69,"x":638,"width":286,"name":"spotlightSize","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
+                    "nodeParent":7,
+                    "label":"TextInput(spotlightSize)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":39,
+                    "compId":19,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":130,"x":556,"text":"类型：","fontSize":20,"font":"FF","color":"#2a2121"},
-                    "nodeParent":26,
+                    "props":{"y":135,"x":557,"text":"字号：","fontSize":20,"color":"#2a2121"},
+                    "nodeParent":7,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":40,
+                    "compId":23,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":121,"x":624,"width":315,"skin":"template/Text/TextBox.png","height":39},
-                    "nodeParent":26,
+                    "props":{"y":126,"x":625,"width":315,"skin":"template/Text/TextBox.png","height":39},
+                    "nodeParent":7,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":41,
+                    "compId":24,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":124,"x":639,"width":286,"text":"30","name":"type","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
-                    "nodeParent":26,
-                    "label":"TextInput(type)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":42,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":209,"x":557,"text":"字号：","fontSize":20,"font":"FF","color":"#2a2121"},
-                    "nodeParent":26,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":43,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":200,"x":625,"width":315,"skin":"template/Text/TextBox.png","height":39},
-                    "nodeParent":26,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":44,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"TextInput",
-                    "props":{"y":203,"x":640,"width":286,"name":"fontSize","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
-                    "nodeParent":26,
+                    "props":{"y":129,"x":640,"width":286,"name":"fontSize","height":31,"fontSize":16,"color":"#3b3232"},
+                    "nodeParent":7,
                     "label":"TextInput(fontSize)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":45,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Text",
-                    "props":{"y":166,"x":634,"text":"注：\bfish、bubble、shell三种","fontSize":17,"font":"FF","color":"#666666"},
-                    "nodeParent":26,
-                    "label":"Text",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":46,
+                    "compId":25,
                     "child":[
                         ]
                 }]
@@ -278,26 +224,26 @@
         {
             "x":15,
             "type":"Text",
-            "props":{"y":123,"x":152,"width":300,"var":"tip","text":"操作不正确！","pivotY":2,"pivotX":8,"height":30,"fontSize":30,"font":"FF","color":"#17a817","align":"center"},
+            "props":{"y":124,"x":152,"width":300,"var":"tip","text":"操作不正确！","pivotY":2,"pivotX":8,"height":30,"fontSize":30,"font":"FF","color":"#17a817","align":"center"},
             "nodeParent":1,
             "label":"Text(tip)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":27,
+            "compId":8,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":26,"x":31,"width":30,"var":"setting","skin":"common/setting.png","height":30},
+            "props":{"y":27,"x":31,"width":30,"var":"setting","skin":"common/setting.png","height":30},
             "nodeParent":1,
             "label":"Image(setting)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":28,
+            "compId":9,
             "child":[
                 ]
         }],
