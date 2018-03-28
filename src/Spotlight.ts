@@ -41,13 +41,15 @@ class Spotlight {
         Spotlight.spotlightMain = new SpotlightMain();
         Spotlight.spotlightMain.replayBtn.on(Laya.Event.CLICK, this, this.restart);
         Laya.stage.addChild(Spotlight.spotlightMain);
-        Spotlight.spotlightMain.replayBtn.visible = false;
         Spotlight.spotlightMain.initWords(); 
     }
 
     // 游戏开始
     private restart() {
-        Spotlight.spotlightMain.replayBtn.visible = false;
+        if(Spotlight.spotlightMain.replayBtn.skin.indexOf("disabled") != -1) {
+            return;
+        }
+        Spotlight.spotlightMain.replayBtn.skin = "common/replay-disabled.png";
         Spotlight.spotlightMain.reset();       
         Spotlight.spotlightMain.initWords(); 
     }

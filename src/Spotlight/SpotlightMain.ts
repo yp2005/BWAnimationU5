@@ -113,7 +113,7 @@ class SpotlightMain extends ui.SpotlightUI {
             this.wellDone.visible = true;
             Laya.Tween.to(this.spotlight, {x: this.wellDone.x+ this.wellDone.width / 2, y: this.wellDone.y + this.wellDone.height / 2}, 500, null, Laya.Handler.create(this, function() {
                 this.wellDone.color = "#2534e8";
-                this.replayBtn.visible = true;
+                this.replayBtn.skin = "common/replay-abled.png";
             }));
             return;
         }
