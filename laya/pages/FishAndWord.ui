@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":27,
+    "selectedBox":26,
+    "selecteID":36,
     "props":{"width":1024,"sceneWidth":1024,"sceneHeight":768,"sceneColor":"#ffffff","height":768},
     "nodeParent":-1,
     "label":"View",
@@ -25,20 +25,6 @@
             "child":[
                 ],
             "$LOCKED":true
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":346,"x":423,"var":"startBtn","stateNum":"2","skin":"common/btn_start.png"},
-            "nodeParent":1,
-            "label":"Button(startBtn)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ],
-            "$HIDDEN":false
         },
         {
             "x":15,
@@ -69,7 +55,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":265,"x":558,"text":"单词：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":262,"x":558,"text":"单词：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
                     "label":"Label",
                     "isDirectory":false,
@@ -134,7 +120,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":302,"x":634,"text":"示例：\ba,b,c,d","fontSize":17,"font":"FF","color":"#666666"},
+                    "props":{"y":301,"x":634,"text":"示例：\ba,b,c,d","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":26,
                     "label":"Text",
                     "isDirectory":false,
@@ -147,7 +133,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":75,"x":535,"text":"背景图：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":72,"x":535,"text":"背景图：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
                     "label":"Label",
                     "isDirectory":false,
@@ -186,7 +172,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":130,"x":556,"text":"类型：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":128,"x":556,"text":"类型：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
                     "label":"Label",
                     "isDirectory":false,
@@ -225,7 +211,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":209,"x":557,"text":"字号：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":206,"x":557,"text":"字号：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
                     "label":"Label",
                     "isDirectory":false,
@@ -264,7 +250,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":166,"x":634,"text":"注：\bfish、bubble、shell三种","fontSize":17,"font":"FF","color":"#666666"},
+                    "props":{"y":165,"x":634,"text":"注：\bfish、bubble、shell三种","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":26,
                     "label":"Text",
                     "isDirectory":false,

@@ -2,15 +2,10 @@
 class HitBalloonDisappearMain extends ui.HitBalloonDisappearUI {
     private balloons: BalloonDisappear[]; // 所有的气球
     private pictures: Picture[]; // 所有的图片
-    private wellDoneY: number; // well done效果Y坐标
-    private wellDoneX: number; // well done效果X坐标
     private configView: HBDConfigView; // 配置页
 
     constructor() {
         super(); 
-        this.wellDone.visible = false;
-        this.wellDoneY = this.wellDone.y;
-        this.wellDoneX = this.wellDone.x;
         this.configView = new HBDConfigView(this.configBox);
         this.tip.visible = false;
         this.setting.on(Laya.Event.CLICK, this, this.showConfigView)
@@ -42,22 +37,8 @@ class HitBalloonDisappearMain extends ui.HitBalloonDisappearUI {
         }
     }
 
-    // 游戏结束
-    public gameOver() {
-        // 显示well done文字效果
-        this.wellDone.y = this.wellDoneY + this.wellDone.height;
-        this.wellDone.x = this.wellDoneX + this.wellDone.width / 2;
-        this.wellDone.scale(0, 0);
-        this.wellDone.visible = true;
-        this.wellDone.removeSelf();
-        this.addChild(this.wellDone);
-        Laya.Tween.to(this.wellDone, {scaleX: 1, scaleY: 1, x: this.wellDoneX, y: this.wellDoneY - 30}, 1500, Laya.Ease.backOut, Laya.Handler.create(this, this.reset));
-   
-    }
-
     // 重置游戏为初始状态
-    private reset() {
-        this.wellDone.visible = false;
+    public reset() {
         for(let balloon of this.balloons) {
             balloon.removeSelf();
             balloon.destroy();
@@ -66,9 +47,7 @@ class HitBalloonDisappearMain extends ui.HitBalloonDisappearUI {
             picture.removeSelf();
             picture.destroy();
         }
-        HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.visible = true;
         HitBalloonDisappear.finishedWordsNumber = 0;
-        this.showSetting(true);
     }
 
     // 将游戏元素添加到游戏主页面
@@ -94,7 +73,7 @@ class HitBalloonDisappearMain extends ui.HitBalloonDisappearUI {
                 balloon.picture.skin = "HitBalloonDisappear/balloon-" + (index + 1)+ ".png";
             }
             balloon.x = index * balloonWidth + (balloonWidth - balloon.width) / 2;
-            balloon.y = 330;
+            balloon.y = 340;
             // 根据气球个数设置单词字号
             balloon.word.width = balloonWidth;
             balloon.word.x = (128 - balloonWidth) / 2;
@@ -121,7 +100,7 @@ class HitBalloonDisappearMain extends ui.HitBalloonDisappearUI {
             }
             else {
                 picture.x = (index - topPicNumber) * picWidthBottom + (picWidthBottom - picture.width) / 2;
-                picture.y = 564;
+                picture.y = 530;
                 picture.position = "bottom";
             }
             this.addChild(picture);

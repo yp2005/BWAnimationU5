@@ -38,6 +38,8 @@ class HEConfigView {
     public show() {
         this.init();
         this.configBox.visible = true;
+        this.configBox.removeSelf();
+        HitEgg.hitEggMain.addChild(this.configBox);
     }
 
     // 隐藏配置

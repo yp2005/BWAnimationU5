@@ -44,6 +44,8 @@ class FWConfigView {
     public show() {
         this.init();
         this.configBox.visible = true;
+        this.configBox.removeSelf();
+        FishAndWord.fishAndWordMain.addChild(this.configBox);
     }
 
     // 隐藏配置
@@ -83,6 +85,8 @@ class FWConfigView {
         };
         FishAndWord.fishAndWordMain.bg.skin = "FishAndWord/" + FishAndWord.gameConfig.backgroundImg;
         FishAndWord.fishAndWordMain.showTip("提交成功！");
+        FishAndWord.fishAndWordMain.reset();
+        FishAndWord.fishAndWordMain.initWords();
         this.hide();
     }
 }

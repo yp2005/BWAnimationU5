@@ -41,6 +41,8 @@ class SLConfigView {
     public show() {
         this.init();
         this.configBox.visible = true;
+        this.configBox.removeSelf();
+        Spotlight.spotlightMain.addChild(this.configBox);
     }
 
     // 隐藏配置
@@ -87,7 +89,7 @@ class SLConfigView {
         Spotlight.spotlightMain.spotlight = new Sprite();
         Spotlight.spotlightMain.addChild(Spotlight.spotlightMain.spotlight);
         Spotlight.spotlightMain.spotlight.graphics.drawCircle(0, 0, Spotlight.gameConfig.spotlightSize, "#ffffff", "#566dca", 3);
-        Spotlight.spotlightMain.replayBtn.visible = false;
+        Spotlight.spotlightMain.replayBtn.skin = "common/replay-disabled.png";
         Spotlight.spotlightMain.reset();       
         Spotlight.spotlightMain.initWords(); 
         this.hide();

@@ -48,19 +48,20 @@ class HitBalloonDisappear {
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
         HitBalloonDisappear.hitBalloonDisappearMain = new HitBalloonDisappearMain();
-        HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.on(Laya.Event.CLICK, this, this.gameStart);
-        HitBalloonDisappear.hitBalloonDisappearMain.startBtn.on(Laya.Event.CLICK, this, this.gameStart);
+        HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.on(Laya.Event.CLICK, this, this.restart);
         Laya.stage.addChild(HitBalloonDisappear.hitBalloonDisappearMain);
-        HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.visible = false;
+        this.init();
     }
 
-    // 游戏开始
-    private gameStart() {
-        HitBalloonDisappear.hitBalloonDisappearMain.showSetting(false);
-        HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.visible = false;
-        HitBalloonDisappear.hitBalloonDisappearMain.startBtn.visible = false;
-        this.init();  
+    private restart() {
+        if(HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.skin.indexOf("disabled") != -1) {
+            return;
+        }
+        HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.skin = "common/replay-disabled.png";
+        HitBalloonDisappear.hitBalloonDisappearMain.reset();
+        this.init();
     }
+
 
     // 初始化
     private init() {

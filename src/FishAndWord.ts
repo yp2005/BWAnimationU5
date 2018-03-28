@@ -47,44 +47,7 @@ class FishAndWord {
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
         FishAndWord.fishAndWordMain = new FishAndWordMain();
-        FishAndWord.fishAndWordMain.startBtn.on(Laya.Event.CLICK, this, this.gameStart);
         Laya.stage.addChild(FishAndWord.fishAndWordMain);
-    }
-
-    // 游戏开始
-    private gameStart() {
-        FishAndWord.fishAndWordMain.showSetting(false);
-        FishAndWord.fishAndWordMain.startBtn.visible = false;
-        this.init();  
-    }
-
-    // 初始化
-    private init() {
-        // 根据类型不同使用不同的单词背景图
-        if(FishAndWord.gameConfig.type == "fish") {
-            let fish: Fish1[] = new Array<Fish1>();
-            for(let word of FishAndWord.gameConfig.words) {
-                let f = new Fish1(word);
-                fish.push(f);
-            }
-            FishAndWord.fishAndWordMain.addElement(fish);
-        }
-        else if(FishAndWord.gameConfig.type == "bubble") {
-            let bubbles: Bubble[] = new Array<Bubble>();
-            for(let word of FishAndWord.gameConfig.words) {
-                let bubble = new Bubble(word);
-                bubbles.push(bubble);
-            }
-            FishAndWord.fishAndWordMain.addElement(null, bubbles);
-        }
-        else if(FishAndWord.gameConfig.type == "shell") {
-            let shells: Shell[] = new Array<Shell>();
-            for(let word of FishAndWord.gameConfig.words) {
-                let shell = new Shell(word);
-                shells.push(shell);
-            }
-            FishAndWord.fishAndWordMain.addElement(null, null, shells);
-        }
-        
+        FishAndWord.fishAndWordMain.initWords(); 
     }
 }

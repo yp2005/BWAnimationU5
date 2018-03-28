@@ -1,5 +1,6 @@
 // 游戏主界面
 class FishAndWordMain extends ui.FishAndWordUI {
+    private words: any[]; // 所有单词
     private configView: FWConfigView; // 配置页
     private fishImg: string = "fish-1.png"; // 鱼的图片
     // 泡泡图片
@@ -41,23 +42,29 @@ class FishAndWordMain extends ui.FishAndWordUI {
         }
     }
 
+    public reset() {
+        for(let word of this.words) {
+            word.removeSelf();
+            word.destroy();
+        }
+    }
+
     // 将游戏元素添加到游戏主页面
-    public addElement(fish?: Fish1[], bubbles?: Bubble[], shells?: Shell[]) {
-        let words: any[];
+    private addElement(fish?: Fish1[], bubbles?: Bubble[], shells?: Shell[]) {
         if(fish) {
-            words = fish;
+            this.words = fish;
         }
         else if(bubbles) {
-            words = bubbles;
+            this.words = bubbles;
         }
         else if(shells) {
-            words = shells;
+            this.words = shells;
         }
         let indexes: number[] = new Array<number>();
         for(let i = 0; i < 16; i++) {
             indexes.push(i);
         }
-        for(let word of words) {
+        for(let word of this.words) {
             let i: number = Math.floor(Math.random() * indexes.length); // 给单词一个随机的位置
             let index = indexes[i];
             indexes.splice(i, 1);
@@ -90,6 +97,35 @@ class FishAndWordMain extends ui.FishAndWordUI {
                  }
             }
             this.addChild(word);
+        }
+    }
+
+    // 初始化单词
+    public initWords() {
+        // 根据类型不同使用不同的单词背景图
+        if(FishAndWord.gameConfig.type == "fish") {
+            let fish: Fish1[] = new Array<Fish1>();
+            for(let word of FishAndWord.gameConfig.words) {
+                let f = new Fish1(word);
+                fish.push(f);
+            }
+            this.addElement(fish);
+        }
+        else if(FishAndWord.gameConfig.type == "bubble") {
+            let bubbles: Bubble[] = new Array<Bubble>();
+            for(let word of FishAndWord.gameConfig.words) {
+                let bubble = new Bubble(word);
+                bubbles.push(bubble);
+            }
+            this.addElement(null, bubbles);
+        }
+        else if(FishAndWord.gameConfig.type == "shell") {
+            let shells: Shell[] = new Array<Shell>();
+            for(let word of FishAndWord.gameConfig.words) {
+                let shell = new Shell(word);
+                shells.push(shell);
+            }
+            this.addElement(null, null, shells);
         }
     }
 

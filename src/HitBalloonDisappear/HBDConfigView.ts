@@ -35,6 +35,8 @@ class HBDConfigView {
     public show() {
         this.init();
         this.configBox.visible = true;
+        this.configBox.removeSelf();
+        HitBalloonDisappear.hitBalloonDisappearMain.addChild(this.configBox);
     }
 
     // 隐藏配置

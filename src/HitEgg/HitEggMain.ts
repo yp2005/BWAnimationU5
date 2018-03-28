@@ -16,11 +16,6 @@ class HitEggMain extends ui.HitEggUI {
         if(HitEgg.gameConfig.gameModel) {
             this.setting.visible = false;    
         }
-        this.on(Laya.Event.CLICK, this, function() {
-            if(HitEgg.hitedNum >= HitEgg.gameConfig.words.length) {
-               this.gameOver();
-            }
-        });
     }
 
      // 显示提示
@@ -46,30 +41,26 @@ class HitEggMain extends ui.HitEggUI {
         }
     }
 
-    // 游戏结束
-    public gameOver() {
-        // 显示well done文字效果
-        this.wellDone.y = this.wellDoneY + this.wellDone.height;
-        this.wellDone.x = this.wellDoneX + this.wellDone.width / 2;
-        this.wellDone.scale(0, 0);
-        this.wellDone.visible = true;
-        this.wellDone.removeSelf();
-        this.addChild(this.wellDone);
-        Laya.Tween.to(this.wellDone, {scaleX: 1, scaleY: 1, x: this.wellDoneX, y: this.wellDoneY - 30}, 1500, Laya.Ease.backOut, Laya.Handler.create(this, this.reset));
+    // // 游戏结束
+    // public gameOver() {
+    //     // 显示well done文字效果
+    //     this.wellDone.y = this.wellDoneY + this.wellDone.height;
+    //     this.wellDone.x = this.wellDoneX + this.wellDone.width / 2;
+    //     this.wellDone.scale(0, 0);
+    //     this.wellDone.visible = true;
+    //     this.wellDone.removeSelf();
+    //     this.addChild(this.wellDone);
+    //     Laya.Tween.to(this.wellDone, {scaleX: 1, scaleY: 1, x: this.wellDoneX, y: this.wellDoneY - 30}, 1500, Laya.Ease.backOut, Laya.Handler.create(this, this.reset));
    
-    }
+    // }
 
     // 重置游戏为初始状态
-    private reset() {
-        this.wellDone.visible = false;
+    public reset() {
         for(let egg of this.eggs) {
             egg.removeSelf();
             egg.destroy();
         }
-        
         HitEgg.hitedNum = 0;
-        HitEgg.hitEggMain.replayBtn.visible = true;
-        this.showSetting(true);
     }
 
     // 将游戏元素添加到游戏主页面
@@ -136,6 +127,9 @@ class HitEggMain extends ui.HitEggUI {
                 indexes.splice(i, 1);
                 if(index + 1 <= line1Num) {
                     egg.x = line1Width * index + (line1Width - egg.width) / 2;
+                    if(line1Num == 4 && index == 0) {
+                        egg.x += 50;
+                    }
                     egg.y = (256 - egg.height) / 2;
                 }
                 else if(index + 1 > line1Num && index + 1 <= line1Num + line2Num){

@@ -40,18 +40,19 @@ class HitEgg {
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
         HitEgg.hitEggMain = new HitEggMain();
-        HitEgg.hitEggMain.replayBtn.on(Laya.Event.CLICK, this, this.gameStart);
-        HitEgg.hitEggMain.startBtn.on(Laya.Event.CLICK, this, this.gameStart);
+        HitEgg.hitEggMain.replayBtn.on(Laya.Event.CLICK, this, this.restart);
         Laya.stage.addChild(HitEgg.hitEggMain);
-        HitEgg.hitEggMain.replayBtn.visible = false;
+        this.init(); 
     }
 
     // 游戏开始
-    private gameStart() {
-        HitEgg.hitEggMain.showSetting(false);
-        HitEgg.hitEggMain.startBtn.visible = false;
-        HitEgg.hitEggMain.replayBtn.visible = false;
-        this.init();  
+    private restart() {
+        if(HitEgg.hitEggMain.replayBtn.skin.indexOf("disabled") != -1) {
+            return;
+        }
+        HitEgg.hitEggMain.replayBtn.skin = "common/replay-disabled.png";
+        HitEgg.hitEggMain.reset();
+        this.init();
     }
 
     // 初始化

@@ -26,7 +26,11 @@ class Picture extends ui.PictureDisappearUI {
                 HitBalloonDisappear.finishedWordsNumber++;
                 // 所有单词都完成配对，结束游戏
                 if(HitBalloonDisappear.finishedWordsNumber == HitBalloonDisappear.hitBalloonDisappearMain.getBalloonsNumber()) {
-                    Laya.timer.once(1000, this, this.gameOver);
+                    HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.skin = "common/replay-abled.png";
+                    HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.removeSelf();
+                    HitBalloonDisappear.hitBalloonDisappearMain.addChild(HitBalloonDisappear.hitBalloonDisappearMain.replayBtn);
+                    HitBalloonDisappear.hitBalloonDisappearMain.replayText.removeSelf();
+                    HitBalloonDisappear.hitBalloonDisappearMain.addChild(HitBalloonDisappear.hitBalloonDisappearMain.replayText);
                 }   
             }
             else { // 配对不成功
@@ -41,11 +45,6 @@ class Picture extends ui.PictureDisappearUI {
     // 消失
     private disappear() {
         Laya.Tween.to(this, {alpha: 0}, 500);
-    }
-
-    // 游戏结束
-    private gameOver() {
-        HitBalloonDisappear.hitBalloonDisappearMain.gameOver();
     }
 
     // 图片晃动
