@@ -49,15 +49,10 @@ class BalloonOppositesMain extends ui.BalloonOppositesUI {
         this.wellDone.visible = true;
         this.wellDone.removeSelf();
         this.addChild(this.wellDone);
-        Laya.Tween.to(this.wellDone, {scaleX: 1, scaleY: 1, x: this.wellDoneX, y: this.wellDoneY - 30}, 1500, Laya.Ease.backOut, Laya.Handler.create(this, this.reset));
+        Laya.Tween.to(this.wellDone, {scaleX: 1, scaleY: 1, x: this.wellDoneX, y: this.wellDoneY - 30}, 1500, Laya.Ease.backOut, Laya.Handler.create(this, function() {
+            this.wellDone.visible = false;
+            this.replayBtn.skin = "common/replay-abled.png";
+        }));
    
     }
-
-    // 重置游戏为初始状态
-    private reset() {
-        this.wellDone.visible = false;
-        BalloonOpposites.balloonOppositesMain.replayBtn.visible = true;
-        this.showSetting(true);
-    }
-
 }

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":15,
+    "selecteID":17,
     "props":{"width":1024,"sceneColor":"#000000","height":768},
     "nodeParent":-1,
     "label":"View",
@@ -23,7 +23,8 @@
             "hasChild":false,
             "compId":2,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -67,7 +68,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":520,"x":110,"var":"pic4","skin":"ThrowDice/pic-1-4.png"},
+            "props":{"y":474,"x":110,"var":"pic4","skin":"ThrowDice/pic-1-4.png"},
             "nodeParent":1,
             "label":"Image(pic4)",
             "isDirectory":false,
@@ -80,7 +81,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":520,"x":415,"var":"pic5","skin":"ThrowDice/pic-1-5.png"},
+            "props":{"y":474,"x":415,"var":"pic5","skin":"ThrowDice/pic-1-5.png"},
             "nodeParent":1,
             "label":"Image(pic5)",
             "isDirectory":false,
@@ -93,7 +94,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":520,"x":719,"var":"pic6","skin":"ThrowDice/pic-1-6.png"},
+            "props":{"y":474,"x":719,"var":"pic6","skin":"ThrowDice/pic-1-6.png"},
             "nodeParent":1,
             "label":"Image(pic6)",
             "isDirectory":false,
@@ -146,7 +147,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":520,"x":110,"skin":"ThrowDice/mask-4.png","name":"mask4"},
+            "props":{"y":474,"x":110,"skin":"ThrowDice/mask-4.png","name":"mask4"},
             "nodeParent":1,
             "label":"Image(mask4)",
             "isDirectory":false,
@@ -159,7 +160,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":520,"x":415,"skin":"ThrowDice/mask-5.png","name":"mask5"},
+            "props":{"y":474,"x":415,"skin":"ThrowDice/mask-5.png","name":"mask5"},
             "nodeParent":1,
             "label":"Image(mask5)",
             "isDirectory":false,
@@ -172,7 +173,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":520,"x":719,"skin":"ThrowDice/mask-6.png","name":"mask6"},
+            "props":{"y":474,"x":719,"skin":"ThrowDice/mask-6.png","name":"mask6"},
             "nodeParent":1,
             "label":"Image(mask6)",
             "isDirectory":false,
@@ -197,7 +198,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":131,"x":446,"width":495,"skin":"template/Text/TextBox.png","height":39},
+                    "props":{"y":124,"x":446,"width":495,"skin":"template/Text/TextBox.png","height":39},
                     "nodeParent":15,
                     "label":"Image",
                     "isDirectory":false,
@@ -210,7 +211,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":9,"x":331,"width":654,"skin":"common/configBG.png","height":304,"alpha":1},
+                    "props":{"y":9,"x":331,"width":654,"skin":"common/configBG.png","sizeGrid":"20,20,20,20","height":285,"alpha":1},
                     "nodeParent":15,
                     "label":"Image",
                     "isDirectory":false,
@@ -224,7 +225,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":55,"x":378,"text":"背景图：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":50,"x":378,"text":"背景图：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":15,
                     "label":"Label",
                     "isDirectory":false,
@@ -251,7 +252,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":140,"x":378,"text":"底图：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":128,"x":396,"text":"底图：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":15,
                     "label":"Label",
                     "isDirectory":false,
@@ -277,7 +278,7 @@
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":134,"x":461,"width":466,"name":"picInput","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
+                    "props":{"y":127,"x":461,"width":466,"name":"picInput","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
                     "nodeParent":15,
                     "label":"TextInput(picInput)",
                     "isDirectory":false,
@@ -290,7 +291,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":221,"x":465,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32},
+                    "props":{"y":214,"x":465,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32},
                     "nodeParent":15,
                     "label":"Button(submitBtn)",
                     "isDirectory":false,
@@ -316,7 +317,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":100,"x":465,"text":"示例：\bbg1.png,bg2.png","fontSize":17,"font":"FF","color":"#666666"},
+                    "props":{"y":93,"x":465,"text":"示例：\bbg1.png,bg2.png","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":15,
                     "label":"Text",
                     "isDirectory":false,
@@ -329,7 +330,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":180,"x":465,"text":"示例：\bpic-1-1.png,pic-1-2.png,pic-2-1.png,pic-2-2.png","fontSize":17,"font":"FF","color":"#666666"},
+                    "props":{"y":170,"x":465,"text":"示例：\bpic-1-1.png,pic-1-2.png,pic-2-1.png,pic-2-2.png","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":15,
                     "label":"Text",
                     "isDirectory":false,
@@ -369,27 +370,27 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":356,"x":433,"var":"startBtn","stateNum":"2","skin":"common/btn_start.png"},
-            "nodeParent":1,
-            "label":"Button(startBtn)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":27,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":358,"x":436,"var":"replayBtn","skin":"common/replay.png"},
+            "props":{"y":681,"x":832,"var":"replayBtn","skin":"common/replay-disabled.png"},
             "nodeParent":1,
             "label":"Image(replayBtn)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":28,
+            "compId":31,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Text",
+            "props":{"y":694,"x":833,"width":168,"var":"replayText","text":"Replay","strokeColor":"#000000","stroke":5,"height":44,"fontSize":27,"font":"FF","color":"#ffffff","align":"center"},
+            "nodeParent":1,
+            "label":"Text(replayText)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":32,
             "child":[
                 ]
         }],

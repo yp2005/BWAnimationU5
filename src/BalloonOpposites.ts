@@ -47,12 +47,17 @@ class BalloonOpposites {
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
         BalloonOpposites.balloonOppositesMain = new BalloonOppositesMain();
-        BalloonOpposites.balloonOppositesMain.replayBtn.on(Laya.Event.CLICK, this, this.gameStart);
-        BalloonOpposites.balloonOppositesMain.startBtn.on(Laya.Event.CLICK, this, this.gameStart);
+        BalloonOpposites.balloonOppositesMain.replayBtn.on(Laya.Event.CLICK, this, function() {
+            if(BalloonOpposites.balloonOppositesMain.replayBtn.skin.indexOf("disabled") != -1) {
+                return;
+            }
+            BalloonOpposites.balloonOppositesMain.replayBtn.skin = "common/replay-disabled.png";
+            this.init();
+        });
         Laya.stage.addChild(BalloonOpposites.balloonOppositesMain);
-        BalloonOpposites.balloonOppositesMain.replayBtn.visible = false;
         
         BalloonOpposites.initOpposites();
+        this.init();
     }
 
     public static initOpposites(){
@@ -62,14 +67,6 @@ class BalloonOpposites {
             BalloonOpposites.ballWordMap[BalloonOpposites.gameConfig.leftWords[i]] = BalloonOpposites.gameConfig.rightWords[i];
             BalloonOpposites.ballWordMap[BalloonOpposites.gameConfig.rightWords[i]] = BalloonOpposites.gameConfig.leftWords[i];
         }
-    }
-
-    // 游戏开始
-    private gameStart() {
-        BalloonOpposites.balloonOppositesMain.showSetting(false);
-        BalloonOpposites.balloonOppositesMain.replayBtn.visible = false;
-        BalloonOpposites.balloonOppositesMain.startBtn.visible = false;
-        this.init();  
     }
 
     // 初始化

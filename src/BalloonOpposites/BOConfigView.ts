@@ -29,6 +29,9 @@ class BOConfigView {
     public show() {
         this.init();
         this.configBox.visible = true;
+        this.configBox.removeSelf();
+        BalloonOpposites.balloonOppositesMain.addChild(this.configBox);
+
     }
 
     // 隐藏配置

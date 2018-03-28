@@ -45,10 +45,14 @@ class ThrowDice {
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
         ThrowDice.throwDiceMain = new ThrowDiceMain();
-        ThrowDice.throwDiceMain.replayBtn.on(Laya.Event.CLICK, this, this.gameStart);
-        ThrowDice.throwDiceMain.startBtn.on(Laya.Event.CLICK, this, this.gameStart);
+        ThrowDice.throwDiceMain.replayBtn.on(Laya.Event.CLICK, this, function() {
+             if(ThrowDice.throwDiceMain.replayBtn.skin.indexOf("disabled") != -1) {
+                return;
+            }
+            ThrowDice.throwDiceMain.replayBtn.skin = "common/replay-disabled.png";
+            this.init();
+        });
         Laya.stage.addChild(ThrowDice.throwDiceMain);
-        ThrowDice.throwDiceMain.replayBtn.visible = false;
 
         ThrowDice.currentDice = new Dice();
         ThrowDice.currentDice.visible = false;
@@ -57,10 +61,12 @@ class ThrowDice {
         Laya.stage.addChild(ThrowDice.currentDice);
         ThrowDice.currentDice.body.on(Laya.Event.CLICK,this,this.doThrow);
         ThrowDice.throwDiceMain.changeStatus(false);
+        this.init();
     }
 
     doThrow(){
         if(ThrowDice.diceNum !== 6){
+            ThrowDice.currentDice.body.off(Laya.Event.CLICK,this,this.doThrow);
             ThrowDice.currentDice.playAction('dice_throw');
             Laya.SoundManager.playSound("res/audio/dice.mp3", 1);
             Laya.timer.once(2000,this,function(){
@@ -68,16 +74,12 @@ class ThrowDice {
                 let mask = ThrowDice.throwDiceMain.getChildByName('mask'+ThrowDice.diceArr[ThrowDice.diceNum]) as Laya.Image;
                 mask.visible = false;
                 ThrowDice.diceNum++;
-            })
+                if(ThrowDice.diceNum == 6) {
+                    ThrowDice.throwDiceMain.replayBtn.skin = "common/replay-abled.png";
+                }
+                ThrowDice.currentDice.body.on(Laya.Event.CLICK,this,this.doThrow);
+            });
         }
-    }
-
-    // 游戏开始
-    private gameStart() {
-        ThrowDice.throwDiceMain.showSetting(false);
-        ThrowDice.throwDiceMain.replayBtn.visible = false;
-        ThrowDice.throwDiceMain.startBtn.visible = false;
-        this.init();  
     }
 
     // 初始化

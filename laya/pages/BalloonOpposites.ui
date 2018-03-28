@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":18,
-    "selecteID":30,
+    "selecteID":20,
     "props":{"width":1024,"sceneColor":"#ffffff","height":768},
     "nodeParent":-1,
     "label":"View",
@@ -28,6 +28,32 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":681,"x":832,"width":168,"var":"replayBtn","skin":"common/replay-disabled.png","height":69},
+            "nodeParent":1,
+            "label":"Image(replayBtn)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":98,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Text",
+            "props":{"y":694,"x":833,"width":168,"var":"replayText","text":"Replay","strokeColor":"#000000","stroke":5,"height":44,"fontSize":27,"font":"FF","color":"#ffffff","align":"center"},
+            "nodeParent":1,
+            "label":"Text(replayText)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":99,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Text",
             "props":{"y":54,"x":318,"width":405,"text":"Find the opposites","height":59,"fontSize":45,"font":"FF","color":"#e3e345","bold":true},
             "nodeParent":1,
@@ -36,32 +62,6 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":3,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":346,"x":423,"var":"startBtn","stateNum":"2","skin":"common/btn_start.png"},
-            "nodeParent":1,
-            "label":"Button(startBtn)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":348,"x":426,"var":"replayBtn","skin":"common/replay.png"},
-            "nodeParent":1,
-            "label":"Image(replayBtn)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":9,
             "child":[
                 ]
         },
@@ -80,7 +80,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":91,"x":626,"width":315,"skin":"template/Text/TextBox.png","height":39},
+                    "props":{"y":103,"x":626,"width":315,"skin":"template/Text/TextBox.png","height":39},
                     "nodeParent":18,
                     "label":"Image",
                     "isDirectory":false,
@@ -107,7 +107,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":55,"x":558,"text":"左边：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":51,"x":559,"text":"左边：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":18,
                     "label":"Label",
                     "isDirectory":false,
@@ -134,7 +134,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":100,"x":558,"text":"右边：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":108,"x":558,"text":"右边：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":18,
                     "label":"Label",
                     "isDirectory":false,
@@ -160,7 +160,7 @@
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":94,"x":641,"width":286,"name":"rightInput","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
+                    "props":{"y":106,"x":641,"width":286,"name":"rightInput","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
                     "nodeParent":18,
                     "label":"TextInput(rightInput)",
                     "isDirectory":false,
@@ -173,7 +173,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":151,"x":645,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32},
+                    "props":{"y":163,"x":645,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32},
                     "nodeParent":18,
                     "label":"Button(submitBtn)",
                     "isDirectory":false,
@@ -397,7 +397,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":236,"x":721,"visible":false,"skin":"BalloonOpposites/right-5-0.png","name":"right-3-0"},
+            "props":{"y":218,"x":720,"visible":false,"skin":"BalloonOpposites/right-5-0.png","name":"right-3-0"},
             "nodeParent":1,
             "label":"Image(right-3-0)",
             "isDirectory":false,
@@ -410,7 +410,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":380,"x":784,"visible":false,"skin":"BalloonOpposites/right-6-0.png","name":"right-4-0"},
+            "props":{"y":362,"x":783,"visible":false,"skin":"BalloonOpposites/right-6-0.png","name":"right-4-0"},
             "nodeParent":1,
             "label":"Image(right-4-0)",
             "isDirectory":false,
@@ -423,7 +423,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":555,"x":815,"visible":false,"skin":"BalloonOpposites/right-7-0.png","name":"right-6-0"},
+            "props":{"y":537,"x":814,"visible":false,"skin":"BalloonOpposites/right-7-0.png","name":"right-6-0"},
             "nodeParent":1,
             "label":"Image(right-6-0)",
             "isDirectory":false,
@@ -836,7 +836,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":76,"x":778,"visible":false,"skin":"BalloonOpposites/right-4-1.png","name":"right-7-1"},
+            "props":{"y":74,"x":777,"visible":false,"skin":"BalloonOpposites/right-4-1.png","name":"right-7-1"},
             "nodeParent":1,
             "label":"Image(right-7-1)",
             "isOpen":true,
@@ -876,7 +876,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":234,"x":808,"visible":false,"skin":"BalloonOpposites/right-5-1.png","name":"right-3-1"},
+            "props":{"y":216,"x":807,"visible":false,"skin":"BalloonOpposites/right-5-1.png","name":"right-3-1"},
             "nodeParent":1,
             "label":"Image(right-3-1)",
             "isOpen":true,
@@ -916,7 +916,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":380,"x":800,"visible":false,"skin":"BalloonOpposites/right-6-1.png","name":"right-4-1"},
+            "props":{"y":362,"x":799,"visible":false,"skin":"BalloonOpposites/right-6-1.png","name":"right-4-1"},
             "nodeParent":1,
             "label":"Image(right-4-1)",
             "isOpen":true,
@@ -956,7 +956,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":555,"x":821,"visible":false,"skin":"BalloonOpposites/right-7-1.png","name":"right-6-1"},
+            "props":{"y":537,"x":820,"visible":false,"skin":"BalloonOpposites/right-7-1.png","name":"right-6-1"},
             "nodeParent":1,
             "label":"Image(right-6-1)",
             "isOpen":true,

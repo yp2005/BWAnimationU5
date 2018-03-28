@@ -30,6 +30,8 @@ class TDConfigView {
     public show() {
         this.init();
         this.configBox.visible = true;
+        this.configBox.removeSelf();
+        ThrowDice.throwDiceMain.addChild(this.configBox);
     }
 
     // 隐藏配置
@@ -47,6 +49,7 @@ class TDConfigView {
         }
         ThrowDice.gameConfig.bg = bg;
         ThrowDice.gameConfig.pics = texts;
+        ThrowDice.throwDiceMain.changeBg(bg);
         ThrowDice.throwDiceMain.showTip("提交成功！");
         this.hide();
     }
