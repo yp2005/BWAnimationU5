@@ -1,6 +1,6 @@
 // 程序入口，本工程仅用于切换各个动画进行测试
 // 游戏名称，修改这个变量值来切换不同游戏，
-var gameName = "dice";
+var gameName = "opposites";
 if (gameName == "balloon") {
     //气球爆炸消失游戏
     var config = {
@@ -17,7 +17,7 @@ if (gameName == "balloon") {
     new HitBalloonDisappear(config);
 }
 else if (gameName == "opposites") {
-    //气球爆炸消失游戏
+    // 气球反义词
     var config = {
         gameModel: false,
         leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
@@ -41,9 +41,38 @@ else if (gameName == "dice") {
     //摇骰子游戏
     var config = {
         gameModel: false,
-        bg: "bg1.png",
+        bg: "bg2.png",
         pics: ["pic-2-1.png", "pic-2-2.png", "pic-2-3.png", "pic-1-4.png", "pic-1-5.png", "pic-1-6.png"]
     };
     new ThrowDice(config);
+}
+else if (gameName == "turntable") {
+    //转盘游戏 , "empty", "good"
+    var config = {
+        gameModel: false,
+        words: ["sad", "young", "ugly", "big"],
+        pics: ["star.png", "bomb2.png"],
+        fontSize: "35"
+    };
+    new Turntable(config);
+}
+else if (gameName == "egg") {
+    // 砸蛋游戏
+    var config = {
+        gameModel: false,
+        fontSize: 30,
+        words: ["word", "goods", "apple", "red", "beautiful", "high", "big", "bag", "hit", "pen", "pen", "haha"]
+    };
+    new HitEgg(config);
+}
+else if (gameName == "spotlight") {
+    // 聚光灯游戏
+    var config = {
+        gameModel: false,
+        fontSize: 40,
+        spotlightSize: 80,
+        words: ["word", "good", "apple"]
+    };
+    new Spotlight(config);
 }
 //# sourceMappingURL=Index.js.map

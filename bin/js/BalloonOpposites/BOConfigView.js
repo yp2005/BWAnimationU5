@@ -21,6 +21,8 @@ var BOConfigView = /** @class */ (function () {
     BOConfigView.prototype.show = function () {
         this.init();
         this.configBox.visible = true;
+        this.configBox.removeSelf();
+        BalloonOpposites.balloonOppositesMain.addChild(this.configBox);
     };
     // 隐藏配置
     BOConfigView.prototype.hide = function () {
@@ -72,6 +74,7 @@ var BOConfigView = /** @class */ (function () {
         BalloonOpposites.ballWordMap = _map;
         BalloonOpposites.gameConfig.leftWords = leftTexts;
         BalloonOpposites.gameConfig.rightWords = rightTexts;
+        BalloonOpposites.init();
         BalloonOpposites.balloonOppositesMain.showTip("提交成功！");
         this.hide();
     };

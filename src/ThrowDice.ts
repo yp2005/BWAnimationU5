@@ -50,7 +50,7 @@ class ThrowDice {
                 return;
             }
             ThrowDice.throwDiceMain.replayBtn.skin = "common/replay-disabled.png";
-            this.init();
+            ThrowDice.init();
         });
         Laya.stage.addChild(ThrowDice.throwDiceMain);
 
@@ -60,8 +60,8 @@ class ThrowDice {
 
         Laya.stage.addChild(ThrowDice.currentDice);
         ThrowDice.currentDice.body.on(Laya.Event.CLICK,this,this.doThrow);
-        ThrowDice.throwDiceMain.changeStatus(false);
-        this.init();
+        // ThrowDice.throwDiceMain.changeStatus(false);
+        ThrowDice.init();
     }
 
     doThrow(){
@@ -83,24 +83,26 @@ class ThrowDice {
     }
 
     // 初始化
-    private init() {
+    public static init() {
         ThrowDice.throwDiceMain.changeBg(ThrowDice.gameConfig.bg);
         ThrowDice.throwDiceMain.changePics(ThrowDice.gameConfig.pics);
 
         if(ThrowDice.gameConfig.bg === 'bg2.png'){
             ThrowDice.currentDice.pos(310,400);
+        }else{
+            ThrowDice.currentDice.pos(510,400);
         }
 
         ThrowDice.throwDiceMain.changeStatus(true);
 
-        ThrowDice.diceArr = this.getRandomArr(6);
+        ThrowDice.diceArr = ThrowDice.getRandomArr(6);
         ThrowDice.diceNum = 0;
         ThrowDice.gameChecking = false;
         ThrowDice.currentDice.visible = true;
     }
     
     // 返回随机数组
-    public getRandomArr(length:number = 0){
+    public static getRandomArr(length:number = 0){
         let arr = [];
         for(var i = 0;i<length;i++){
             arr.push(i+1);

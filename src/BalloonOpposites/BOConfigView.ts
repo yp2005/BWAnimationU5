@@ -87,6 +87,7 @@ class BOConfigView {
 
         BalloonOpposites.gameConfig.leftWords = leftTexts;
         BalloonOpposites.gameConfig.rightWords = rightTexts;
+        BalloonOpposites.init();
         BalloonOpposites.balloonOppositesMain.showTip("提交成功！");
         this.hide();
     }

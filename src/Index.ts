@@ -43,10 +43,20 @@ else if(gameName == "dice") {
     //摇骰子游戏
     let config: any = {
         gameModel: false,
-        bg: "bg1.png",
+        bg: "bg2.png",
         pics: ["pic-2-1.png","pic-2-2.png","pic-2-3.png","pic-1-4.png","pic-1-5.png","pic-1-6.png"]
     };
     new ThrowDice(config);
+}
+else if(gameName == "turntable") {
+    //转盘游戏 , "empty", "good"
+    let config: any = {
+        gameModel: false,
+        words: ["sad", "young", "ugly", "big"],
+        pics: ["star.png","bomb2.png"],
+        fontSize: "35"
+    };
+    new Turntable(config);
 }
 else if(gameName == "egg") {
     // 砸蛋游戏

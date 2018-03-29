@@ -13,9 +13,6 @@ var BalloonOppositesMain = /** @class */ (function (_super) {
     __extends(BalloonOppositesMain, _super);
     function BalloonOppositesMain() {
         var _this = _super.call(this) || this;
-        _this.wellDone.visible = false;
-        _this.wellDoneY = _this.wellDone.y;
-        _this.wellDoneX = _this.wellDone.x;
         _this.configView = new BOConfigView(_this.configBox);
         _this.tip.visible = false;
         _this.setting.on(Laya.Event.CLICK, _this, _this.showConfigView);
@@ -42,23 +39,6 @@ var BalloonOppositesMain = /** @class */ (function (_super) {
         if (!BalloonOpposites.gameConfig.gameModel) {
             this.setting.visible = state;
         }
-    };
-    // 游戏结束
-    BalloonOppositesMain.prototype.gameOver = function () {
-        // 显示well done文字效果
-        this.wellDone.y = this.wellDoneY + this.wellDone.height;
-        this.wellDone.x = this.wellDoneX + this.wellDone.width / 2;
-        this.wellDone.scale(0, 0);
-        this.wellDone.visible = true;
-        this.wellDone.removeSelf();
-        this.addChild(this.wellDone);
-        Laya.Tween.to(this.wellDone, { scaleX: 1, scaleY: 1, x: this.wellDoneX, y: this.wellDoneY - 30 }, 1500, Laya.Ease.backOut, Laya.Handler.create(this, this.reset));
-    };
-    // 重置游戏为初始状态
-    BalloonOppositesMain.prototype.reset = function () {
-        this.wellDone.visible = false;
-        BalloonOpposites.balloonOppositesMain.replayBtn.visible = true;
-        this.showSetting(true);
     };
     return BalloonOppositesMain;
 }(ui.BalloonOppositesUI));

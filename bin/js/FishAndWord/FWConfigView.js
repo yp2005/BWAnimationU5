@@ -35,6 +35,8 @@ var FWConfigView = /** @class */ (function () {
     FWConfigView.prototype.show = function () {
         this.init();
         this.configBox.visible = true;
+        this.configBox.removeSelf();
+        FishAndWord.fishAndWordMain.addChild(this.configBox);
     };
     // 隐藏配置
     FWConfigView.prototype.hide = function () {
@@ -46,7 +48,7 @@ var FWConfigView = /** @class */ (function () {
             FishAndWord.fishAndWordMain.showTip("你还有配置项未填写！");
             return;
         }
-        if (!/\d+/.test(this.fontSize.text)) {
+        if (!/^\d+$/.test(this.fontSize.text)) {
             FishAndWord.fishAndWordMain.showTip("字号必须为正整数！");
             return;
         }
@@ -73,6 +75,8 @@ var FWConfigView = /** @class */ (function () {
         };
         FishAndWord.fishAndWordMain.bg.skin = "FishAndWord/" + FishAndWord.gameConfig.backgroundImg;
         FishAndWord.fishAndWordMain.showTip("提交成功！");
+        FishAndWord.fishAndWordMain.reset();
+        FishAndWord.fishAndWordMain.initWords();
         this.hide();
     };
     return FWConfigView;

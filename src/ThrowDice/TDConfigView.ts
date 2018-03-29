@@ -49,7 +49,7 @@ class TDConfigView {
         }
         ThrowDice.gameConfig.bg = bg;
         ThrowDice.gameConfig.pics = texts;
-        ThrowDice.throwDiceMain.changeBg(bg);
+        ThrowDice.init();
         ThrowDice.throwDiceMain.showTip("提交成功！");
         this.hide();
     }

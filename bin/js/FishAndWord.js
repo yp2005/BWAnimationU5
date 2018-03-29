@@ -35,45 +35,8 @@ var FishAndWord = /** @class */ (function () {
     // 游戏资源加载完成进行游戏初始化设置
     FishAndWord.prototype.onload = function () {
         FishAndWord.fishAndWordMain = new FishAndWordMain();
-        FishAndWord.fishAndWordMain.startBtn.on(Laya.Event.CLICK, this, this.gameStart);
         Laya.stage.addChild(FishAndWord.fishAndWordMain);
-    };
-    // 游戏开始
-    FishAndWord.prototype.gameStart = function () {
-        FishAndWord.fishAndWordMain.showSetting(false);
-        FishAndWord.fishAndWordMain.startBtn.visible = false;
-        this.init();
-    };
-    // 初始化
-    FishAndWord.prototype.init = function () {
-        // 根据类型不同使用不同的单词背景图
-        if (FishAndWord.gameConfig.type == "fish") {
-            var fish = new Array();
-            for (var _i = 0, _a = FishAndWord.gameConfig.words; _i < _a.length; _i++) {
-                var word = _a[_i];
-                var f = new Fish1(word);
-                fish.push(f);
-            }
-            FishAndWord.fishAndWordMain.addElement(fish);
-        }
-        else if (FishAndWord.gameConfig.type == "bubble") {
-            var bubbles = new Array();
-            for (var _b = 0, _c = FishAndWord.gameConfig.words; _b < _c.length; _b++) {
-                var word = _c[_b];
-                var bubble = new Bubble(word);
-                bubbles.push(bubble);
-            }
-            FishAndWord.fishAndWordMain.addElement(null, bubbles);
-        }
-        else if (FishAndWord.gameConfig.type == "shell") {
-            var shells = new Array();
-            for (var _d = 0, _e = FishAndWord.gameConfig.words; _d < _e.length; _d++) {
-                var word = _e[_d];
-                var shell = new Shell(word);
-                shells.push(shell);
-            }
-            FishAndWord.fishAndWordMain.addElement(null, null, shells);
-        }
+        FishAndWord.fishAndWordMain.initWords();
     };
     FishAndWord.wordPositon = [{ x: 62, y: 82 }, { x: 90, y: 289 }, { x: 56, y: 482 }, { x: 298, y: 137 }, { x: 265, y: 287 },
         { x: 321, y: 433 }, { x: 274, y: 586 }, { x: 520, y: 148 }, { x: 486, y: 307 }, { x: 490, y: 522 },

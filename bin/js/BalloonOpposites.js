@@ -34,11 +34,15 @@ var BalloonOpposites = /** @class */ (function () {
     // 游戏资源加载完成进行游戏初始化设置
     BalloonOpposites.prototype.onload = function () {
         BalloonOpposites.balloonOppositesMain = new BalloonOppositesMain();
-        BalloonOpposites.balloonOppositesMain.replayBtn.on(Laya.Event.CLICK, this, this.gameStart);
-        BalloonOpposites.balloonOppositesMain.startBtn.on(Laya.Event.CLICK, this, this.gameStart);
+        BalloonOpposites.balloonOppositesMain.replayBtn.on(Laya.Event.CLICK, this, function () {
+            if (BalloonOpposites.balloonOppositesMain.replayBtn.skin.indexOf("disabled") != -1) {
+                return;
+            }
+            BalloonOpposites.balloonOppositesMain.replayBtn.skin = "common/replay-disabled.png";
+            BalloonOpposites.init();
+        });
         Laya.stage.addChild(BalloonOpposites.balloonOppositesMain);
-        BalloonOpposites.balloonOppositesMain.replayBtn.visible = false;
-        BalloonOpposites.initOpposites();
+        BalloonOpposites.init();
     };
     BalloonOpposites.initOpposites = function () {
         // 初始化反义词对应关系
@@ -48,22 +52,16 @@ var BalloonOpposites = /** @class */ (function () {
             BalloonOpposites.ballWordMap[BalloonOpposites.gameConfig.rightWords[i]] = BalloonOpposites.gameConfig.leftWords[i];
         }
     };
-    // 游戏开始
-    BalloonOpposites.prototype.gameStart = function () {
-        BalloonOpposites.balloonOppositesMain.showSetting(false);
-        BalloonOpposites.balloonOppositesMain.replayBtn.visible = false;
-        BalloonOpposites.balloonOppositesMain.startBtn.visible = false;
-        this.init();
-    };
     // 初始化
-    BalloonOpposites.prototype.init = function () {
-        this.initSideBall('left');
-        this.initSideBall('right');
+    BalloonOpposites.init = function () {
+        BalloonOpposites.initOpposites();
+        BalloonOpposites.initSideBall('left');
+        BalloonOpposites.initSideBall('right');
         BalloonOpposites.gameChecking = false;
     };
-    BalloonOpposites.prototype.initSideBall = function (side) {
+    BalloonOpposites.initSideBall = function (side) {
         var length = BalloonOpposites.gameConfig.leftWords.length;
-        var randArr = this.getRandomArr(length);
+        var randArr = BalloonOpposites.getRandomArr(length);
         // for(let i = 0;i< BalloonOpposites.gameConfig.leftWords.length;i++) {
         for (var i = 0; i < 7; i++) {
             var randNum = randArr[i];
@@ -87,7 +85,7 @@ var BalloonOpposites = /** @class */ (function () {
             }
         }
     };
-    BalloonOpposites.prototype.ballTap = function (name, word) {
+    BalloonOpposites.ballTap = function (name, word) {
         if (BalloonOpposites.gameChecking)
             return;
         // console.log(BalloonOpposites.currentBallName+'-----'+name);
@@ -126,13 +124,13 @@ var BalloonOpposites = /** @class */ (function () {
                     BalloonOpposites.currentBallName = '';
                     BalloonOpposites.currentBallWord = '';
                     BalloonOpposites.gameChecking = false;
-                    if (this.checkOver()) {
-                        BalloonOpposites.balloonOppositesMain.gameOver();
+                    if (BalloonOpposites.checkOver()) {
+                        BalloonOpposites.balloonOppositesMain.replayBtn.skin = "common/replay-abled.png";
                     }
                 });
             }
             else {
-                this.shake(ball1);
+                BalloonOpposites.shake(ball1);
                 Laya.timer.once(2000, this, function () {
                     ball0.visible = true;
                     ball1.visible = false;
@@ -141,7 +139,7 @@ var BalloonOpposites = /** @class */ (function () {
             }
         }
     };
-    BalloonOpposites.prototype.checkOver = function () {
+    BalloonOpposites.checkOver = function () {
         var isOver = true;
         for (var i = 0; i < 7; i++) {
             var ball0 = BalloonOpposites.balloonOppositesMain.getChildByName('left-' + (i + 1) + '-0');
@@ -155,7 +153,7 @@ var BalloonOpposites = /** @class */ (function () {
         return isOver;
     };
     // 返回随机数组
-    BalloonOpposites.prototype.getRandomArr = function (length) {
+    BalloonOpposites.getRandomArr = function (length) {
         if (length === void 0) { length = 0; }
         var arr = [];
         for (var i = 0; i < length; i++) {
@@ -166,7 +164,7 @@ var BalloonOpposites = /** @class */ (function () {
         });
     };
     // 图片晃动
-    BalloonOpposites.prototype.shake = function (picture) {
+    BalloonOpposites.shake = function (picture) {
         Laya.SoundManager.playSound("res/audio/bo-fail.mp3", 1);
         var _x = picture.x;
         Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {

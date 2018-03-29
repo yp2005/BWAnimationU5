@@ -28,26 +28,18 @@ var ThrowDiceMain = /** @class */ (function (_super) {
         this.gameBg.skin = "ThrowDice/" + bg;
     };
     ThrowDiceMain.prototype.changePics = function (pics) {
-        // for(var i = 0;i<6;i++){
-        //     let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
-        //     // pic.skin = "ThrowDice/bg2.png";
-        //     pic.skin = "ThrowDice/"+pics[i];
-        // }
-        this.pic1.skin = "ThrowDice/" + pics[0];
-        this.pic1.skin = "ThrowDice/" + pics[1];
-        this.pic1.skin = "ThrowDice/" + pics[2];
-        this.pic1.skin = "ThrowDice/" + pics[3];
-        this.pic1.skin = "ThrowDice/" + pics[4];
-        this.pic1.skin = "ThrowDice/" + pics[5];
+        for (var i = 0; i < 6; i++) {
+            var pic = ThrowDice.throwDiceMain.getChildByName('pic' + (i + 1));
+            pic.skin = "ThrowDice/" + pics[i].replace("\b", "");
+        }
     };
     ThrowDiceMain.prototype.changeStatus = function (isVisible) {
         for (var i = 0; i < 6; i++) {
-            // let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
-            // pic.visible = isVisible;
+            var pic = ThrowDice.throwDiceMain.getChildByName('pic' + (i + 1));
+            pic.visible = isVisible;
             var mask = ThrowDice.throwDiceMain.getChildByName('mask' + (i + 1));
-            mask.visible = false;
+            mask.visible = isVisible;
         }
-        // this.pic1.visible = 
     };
     // 显示提示
     ThrowDiceMain.prototype.showTip = function (text) {
@@ -67,32 +59,6 @@ var ThrowDiceMain = /** @class */ (function (_super) {
         if (!ThrowDice.gameConfig.gameModel) {
             this.setting.visible = state;
         }
-    };
-    // 游戏结束
-    ThrowDiceMain.prototype.gameOver = function () {
-        // 显示well done文字效果
-        // this.wellDone.y = this.wellDoneY + this.wellDone.height;
-        // this.wellDone.x = this.wellDoneX + this.wellDone.width / 2;
-        // this.wellDone.scale(0, 0);
-        // this.wellDone.visible = true;
-        // this.wellDone.removeSelf();
-        // this.addChild(this.wellDone);
-        // Laya.Tween.to(this.wellDone, {scaleX: 1, scaleY: 1, x: this.wellDoneX, y: this.wellDoneY - 30}, 1500, Laya.Ease.backOut, Laya.Handler.create(this, this.reset));
-    };
-    // 重置游戏为初始状态
-    ThrowDiceMain.prototype.reset = function () {
-        // this.wellDone.visible = false;
-        // for(let balloon of this.balloons) {
-        //     balloon.removeSelf();
-        //     balloon.destroy();
-        // }
-        // for(let picture of this.pictures) {
-        //     picture.removeSelf();
-        //     picture.destroy();
-        // }
-        // HitBalloon.hitBalloonMain.replayBtn.visible = true;
-        // HitBalloon.finishedWordsNumber = 0;
-        // this.showSetting(true);
     };
     return ThrowDiceMain;
 }(ui.ThrowDiceUI));

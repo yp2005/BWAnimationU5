@@ -46,24 +46,30 @@ var FishAndWordMain = /** @class */ (function (_super) {
             this.setting.visible = state;
         }
     };
+    FishAndWordMain.prototype.reset = function () {
+        for (var _i = 0, _a = this.words; _i < _a.length; _i++) {
+            var word = _a[_i];
+            word.removeSelf();
+            word.destroy();
+        }
+    };
     // 将游戏元素添加到游戏主页面
     FishAndWordMain.prototype.addElement = function (fish, bubbles, shells) {
-        var words;
         if (fish) {
-            words = fish;
+            this.words = fish;
         }
         else if (bubbles) {
-            words = bubbles;
+            this.words = bubbles;
         }
         else if (shells) {
-            words = shells;
+            this.words = shells;
         }
         var indexes = new Array();
         for (var i = 0; i < 16; i++) {
             indexes.push(i);
         }
-        for (var _i = 0, words_1 = words; _i < words_1.length; _i++) {
-            var word = words_1[_i];
+        for (var _i = 0, _a = this.words; _i < _a.length; _i++) {
+            var word = _a[_i];
             var i = Math.floor(Math.random() * indexes.length); // 给单词一个随机的位置
             var index = indexes[i];
             indexes.splice(i, 1);
@@ -94,6 +100,37 @@ var FishAndWordMain = /** @class */ (function (_super) {
                 }
             }
             this.addChild(word);
+        }
+    };
+    // 初始化单词
+    FishAndWordMain.prototype.initWords = function () {
+        // 根据类型不同使用不同的单词背景图
+        if (FishAndWord.gameConfig.type == "fish") {
+            var fish = new Array();
+            for (var _i = 0, _a = FishAndWord.gameConfig.words; _i < _a.length; _i++) {
+                var word = _a[_i];
+                var f = new Fish1(word);
+                fish.push(f);
+            }
+            this.addElement(fish);
+        }
+        else if (FishAndWord.gameConfig.type == "bubble") {
+            var bubbles = new Array();
+            for (var _b = 0, _c = FishAndWord.gameConfig.words; _b < _c.length; _b++) {
+                var word = _c[_b];
+                var bubble = new Bubble(word);
+                bubbles.push(bubble);
+            }
+            this.addElement(null, bubbles);
+        }
+        else if (FishAndWord.gameConfig.type == "shell") {
+            var shells = new Array();
+            for (var _d = 0, _e = FishAndWord.gameConfig.words; _d < _e.length; _d++) {
+                var word = _e[_d];
+                var shell = new Shell(word);
+                shells.push(shell);
+            }
+            this.addElement(null, null, shells);
         }
     };
     return FishAndWordMain;

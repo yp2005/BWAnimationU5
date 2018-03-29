@@ -52,15 +52,13 @@ class BalloonOpposites {
                 return;
             }
             BalloonOpposites.balloonOppositesMain.replayBtn.skin = "common/replay-disabled.png";
-            this.init();
+            BalloonOpposites.init();
         });
         Laya.stage.addChild(BalloonOpposites.balloonOppositesMain);
-        
-        BalloonOpposites.initOpposites();
-        this.init();
+        BalloonOpposites.init();
     }
 
-    public static initOpposites(){
+    private static initOpposites(){
         // 初始化反义词对应关系
         BalloonOpposites.ballWordMap = {};
         for(var i =0;i<BalloonOpposites.gameConfig.leftWords.length;i++){
@@ -70,15 +68,16 @@ class BalloonOpposites {
     }
 
     // 初始化
-    private init() {
-        this.initSideBall('left');
-        this.initSideBall('right');
+    public static init() {
+        BalloonOpposites.initOpposites();
+        BalloonOpposites.initSideBall('left');
+        BalloonOpposites.initSideBall('right');
         BalloonOpposites.gameChecking = false;
     }
 
-    private initSideBall(side:string){
+    private static initSideBall(side:string){
         let length = BalloonOpposites.gameConfig.leftWords.length;
-        let randArr = this.getRandomArr(length);
+        let randArr = BalloonOpposites.getRandomArr(length);
         // for(let i = 0;i< BalloonOpposites.gameConfig.leftWords.length;i++) {
         for(let i = 0;i< 7;i++) {
             let randNum = randArr[i];
@@ -103,7 +102,7 @@ class BalloonOpposites {
         }
     }
 
-    private ballTap(name:string,word:string){
+    private static ballTap(name:string,word:string){
         if(BalloonOpposites.gameChecking) return;
         // console.log(BalloonOpposites.currentBallName+'-----'+name);
         let nameSplit = name.split('-');
@@ -142,12 +141,12 @@ class BalloonOpposites {
                     BalloonOpposites.currentBallName = '';
                     BalloonOpposites.currentBallWord = '';
                     BalloonOpposites.gameChecking = false;
-                    if(this.checkOver()){
-                        BalloonOpposites.balloonOppositesMain.gameOver();
+                    if(BalloonOpposites.checkOver()){
+                        BalloonOpposites.balloonOppositesMain.replayBtn.skin = "common/replay-abled.png";
                     }
                 });
             }else{
-                this.shake(ball1);
+                BalloonOpposites.shake(ball1);
                 Laya.timer.once(2000, this, function(){
                     ball0.visible = true;
                     ball1.visible = false;
@@ -157,7 +156,7 @@ class BalloonOpposites {
         }
     }
 
-    private checkOver(){
+    private static checkOver(){
         let isOver = true;
         for(let i = 0;i< 7;i++) {
             let ball0 = BalloonOpposites.balloonOppositesMain.getChildByName('left-'+(i+1)+'-0') as Laya.Image;
@@ -172,7 +171,7 @@ class BalloonOpposites {
     }
     
     // 返回随机数组
-    public getRandomArr(length:number = 0){
+    private static getRandomArr(length:number = 0){
         let arr = [];
         for(var i = 0;i<length;i++){
             arr.push(i+1);
@@ -183,7 +182,7 @@ class BalloonOpposites {
     }
 
     // 图片晃动
-    private shake(picture:Laya.Image) {
+    private static shake(picture:Laya.Image) {
         Laya.SoundManager.playSound("res/audio/bo-fail.mp3", 1);
         let _x = picture.x;
         Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){

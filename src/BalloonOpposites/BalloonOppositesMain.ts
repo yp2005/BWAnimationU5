@@ -6,9 +6,6 @@ class BalloonOppositesMain extends ui.BalloonOppositesUI {
 
     constructor() {
         super(); 
-        this.wellDone.visible = false;
-        this.wellDoneY = this.wellDone.y;
-        this.wellDoneX = this.wellDone.x;
         this.configView = new BOConfigView(this.configBox);
         this.tip.visible = false;
         this.setting.on(Laya.Event.CLICK, this, this.showConfigView)
@@ -38,21 +35,5 @@ class BalloonOppositesMain extends ui.BalloonOppositesUI {
         if(!BalloonOpposites.gameConfig.gameModel) {
             this.setting.visible = state;
         }
-    }
-
-    // 游戏结束
-    public gameOver() {
-        // 显示well done文字效果
-        this.wellDone.y = this.wellDoneY + this.wellDone.height;
-        this.wellDone.x = this.wellDoneX + this.wellDone.width / 2;
-        this.wellDone.scale(0, 0);
-        this.wellDone.visible = true;
-        this.wellDone.removeSelf();
-        this.addChild(this.wellDone);
-        Laya.Tween.to(this.wellDone, {scaleX: 1, scaleY: 1, x: this.wellDoneX, y: this.wellDoneY - 30}, 1500, Laya.Ease.backOut, Laya.Handler.create(this, function() {
-            this.wellDone.visible = false;
-            this.replayBtn.skin = "common/replay-abled.png";
-        }));
-   
     }
 }

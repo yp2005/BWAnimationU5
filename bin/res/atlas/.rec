@@ -36,6 +36,8 @@ P 5A05FAAE configBG.png
 P 18FAF2E0 gameover.png
 P BC4E3960 img_radio_checked.png
 P 838697A5 img_radio_notCheck.png
+P EF605369 replay-abled.png
+P 7F8CE93B replay-disabled.png
 P EA6A5058 replay.png
 P 6F2E1E3C setting.png
 P 5097AE90 well-done.png
@@ -75,6 +77,19 @@ P 6AA0B0CD horse.png
 R DEF0998F mainBG.png
 P E9BB4918 mouse.png
 P 15850473 pic_bg.png
+D HitEgg
+P 4589A9FA egg-broken-chick-1.png
+P 1DEDFF62 egg-broken-chick-2.png
+P 33D6DB44 egg-broken-chick-3.png
+P D3AAB0F3 egg-broken-nochick-1.png
+P 867077B5 egg-broken-nochick-2.png
+P ACE91B60 egg-broken-nochick-3.png
+P 4E42664A egg.png
+P A8733068 hammer-1.png
+P C41DE1FE hammer-2.png
+P 97106500 hammer-3.png
+R A39D1410 mainBG.png
+P 636D3830 word-bg.png
 D template
 D ThrowDice
 R FAC052C7 bg1.png
@@ -103,12 +118,23 @@ P 6FD4709A pic-1-3.png
 P C9391C3F pic-1-4.png
 P B88C7390 pic-1-5.png
 P 9143CA68 pic-1-6.png
-P 1E454531 pic-2-1.png
+P 0B599DF2 pic-2-1.png
 P 2F822FEE pic-2-2.png
 P F569F2F7 pic-2-3.png
 P B3D9C9D9 pic-2-4.png
 P F48C43CE pic-2-5.png
 P AC773555 pic-2-6.png
+D Turntable
+R 1FAD5228 bg.png
+P 3F6FB269 bomb.png
+P 66185A6D bomb2.png
+P CF3BCEBB circle1.png
+P ACA51528 star.png
+P AF24D764 stop.png
+R 253F1626 table10.png
+R 05B962CE table4.png
+R 80E97700 table6.png
+R 10086919 table8.png
 D template/ButtonTab
 P AE499BA2 btn_LargeTabButton_Middle.png
 D template/Text

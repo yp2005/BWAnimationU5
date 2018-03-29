@@ -22,6 +22,8 @@ var TDConfigView = /** @class */ (function () {
     TDConfigView.prototype.show = function () {
         this.init();
         this.configBox.visible = true;
+        this.configBox.removeSelf();
+        ThrowDice.throwDiceMain.addChild(this.configBox);
     };
     // 隐藏配置
     TDConfigView.prototype.hide = function () {
@@ -37,6 +39,7 @@ var TDConfigView = /** @class */ (function () {
         }
         ThrowDice.gameConfig.bg = bg;
         ThrowDice.gameConfig.pics = texts;
+        ThrowDice.init();
         ThrowDice.throwDiceMain.showTip("提交成功！");
         this.hide();
     };

@@ -22,32 +22,19 @@ class ThrowDiceMain extends ui.ThrowDiceUI {
     }
 
     public changePics(pics:Array<string>){
-        // for(var i = 0;i<6;i++){
-        //     let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
-        //     // pic.skin = "ThrowDice/bg2.png";
-        //     pic.skin = "ThrowDice/"+pics[i];
-        // }
-        this.pic1.skin =  "ThrowDice/"+pics[0];
-        this.pic1.skin =  "ThrowDice/"+pics[1];
-        this.pic1.skin =  "ThrowDice/"+pics[2];
-        this.pic1.skin =  "ThrowDice/"+pics[3];
-        this.pic1.skin =  "ThrowDice/"+pics[4];
-        this.pic1.skin =  "ThrowDice/"+pics[5];
+        for(var i = 0;i<6;i++){
+            let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
+            pic.skin = "ThrowDice/"+pics[i].replace("\b","");
+        }
     }
 
     public changeStatus(isVisible:boolean){
         for(var i = 0;i<6;i++){
-            // let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
-            // pic.visible = isVisible;
+            let pic = ThrowDice.throwDiceMain.getChildByName('pic'+(i+1)) as Laya.Image;
+            pic.visible = isVisible;
             let mask = ThrowDice.throwDiceMain.getChildByName('mask'+(i+1)) as Laya.Image;
             mask.visible = isVisible;
         }
-        this.pic1.visible = isVisible;
-        this.pic2.visible = isVisible;
-        this.pic3.visible = isVisible;
-        this.pic4.visible = isVisible;
-        this.pic5.visible = isVisible;
-        this.pic6.visible = isVisible;
     }
 
      // 显示提示

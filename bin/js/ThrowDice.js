@@ -33,19 +33,25 @@ var ThrowDice = /** @class */ (function () {
     // 游戏资源加载完成进行游戏初始化设置
     ThrowDice.prototype.onload = function () {
         ThrowDice.throwDiceMain = new ThrowDiceMain();
-        ThrowDice.throwDiceMain.replayBtn.on(Laya.Event.CLICK, this, this.gameStart);
-        ThrowDice.throwDiceMain.startBtn.on(Laya.Event.CLICK, this, this.gameStart);
+        ThrowDice.throwDiceMain.replayBtn.on(Laya.Event.CLICK, this, function () {
+            if (ThrowDice.throwDiceMain.replayBtn.skin.indexOf("disabled") != -1) {
+                return;
+            }
+            ThrowDice.throwDiceMain.replayBtn.skin = "common/replay-disabled.png";
+            ThrowDice.init();
+        });
         Laya.stage.addChild(ThrowDice.throwDiceMain);
-        ThrowDice.throwDiceMain.replayBtn.visible = false;
         ThrowDice.currentDice = new Dice();
         ThrowDice.currentDice.visible = false;
         ThrowDice.currentDice.pos(510, 400);
         Laya.stage.addChild(ThrowDice.currentDice);
         ThrowDice.currentDice.body.on(Laya.Event.CLICK, this, this.doThrow);
-        ThrowDice.throwDiceMain.changeStatus(false);
+        // ThrowDice.throwDiceMain.changeStatus(false);
+        ThrowDice.init();
     };
     ThrowDice.prototype.doThrow = function () {
         if (ThrowDice.diceNum !== 6) {
+            ThrowDice.currentDice.body.off(Laya.Event.CLICK, this, this.doThrow);
             ThrowDice.currentDice.playAction('dice_throw');
             Laya.SoundManager.playSound("res/audio/dice.mp3", 1);
             Laya.timer.once(2000, this, function () {
@@ -53,31 +59,31 @@ var ThrowDice = /** @class */ (function () {
                 var mask = ThrowDice.throwDiceMain.getChildByName('mask' + ThrowDice.diceArr[ThrowDice.diceNum]);
                 mask.visible = false;
                 ThrowDice.diceNum++;
+                if (ThrowDice.diceNum == 6) {
+                    ThrowDice.throwDiceMain.replayBtn.skin = "common/replay-abled.png";
+                }
+                ThrowDice.currentDice.body.on(Laya.Event.CLICK, this, this.doThrow);
             });
         }
     };
-    // 游戏开始
-    ThrowDice.prototype.gameStart = function () {
-        ThrowDice.throwDiceMain.showSetting(false);
-        ThrowDice.throwDiceMain.replayBtn.visible = false;
-        ThrowDice.throwDiceMain.startBtn.visible = false;
-        this.init();
-    };
     // 初始化
-    ThrowDice.prototype.init = function () {
+    ThrowDice.init = function () {
         ThrowDice.throwDiceMain.changeBg(ThrowDice.gameConfig.bg);
         ThrowDice.throwDiceMain.changePics(ThrowDice.gameConfig.pics);
         if (ThrowDice.gameConfig.bg === 'bg2.png') {
             ThrowDice.currentDice.pos(310, 400);
         }
+        else {
+            ThrowDice.currentDice.pos(510, 400);
+        }
         ThrowDice.throwDiceMain.changeStatus(true);
-        ThrowDice.diceArr = this.getRandomArr(6);
+        ThrowDice.diceArr = ThrowDice.getRandomArr(6);
         ThrowDice.diceNum = 0;
         ThrowDice.gameChecking = false;
         ThrowDice.currentDice.visible = true;
     };
     // 返回随机数组
-    ThrowDice.prototype.getRandomArr = function (length) {
+    ThrowDice.getRandomArr = function (length) {
         if (length === void 0) { length = 0; }
         var arr = [];
         for (var i = 0; i < length; i++) {
