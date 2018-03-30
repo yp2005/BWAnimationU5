@@ -83,6 +83,7 @@ class SLConfigView {
             words: words,
             fontSize: parseInt(this.fontSize.text) 
         };
+        Spotlight.spotlightMain.words = words;
         Spotlight.spotlightMain.showTip("提交成功！");
         Spotlight.spotlightMain.spotlight.removeSelf();
         Spotlight.spotlightMain.spotlight.destroy();

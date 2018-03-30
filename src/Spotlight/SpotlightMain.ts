@@ -1,6 +1,6 @@
 // 游戏主界面
 class SpotlightMain extends ui.SpotlightUI {
-    private words: string[]; // 所有单词
+    public words: string[]; // 所有单词
     private wordsText: Laya.Text[]; // 所有未显示单词页面元素
     private wordsTmp: Laya.Text[] = new Array<Laya.Text>(); // 所有已显示单词页面元素
     public spotlight: Laya.Sprite; // 聚光灯
@@ -125,6 +125,7 @@ class SpotlightMain extends ui.SpotlightUI {
         this.wordsTmp.push(this.curWordText);
         let moveTimes:number = Math.floor(Math.random() * 10) + 1;
         let oneMoveTime:number = 3000 / moveTimes;
+        Laya.SoundManager.playSound("res/audio/spotlight.mp3", 1);
         this.spotlightMove(moveTimes, oneMoveTime);
     }
 
