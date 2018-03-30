@@ -11,7 +11,7 @@ class Fish1 extends ui.Fish1UI {
         this.word.height = this.word.fontSize + 5;
         this.word.width = this.word.fontSize / 2 * this.word.text.length + 20;
         this.word.x = (this.width - this.word.width) / 2;
-        this.word.y = (this.height - this.word.height) / 2 - 3;
+        this.word.y = (this.height - this.word.height) / 2 + 5;
         this.wordBg.width = this.word.width > 55 ? this.word.width : 55;
         this.wordBg.height = this.word.height > 35 ? this.word.fontSize : 30;
         this.wordBg.centerX = 0;

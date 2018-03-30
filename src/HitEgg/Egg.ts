@@ -13,7 +13,7 @@ class Egg extends ui.EggUI {
         this.wordBg.height = this.word.height > 48 ? this.word.fontSize : 48;
         this.wordBg.x = (this.width - this.wordBg.width) / 2;
         this.wordBg.y = 160;
-        this.word.y = 160 + (this.wordBg.height - this.word.height) / 2 - 5;
+        this.word.y = 160 + (this.wordBg.height - this.word.height) / 2 + 2;
 
         // 初始化蛋的显示元素
         this.picture.visible = true;
@@ -46,7 +46,7 @@ class Egg extends ui.EggUI {
                     this.hammer.visible = false;
                 });
                 HitEgg.hitedNum++;
-                if(HitEgg.hitedNum >= HitEgg.gameConfig.words.length) {
+                if(HitEgg.hitedNum >= HitEgg.hitEggMain.eggs.length) {
                     HitEgg.hitEggMain.replayBtn.skin = "common/replay-abled.png";
                     HitEgg.hitEggMain.replayBtn.removeSelf();
                     HitEgg.hitEggMain.addChild(HitEgg.hitEggMain.replayBtn);

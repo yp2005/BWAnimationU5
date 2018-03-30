@@ -1,15 +1,10 @@
 // 游戏主界面
 class HitEggMain extends ui.HitEggUI {
-    private eggs: Egg[]; // 所有的蛋
-    private wellDoneY: number; // well done效果Y坐标
-    private wellDoneX: number; // well done效果X坐标
+    public eggs: Egg[]; // 所有的蛋
     private configView: HEConfigView; // 配置页
 
     constructor() {
         super(); 
-        this.wellDone.visible = false;
-        this.wellDoneY = this.wellDone.y;
-        this.wellDoneX = this.wellDone.x;
         this.configView = new HEConfigView(this.configBox);
         this.tip.visible = false;
         this.setting.on(Laya.Event.CLICK, this, this.showConfigView)
@@ -22,6 +17,8 @@ class HitEggMain extends ui.HitEggUI {
     public showTip(text: string) {
         this.tip.text = text;
         this.tip.visible = true;
+        this.tip.removeSelf();
+        this.addChild(this.tip);
         Laya.timer.once(1500, this, this.hideTip);
     }
 
@@ -40,19 +37,6 @@ class HitEggMain extends ui.HitEggUI {
             this.setting.visible = state;
         }
     }
-
-    // // 游戏结束
-    // public gameOver() {
-    //     // 显示well done文字效果
-    //     this.wellDone.y = this.wellDoneY + this.wellDone.height;
-    //     this.wellDone.x = this.wellDoneX + this.wellDone.width / 2;
-    //     this.wellDone.scale(0, 0);
-    //     this.wellDone.visible = true;
-    //     this.wellDone.removeSelf();
-    //     this.addChild(this.wellDone);
-    //     Laya.Tween.to(this.wellDone, {scaleX: 1, scaleY: 1, x: this.wellDoneX, y: this.wellDoneY - 30}, 1500, Laya.Ease.backOut, Laya.Handler.create(this, this.reset));
-   
-    // }
 
     // 重置游戏为初始状态
     public reset() {
@@ -139,6 +123,9 @@ class HitEggMain extends ui.HitEggUI {
                 else {
                     egg.x = line3Width * (index - line1Num - line2Num) + (line3Width - egg.width) / 2;
                     egg.y = 512 + (256 - egg.height) / 2;
+                    if(line3Num >= 3 && index == eggs.length - 1) {
+                        egg.y -= 20;
+                    }
                 }
                 this.addChild(egg);
             }

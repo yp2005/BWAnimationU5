@@ -47,10 +47,17 @@ class HitBalloonDisappear {
 
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
-        HitBalloonDisappear.hitBalloonDisappearMain = new HitBalloonDisappearMain();
-        HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.on(Laya.Event.CLICK, this, this.restart);
-        Laya.stage.addChild(HitBalloonDisappear.hitBalloonDisappearMain);
-        this.init();
+        let text = new Laya.Text();
+        text.text = "fffff";
+        text.font = "ff";
+        // ff字体加载完再加载主页面
+        Laya.timer.once(100, this, function() {
+            HitBalloonDisappear.hitBalloonDisappearMain = new HitBalloonDisappearMain();
+            HitBalloonDisappear.hitBalloonDisappearMain.replayBtn.on(Laya.Event.CLICK, this, this.restart);
+            Laya.stage.addChild(HitBalloonDisappear.hitBalloonDisappearMain);
+            this.init();
+        });
+       
     }
 
     private restart() {

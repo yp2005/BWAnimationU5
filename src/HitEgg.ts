@@ -39,10 +39,16 @@ class HitEgg {
 
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
-        HitEgg.hitEggMain = new HitEggMain();
-        HitEgg.hitEggMain.replayBtn.on(Laya.Event.CLICK, this, this.restart);
-        Laya.stage.addChild(HitEgg.hitEggMain);
-        this.init(); 
+        let text = new Laya.Text();
+        text.text = "fffff";
+        text.font = "ff";
+        // ff字体加载完再加载主页面
+       Laya.timer.once(100, this, function() {
+            HitEgg.hitEggMain = new HitEggMain();
+            HitEgg.hitEggMain.replayBtn.on(Laya.Event.CLICK, this, this.restart);
+            Laya.stage.addChild(HitEgg.hitEggMain);
+            this.init(); 
+       });
     }
 
     // 游戏开始

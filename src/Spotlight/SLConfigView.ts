@@ -19,6 +19,9 @@ class SLConfigView {
         // 添加事件监听
         this.submitBtn.on(Laya.Event.CLICK, this, this.submit);
         this.closeBtn.on(Laya.Event.CLICK, this, this.hide);
+        this.configBox.on(Laya.Event.CLICK, this, function(e: laya.events.Event) {
+            e.stopPropagation();
+        });
     }
 
     // 初始化

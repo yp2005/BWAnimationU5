@@ -11,7 +11,6 @@ class SpotlightMain extends ui.SpotlightUI {
         super(); 
         this.words = Spotlight.gameConfig.words;
         this.wellDone.visible = false;
-        this.spotlight = this.getChildByName("spotlight") as Laya.Sprite;
         this.spotlight = new Sprite();
         this.addChild(this.spotlight);
         this.spotlight.graphics.drawCircle(0, 0, Spotlight.gameConfig.spotlightSize, "#ffffff", "#566dca", 3);
@@ -88,10 +87,8 @@ class SpotlightMain extends ui.SpotlightUI {
             wordText.width = wordText.fontSize / 3 * 2 * word.length + 20;
             wordText.height = wordText.fontSize + 10;
             wordText.align = "center";
-            wordText.x = Math.floor(Math.random() * (1024 - (wordText.width > 80 ? wordText.width : 80)));
-            wordText.x = wordText.x > 80 ? wordText.x : 80;
-            wordText.y = Math.floor(Math.random() * (768 - 80));
-            wordText.y = wordText.y > 80 ? wordText.y : 80;
+            wordText.valign = "middle";
+            this.initPosition(wordText);
             wordText.visible = false;
             this.addChild(wordText);
             this.wordsText.push(wordText);
@@ -99,6 +96,17 @@ class SpotlightMain extends ui.SpotlightUI {
         Laya.timer.once(100, this, function() {
             this.on(Laya.Event.CLICK, this, this.showWord);
         });
+    }
+
+    // 生成随机位置
+    private initPosition(wordText: Laya.Text) {
+        wordText.x = Math.floor(Math.random() * (1024 - (wordText.width > 80 ? wordText.width : 80)));
+        wordText.x = wordText.x > 80 ? wordText.x : 80;
+        wordText.y = Math.floor(Math.random() * (768 - 80));
+        wordText.y = wordText.y > 80 ? wordText.y : 80;
+        if(wordText.x > 832 && wordText.y > 681) { // 如果位置挡住了replay按钮重新生成位置
+            this.initPosition(wordText);
+        }
     }
 
     // 显示单词

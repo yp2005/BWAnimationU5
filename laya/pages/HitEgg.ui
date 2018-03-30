@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":22,
+    "selecteID":23,
     "props":{"width":1024,"sceneColor":"#ffffff","height":768},
     "nodeParent":-1,
     "label":"View",
@@ -55,7 +55,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":136,"x":558,"text":"单词：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":142,"x":558,"text":"单词：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":20,
                     "label":"Label",
                     "isDirectory":false,
@@ -81,7 +81,7 @@
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":133,"x":641,"width":286,"name":"textInput","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
+                    "props":{"y":135,"x":641,"width":286,"name":"textInput","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
                     "nodeParent":20,
                     "label":"TextInput(textInput)",
                     "isDirectory":false,
@@ -120,7 +120,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":175,"x":634,"text":"示例：\bgood,apple,name","fontSize":17,"font":"FF","color":"#666666"},
+                    "props":{"y":177,"x":634,"text":"示例：\bgood,apple,name","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":20,
                     "label":"Text",
                     "isDirectory":false,
@@ -133,7 +133,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":74,"x":559,"text":"字号：","fontSize":20,"font":"FF","color":"#2a2121"},
+                    "props":{"y":80,"x":559,"text":"字号：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":20,
                     "label":"Label",
                     "isDirectory":false,
@@ -159,7 +159,7 @@
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":71,"x":642,"width":286,"text":"30","name":"fontSize","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
+                    "props":{"y":73,"x":642,"width":286,"text":"30","name":"fontSize","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
                     "nodeParent":20,
                     "label":"TextInput(fontSize)",
                     "isDirectory":false,
@@ -199,19 +199,6 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":256,"x":261,"var":"wellDone","skin":"common/well-done.png"},
-            "nodeParent":1,
-            "label":"Image(wellDone)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":23,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
             "props":{"y":681,"x":832,"var":"replayBtn","skin":"common/replay-disabled.png"},
             "nodeParent":1,
             "label":"Image(replayBtn)",
@@ -225,7 +212,7 @@
         {
             "x":15,
             "type":"Text",
-            "props":{"y":694,"x":833,"width":168,"var":"replayText","text":"Replay","strokeColor":"#000000","stroke":5,"height":44,"fontSize":27,"font":"FF","color":"#ffffff","align":"center"},
+            "props":{"y":696,"x":835,"width":168,"var":"replayText","valign":"middle","text":"Replay","strokeColor":"#000000","stroke":5,"height":44,"fontSize":27,"font":"FF","color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Text(replayText)",
             "isDirectory":false,

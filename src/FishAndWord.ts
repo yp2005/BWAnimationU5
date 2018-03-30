@@ -46,8 +46,14 @@ class FishAndWord {
 
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
-        FishAndWord.fishAndWordMain = new FishAndWordMain();
-        Laya.stage.addChild(FishAndWord.fishAndWordMain);
-        FishAndWord.fishAndWordMain.initWords(); 
+        let text = new Laya.Text();
+        text.text = "fffff";
+        text.font = "ff";
+        // ff字体加载完再加载主页面
+        Laya.timer.once(100, this, function() {
+            FishAndWord.fishAndWordMain = new FishAndWordMain();
+            Laya.stage.addChild(FishAndWord.fishAndWordMain);
+            FishAndWord.fishAndWordMain.initWords(); 
+        });
     }
 }

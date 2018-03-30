@@ -2,8 +2,8 @@
 import Stage = Laya.Stage;
 import WebGL   = Laya.WebGL;
 import Sprite = Laya.Sprite;
-class Spotlight {
-    public static spotlightMain: SpotlightMain; // 主界面
+class SpotlightPicture {
+    public static spotlightPictureMain: SpotlightPictureMain; // 主界面
     public static gameConfig: any; // 游戏配置
     constructor(config: any)
     {
@@ -13,10 +13,10 @@ class Spotlight {
                 gameModel: false,
                 backgroundImg: "bg-1.png", // 背景图
                 spotlightSize: 80, // 聚光灯大小
-                position: [{x: 200, y: 250}, {x: 300, y: 400}]  
+                position: [{x: 200, y: 250}, {x: 350, y:450}]  
             };
         }
-        Spotlight.gameConfig = config;
+        SpotlightPicture.gameConfig = config;
 
         // 初始化舞台设置
 		Laya.init(1024, 768, WebGL);
@@ -28,7 +28,7 @@ class Spotlight {
         // 加载游戏资源
         let resArray: any[] = [
             {url: "res/atlas/common.atlas", type: Laya.Loader.ATLAS},
-            // {url: "res/atlas/Spotlight.atlas", type: Laya.Loader.ATLAS},
+            {url: "SpotlightPicture/bg-1.png", type: Laya.Loader.IMAGE},
             {url: "template/Text/TextBox.png", type: Laya.Loader.IMAGE},
             {url: "template/ButtonTab/btn_LargeTabButton_Middle.png", type: Laya.Loader.IMAGE}
         ];
@@ -43,20 +43,26 @@ class Spotlight {
         text.font = "ff";
         // ff字体加载完再加载主页面
         Laya.timer.once(100, this, function() {
-            Spotlight.spotlightMain = new SpotlightMain();
-            Spotlight.spotlightMain.replayBtn.on(Laya.Event.CLICK, this, this.restart);
-            Laya.stage.addChild(Spotlight.spotlightMain);
-            Spotlight.spotlightMain.initWords(); 
+            SpotlightPicture.spotlightPictureMain = new SpotlightPictureMain();
+            SpotlightPicture.spotlightPictureMain.replayBtn.on(Laya.Event.CLICK, this, this.restart);
+            Laya.stage.addChild(SpotlightPicture.spotlightPictureMain);
+            SpotlightPicture.spotlightPictureMain.on(Laya.Event.CLICK, this, this.gameStart);
         });
     }
 
     // 游戏开始
+    private gameStart() {
+        SpotlightPicture.spotlightPictureMain.off(Laya.Event.CLICK, this, this.gameStart);
+        SpotlightPicture.spotlightPictureMain.init();
+    }
+
+    // 游戏重新开始
     private restart() {
-        if(Spotlight.spotlightMain.replayBtn.skin.indexOf("disabled") != -1) {
+        if(SpotlightPicture.spotlightPictureMain.replayBtn.skin.indexOf("disabled") != -1) {
             return;
         }
-        Spotlight.spotlightMain.replayBtn.skin = "common/replay-disabled.png";
-        Spotlight.spotlightMain.reset();       
-        Spotlight.spotlightMain.initWords(); 
+        SpotlightPicture.spotlightPictureMain.replayBtn.skin = "common/replay-disabled.png";
+        SpotlightPicture.spotlightPictureMain.reset();       
+        SpotlightPicture.spotlightPictureMain.init(); 
     }
 }
