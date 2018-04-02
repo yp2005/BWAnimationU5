@@ -46,16 +46,22 @@ class BalloonOpposites {
 
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
-        BalloonOpposites.balloonOppositesMain = new BalloonOppositesMain();
-        BalloonOpposites.balloonOppositesMain.replayBtn.on(Laya.Event.CLICK, this, function() {
-            if(BalloonOpposites.balloonOppositesMain.replayBtn.skin.indexOf("disabled") != -1) {
-                return;
-            }
-            BalloonOpposites.balloonOppositesMain.replayBtn.skin = "common/replay-disabled.png";
+        let text = new Laya.Text();
+        text.text = "fffff";
+        text.font = "ff";
+        // ff字体加载完再加载主页面
+        Laya.timer.once(100, this, function() {
+            BalloonOpposites.balloonOppositesMain = new BalloonOppositesMain();
+            BalloonOpposites.balloonOppositesMain.replayBtn.on(Laya.Event.CLICK, this, function() {
+                if(BalloonOpposites.balloonOppositesMain.replayBtn.skin.indexOf("disabled") != -1) {
+                    return;
+                }
+                BalloonOpposites.balloonOppositesMain.replayBtn.skin = "common/replay-disabled.png";
+                BalloonOpposites.init();
+            });
+            Laya.stage.addChild(BalloonOpposites.balloonOppositesMain);
             BalloonOpposites.init();
         });
-        Laya.stage.addChild(BalloonOpposites.balloonOppositesMain);
-        BalloonOpposites.init();
     }
 
     private static initOpposites(){

@@ -32,22 +32,28 @@ var ThrowDice = /** @class */ (function () {
     }
     // 游戏资源加载完成进行游戏初始化设置
     ThrowDice.prototype.onload = function () {
-        ThrowDice.throwDiceMain = new ThrowDiceMain();
-        ThrowDice.throwDiceMain.replayBtn.on(Laya.Event.CLICK, this, function () {
-            if (ThrowDice.throwDiceMain.replayBtn.skin.indexOf("disabled") != -1) {
-                return;
-            }
-            ThrowDice.throwDiceMain.replayBtn.skin = "common/replay-disabled.png";
+        var text = new Laya.Text();
+        text.text = "fffff";
+        text.font = "ff";
+        // ff字体加载完再加载主页面
+        Laya.timer.once(100, this, function () {
+            ThrowDice.throwDiceMain = new ThrowDiceMain();
+            ThrowDice.throwDiceMain.replayBtn.on(Laya.Event.CLICK, this, function () {
+                if (ThrowDice.throwDiceMain.replayBtn.skin.indexOf("disabled") != -1) {
+                    return;
+                }
+                ThrowDice.throwDiceMain.replayBtn.skin = "common/replay-disabled.png";
+                ThrowDice.init();
+            });
+            Laya.stage.addChild(ThrowDice.throwDiceMain);
+            ThrowDice.currentDice = new Dice();
+            ThrowDice.currentDice.visible = false;
+            ThrowDice.currentDice.pos(510, 400);
+            Laya.stage.addChild(ThrowDice.currentDice);
+            ThrowDice.currentDice.body.on(Laya.Event.CLICK, this, this.doThrow);
+            // ThrowDice.throwDiceMain.changeStatus(false);
             ThrowDice.init();
         });
-        Laya.stage.addChild(ThrowDice.throwDiceMain);
-        ThrowDice.currentDice = new Dice();
-        ThrowDice.currentDice.visible = false;
-        ThrowDice.currentDice.pos(510, 400);
-        Laya.stage.addChild(ThrowDice.currentDice);
-        ThrowDice.currentDice.body.on(Laya.Event.CLICK, this, this.doThrow);
-        // ThrowDice.throwDiceMain.changeStatus(false);
-        ThrowDice.init();
     };
     ThrowDice.prototype.doThrow = function () {
         if (ThrowDice.diceNum !== 6) {

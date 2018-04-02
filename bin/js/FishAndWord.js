@@ -34,9 +34,15 @@ var FishAndWord = /** @class */ (function () {
     }
     // 游戏资源加载完成进行游戏初始化设置
     FishAndWord.prototype.onload = function () {
-        FishAndWord.fishAndWordMain = new FishAndWordMain();
-        Laya.stage.addChild(FishAndWord.fishAndWordMain);
-        FishAndWord.fishAndWordMain.initWords();
+        var text = new Laya.Text();
+        text.text = "fffff";
+        text.font = "ff";
+        // ff字体加载完再加载主页面
+        Laya.timer.once(100, this, function () {
+            FishAndWord.fishAndWordMain = new FishAndWordMain();
+            Laya.stage.addChild(FishAndWord.fishAndWordMain);
+            FishAndWord.fishAndWordMain.initWords();
+        });
     };
     FishAndWord.wordPositon = [{ x: 62, y: 82 }, { x: 90, y: 289 }, { x: 56, y: 482 }, { x: 298, y: 137 }, { x: 265, y: 287 },
         { x: 321, y: 433 }, { x: 274, y: 586 }, { x: 520, y: 148 }, { x: 486, y: 307 }, { x: 490, y: 522 },

@@ -44,7 +44,7 @@ P 5097AE90 well-done.png
 D FishAndWord
 R C87E8CBF bg-1.jpeg
 R DFBE4436 bg-2.png
-R 9F929312 bg-3.png
+R 1E438580 bg-3.png
 P E099DD4B bubble-1.png
 P 487E5BD0 bubble-2.png
 P 9FF44211 bubble-3.png
@@ -90,6 +90,30 @@ P C41DE1FE hammer-2.png
 P 97106500 hammer-3.png
 R A39D1410 mainBG.png
 P 636D3830 word-bg.png
+D MulTouch
+R 6301F8AA bg.png
+P F58F2B69 crocodile.png
+P 58A95201 crocodiles.png
+P BAF2F497 elephant.png
+P 0684FCE5 elephants.png
+P BB49C770 giraffe.png
+P 9E27ABF2 giraffes.png
+P 4AA5476A hippo.png
+P D86A1616 hippos.png
+P 185E259B monkey.png
+P D3DFDBE7 monkeys.png
+P 3300D358 snake.png
+P 4DEA6C65 snakes.png
+P 988EC60B sound-disabled.png
+P 6BC2599F sound.png
+P 9C56C956 text1.png
+P E9A3BFF3 text2.png
+P E2FE40D7 text3.png
+P F3BB03B9 text4.png
+P CC2C7948 tiger.png
+P 730057DF tigers.png
+D SpotlightPicture
+R A63FA8E8 bg-1.png
 D template
 D ThrowDice
 R FAC052C7 bg1.png

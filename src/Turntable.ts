@@ -43,16 +43,22 @@ class Turntable {
 
     // 游戏资源加载完成进行游戏初始化设置
     private onload() {
-        Turntable.turntableMain = new TurntableMain();
-        Turntable.turntableMain.replayBtn.on(Laya.Event.CLICK, this, function() {
-             if(Turntable.turntableMain.replayBtn.skin.indexOf("disabled") != -1) {
-                return;
-            }
-            Turntable.turntableMain.replayBtn.skin = "common/replay-disabled.png";
+        let text = new Laya.Text();
+        text.text = "fffff";
+        text.font = "ff";
+        // ff字体加载完再加载主页面
+        Laya.timer.once(100, this, function() {
+            Turntable.turntableMain = new TurntableMain();
+            Turntable.turntableMain.replayBtn.on(Laya.Event.CLICK, this, function() {
+                if(Turntable.turntableMain.replayBtn.skin.indexOf("disabled") != -1) {
+                    return;
+                }
+                Turntable.turntableMain.replayBtn.skin = "common/replay-disabled.png";
+                Turntable.init();
+            });
+            Laya.stage.addChild(Turntable.turntableMain);
             Turntable.init();
         });
-        Laya.stage.addChild(Turntable.turntableMain);
-        Turntable.init();
     }
 
     // 初始化
