@@ -128,7 +128,6 @@ class SpotlightMain extends ui.SpotlightUI {
         else {
             this.curWordText = this.wordsText[0];
         }
-        this.curWordText.visible = true;
         this.wordsText.splice(0, 1);
         this.wordsTmp.push(this.curWordText);
         let moveTimes:number = Math.floor(Math.random() * 10) + 1;
@@ -144,6 +143,7 @@ class SpotlightMain extends ui.SpotlightUI {
         let y: number = Math.floor(Math.random() * 688);
         y = y < 80 ? 80 : y;
         if(moveTimes == 1) {
+            this.curWordText.visible = true;
             x = Math.floor(this.curWordText.x + this.curWordText.width / 2);
             y = Math.floor(this.curWordText.y + this.curWordText.height / 2);
         }

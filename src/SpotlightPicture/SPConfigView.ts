@@ -60,6 +60,7 @@ class SPConfigView {
     public hide() {
         SpotlightPicture.spotlightPictureMain.off(Laya.Event.MOUSE_MOVE, this, this.showXY);
         this.configBox.visible = false;
+        SpotlightPicture.spotlightPictureMain.replayBtn.skin = "common/replay-abled.png";
     }
 
     // 提交配置
