@@ -19,7 +19,7 @@ class MulTouchMain extends ui.MulTouchUI {
         if(!MulTouch.gameChecking){
             let word = MulTouch.allWords[(MulTouch.soundRandom[MulTouch.wordContext]-1)];
             console.log("sound:::"+word);
-            Laya.SoundManager.playSound("res/audio/multouch"+word+".m4a", 1);
+            Laya.SoundManager.playSound("res/audio/multouch"+word+".mp3", 1);
             MulTouch.gameChecking = true;
             MulTouch.mulTouchMain.speak.skin = "MulTouch/sound-disabled.png";
         }

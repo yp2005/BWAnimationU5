@@ -36,6 +36,12 @@ var SpotlightPictureMain = /** @class */ (function (_super) {
     SpotlightPictureMain.prototype.showConfigView = function (e) {
         e.stopPropagation();
         this.configView.show();
+        if (this.spotlight) {
+            this.bg.mask = null;
+            this.spotlight.removeSelf();
+            this.spotlight.destroy();
+        }
+        this.replayBtn.skin = "common/replay-disabled.png";
     };
     // 设置设置按钮是否显示
     SpotlightPictureMain.prototype.showSetting = function (state) {

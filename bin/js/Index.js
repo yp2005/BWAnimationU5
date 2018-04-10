@@ -65,26 +65,6 @@ else if (gameName == "egg") {
     };
     new HitEgg(config);
 }
-else if (gameName == "spotlight") {
-    // 聚光灯游戏
-    var config = {
-        gameModel: false,
-        fontSize: 40,
-        spotlightSize: 80,
-        words: ["word", "good", "apple"]
-    };
-    new Spotlight(config);
-}
-else if (gameName == "spotlight2") {
-    // 聚光灯游戏
-    var config = {
-        gameModel: false,
-        backgroundImg: "bg-1.png",
-        spotlightSize: 80,
-        position: [{ x: 200, y: 250 }, { x: 350, y: 450 }]
-    };
-    new SpotlightPicture(config);
-}
 else if (gameName == "multouch") {
     // 多点触碰
     var config = {

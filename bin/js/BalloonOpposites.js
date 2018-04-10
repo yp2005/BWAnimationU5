@@ -104,6 +104,7 @@ var BalloonOpposites = /** @class */ (function () {
         if (!BalloonOpposites.currentBallName) {
             BalloonOpposites.currentBallName = name;
             BalloonOpposites.currentBallWord = word;
+            Laya.SoundManager.playSound("res/audio/bo-click.mp3", 1);
         }
         else {
             // 如果是同一侧的气球被点中，无反应
@@ -113,7 +114,7 @@ var BalloonOpposites = /** @class */ (function () {
                 return;
             }
             BalloonOpposites.gameChecking = true;
-            Laya.SoundManager.playSound("res/audio/bo-click.mp3", 1);
+            // Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
             // console.log('word::::'+BalloonOpposites.currentBallWord+'-----'+word);
             if (BalloonOpposites.ballWordMap[word] === BalloonOpposites.currentBallWord) {
                 //TODO 正确

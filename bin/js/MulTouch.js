@@ -81,7 +81,7 @@ var MulTouch = /** @class */ (function () {
             text.text = MulTouch.gameConfig.leftWords[arr2[i] - 1];
             text.width = 160;
             text.align = "center";
-            text.valign = "middle";
+            text.valign = "top";
             text.color = "#fff";
             text.fontSize = 30;
             text.x = 6;
@@ -107,7 +107,7 @@ var MulTouch = /** @class */ (function () {
             text.text = MulTouch.gameConfig.rightWords[arr2[i] - 1];
             text.width = 160;
             text.align = "center";
-            text.valign = "middle";
+            text.valign = "top";
             text.color = "#fff";
             text.fontSize = 30;
             text.x = 6;
@@ -133,8 +133,6 @@ var MulTouch = /** @class */ (function () {
             _word = png.substring(0, png.length - 4);
             // console.log("_word:::"+_word);
         }
-        this.wordOk = false;
-        console.log(word + ":::" + _word);
         if (word == _word) {
             if (isword) {
                 this.currentWord = picture;

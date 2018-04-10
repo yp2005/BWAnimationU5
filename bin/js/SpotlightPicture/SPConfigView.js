@@ -49,6 +49,7 @@ var SPConfigView = /** @class */ (function () {
     SPConfigView.prototype.hide = function () {
         SpotlightPicture.spotlightPictureMain.off(Laya.Event.MOUSE_MOVE, this, this.showXY);
         this.configBox.visible = false;
+        SpotlightPicture.spotlightPictureMain.replayBtn.skin = "common/replay-abled.png";
     };
     // 提交配置
     SPConfigView.prototype.submit = function () {

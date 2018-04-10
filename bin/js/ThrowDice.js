@@ -62,13 +62,15 @@ var ThrowDice = /** @class */ (function () {
             Laya.SoundManager.playSound("res/audio/dice.mp3", 1);
             Laya.timer.once(2000, this, function () {
                 ThrowDice.currentDice.playAction('dice_' + ThrowDice.diceArr[ThrowDice.diceNum]);
-                var mask = ThrowDice.throwDiceMain.getChildByName('mask' + ThrowDice.diceArr[ThrowDice.diceNum]);
-                mask.visible = false;
-                ThrowDice.diceNum++;
-                if (ThrowDice.diceNum == 6) {
-                    ThrowDice.throwDiceMain.replayBtn.skin = "common/replay-abled.png";
-                }
-                ThrowDice.currentDice.body.on(Laya.Event.CLICK, this, this.doThrow);
+                Laya.timer.once(1000, this, function () {
+                    var mask = ThrowDice.throwDiceMain.getChildByName('mask' + ThrowDice.diceArr[ThrowDice.diceNum]);
+                    mask.visible = false;
+                    ThrowDice.diceNum++;
+                    if (ThrowDice.diceNum == 6) {
+                        ThrowDice.throwDiceMain.replayBtn.skin = "common/replay-abled.png";
+                    }
+                    ThrowDice.currentDice.body.on(Laya.Event.CLICK, this, this.doThrow);
+                });
             });
         }
     };

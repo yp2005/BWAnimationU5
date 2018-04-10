@@ -129,7 +129,6 @@ var SpotlightMain = /** @class */ (function (_super) {
         else {
             this.curWordText = this.wordsText[0];
         }
-        this.curWordText.visible = true;
         this.wordsText.splice(0, 1);
         this.wordsTmp.push(this.curWordText);
         var moveTimes = Math.floor(Math.random() * 10) + 1;
@@ -144,6 +143,7 @@ var SpotlightMain = /** @class */ (function (_super) {
         var y = Math.floor(Math.random() * 688);
         y = y < 80 ? 80 : y;
         if (moveTimes == 1) {
+            this.curWordText.visible = true;
             x = Math.floor(this.curWordText.x + this.curWordText.width / 2);
             y = Math.floor(this.curWordText.y + this.curWordText.height / 2);
         }
