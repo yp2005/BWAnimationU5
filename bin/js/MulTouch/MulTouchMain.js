@@ -27,8 +27,8 @@ var MulTouchMain = /** @class */ (function (_super) {
     MulTouchMain.prototype.speakWord = function () {
         if (!MulTouch.gameChecking) {
             var word = MulTouch.allWords[(MulTouch.soundRandom[MulTouch.wordContext] - 1)];
-            console.log("sound:::" + word);
-            Laya.SoundManager.playSound("res/audio/multouch" + word + ".mp3", 1);
+            console.log("sound:::" + "res/audio/multouch/" + word + ".mp3");
+            Laya.SoundManager.playSound("res/audio/multouch/" + word + ".mp3", 1);
             MulTouch.gameChecking = true;
             MulTouch.mulTouchMain.speak.skin = "MulTouch/sound-disabled.png";
         }
