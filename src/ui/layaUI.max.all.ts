@@ -2,25 +2,6 @@
 import View=laya.ui.View;
 import Dialog=laya.ui.Dialog;
 module ui {
-    export class BOBalloonUI extends View {
-		public ball0:Laya.Image;
-		public ball1:Laya.Image;
-		public ballword:laya.display.Text;
-
-        public static  uiView:any ={"type":"View","props":{"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"var":"ball0","skin":"BalloonOpposites/left-1-0.png","centerY":0,"centerX":0}},{"type":"Image","props":{"var":"ball1","skin":"BalloonOpposites/left-1-1.png","centerY":0,"centerX":0},"child":[{"type":"Image","props":{"y":50,"x":28,"width":124,"skin":"template/Text/TextBox.png","height":60}},{"type":"Text","props":{"y":54,"x":38,"width":100,"var":"ballword","text":"text","height":50,"fontSize":40,"font":"FF","color":"#000","align":"center"}}]}]};
-        constructor(){ super()}
-        createChildren():void {
-        			View.regComponent("Text",laya.display.Text);
-
-            super.createChildren();
-            this.createView(ui.BOBalloonUI.uiView);
-
-        }
-
-    }
-}
-
-module ui {
     export class BalloonDisappearUI extends View {
 		public shake:Laya.FrameAnimation;
 		public blast:Laya.FrameAnimation;
@@ -56,6 +37,25 @@ module ui {
 
             super.createChildren();
             this.createView(ui.BalloonOppositesUI.uiView);
+
+        }
+
+    }
+}
+
+module ui {
+    export class BOBalloonUI extends View {
+		public ball0:Laya.Image;
+		public ball1:Laya.Image;
+		public ballword:laya.display.Text;
+
+        public static  uiView:any ={"type":"View","props":{"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"var":"ball0","skin":"BalloonOpposites/left-1-0.png","centerY":0,"centerX":0}},{"type":"Image","props":{"var":"ball1","skin":"BalloonOpposites/left-1-1.png","centerY":0,"centerX":0},"child":[{"type":"Image","props":{"y":50,"x":28,"width":124,"skin":"template/Text/TextBox.png","height":60}},{"type":"Text","props":{"y":54,"x":38,"width":100,"var":"ballword","text":"text","height":50,"fontSize":40,"font":"FF","color":"#000","align":"center"}}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.createView(ui.BOBalloonUI.uiView);
 
         }
 

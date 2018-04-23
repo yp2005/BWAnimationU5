@@ -5,6 +5,7 @@ class TurntableMain extends ui.TurntableUI {
     private configView: TConfigView; // 配置页
     public speed: number = 0; // 转速
     public mustStop: boolean = false;
+    public isTurning: boolean = false; //正在转
 
     constructor() {
         super(); 
@@ -20,16 +21,19 @@ class TurntableMain extends ui.TurntableUI {
     }
 
     private startTurn(){
+        if(Turntable.gameChecking) return;
         let wordLength = Turntable.gameConfig.words.length;
         let picLength = Turntable.gameConfig.pics.length;
         let totalLength = wordLength+picLength;
-        if(Turntable.currentTurn<totalLength && !Turntable.gameChecking){
+        if(Turntable.currentTurn<totalLength ){
+            Turntable.gameChecking = true;
             Laya.SoundManager.playSound("res/audio/turnTable.wav", 1);
             
             let _index = Turntable.randomTurn[Turntable.currentTurn];
             let _rotation =1800 * (Turntable.currentTurn+1) + (_index * 360) / totalLength;
             Laya.Tween.to(this.table,{rotation:_rotation},3500,Laya.Ease.quartOut);
             Laya.timer.once(3500,this,function(){
+                Turntable.gameChecking = false;
                 Turntable.currentTurn++;
                 if(Turntable.currentTurn == totalLength){
                     Turntable.turntableMain.replayBtn.skin = "common/replay-abled.png";

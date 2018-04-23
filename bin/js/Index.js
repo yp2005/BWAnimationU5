@@ -1,6 +1,6 @@
 // 程序入口，本工程仅用于切换各个动画进行测试
 // 游戏名称，修改这个变量值来切换不同游戏，
-var gameName = "egg";
+var gameName = "turntable";
 if (gameName == "balloon") {
     //气球爆炸消失游戏
     var config = {

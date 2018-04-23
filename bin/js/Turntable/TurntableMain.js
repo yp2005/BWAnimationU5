@@ -15,6 +15,7 @@ var TurntableMain = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.speed = 0; // 转速
         _this.mustStop = false;
+        _this.isTurning = false; //正在转
         _this.configView = new TConfigView(_this.configBox);
         _this.tip.visible = false;
         _this.setting.on(Laya.Event.CLICK, _this, _this.showConfigView);
@@ -27,15 +28,19 @@ var TurntableMain = /** @class */ (function (_super) {
         // this.stop.on(Laya.Event.CLICK,this,this.stopTable);
     }
     TurntableMain.prototype.startTurn = function () {
+        if (Turntable.gameChecking)
+            return;
         var wordLength = Turntable.gameConfig.words.length;
         var picLength = Turntable.gameConfig.pics.length;
         var totalLength = wordLength + picLength;
-        if (Turntable.currentTurn < totalLength && !Turntable.gameChecking) {
+        if (Turntable.currentTurn < totalLength) {
+            Turntable.gameChecking = true;
             Laya.SoundManager.playSound("res/audio/turnTable.wav", 1);
             var _index = Turntable.randomTurn[Turntable.currentTurn];
             var _rotation = 1800 * (Turntable.currentTurn + 1) + (_index * 360) / totalLength;
             Laya.Tween.to(this.table, { rotation: _rotation }, 3500, Laya.Ease.quartOut);
             Laya.timer.once(3500, this, function () {
+                Turntable.gameChecking = false;
                 Turntable.currentTurn++;
                 if (Turntable.currentTurn == totalLength) {
                     Turntable.turntableMain.replayBtn.skin = "common/replay-abled.png";
