@@ -58,6 +58,7 @@ var Turntable = /** @class */ (function () {
         // Turntable.turntableMain.startTable();
     };
     Turntable.initTable = function () {
+        Turntable.turntableMain.table.rotation = 0;
         // 清空
         Turntable.turntableMain.table.removeChildren(0, Turntable.turntableMain.table.numChildren);
         var wordLength = Turntable.gameConfig.words.length;

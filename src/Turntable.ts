@@ -71,6 +71,7 @@ class Turntable {
     }
 
     private static initTable(){
+        Turntable.turntableMain.table.rotation = 0;
         // 清空
         Turntable.turntableMain.table.removeChildren(0,Turntable.turntableMain.table.numChildren);
         let wordLength = Turntable.gameConfig.words.length;

@@ -105,27 +105,31 @@ class HitEggMain extends ui.HitEggUI {
             let line1Width = 1024 / line1Num;
             let line2Width = 1024 / line2Num;
             let line3Width = 1024 / line3Num;
+
+            let lineHeight = 256;
+            let upHeight = 30;
+
             for(let egg of eggs) {
                 let i: number = Math.floor(Math.random() * indexes.length); // 给单词一个随机的位置
                 let index = indexes[i];
                 indexes.splice(i, 1);
                 if(index + 1 <= line1Num) {
                     egg.x = line1Width * index + (line1Width - egg.width) / 2;
-                    if(line1Num == 4 && index == 0) {
-                        egg.x += 50;
-                    }
-                    egg.y = (256 - egg.height) / 2;
+                    // if(line1Num == 4 && index == 0) {
+                    //     egg.x += 50;
+                    // }
+                    egg.y = (lineHeight - egg.height) / 2 + 30;
                 }
                 else if(index + 1 > line1Num && index + 1 <= line1Num + line2Num){
                     egg.x = line2Width * (index - line1Num) + (line2Width - egg.width) / 2;
-                    egg.y = 256 + (256 - egg.height) / 2;
+                    egg.y = lineHeight - upHeight + (lineHeight - egg.height) / 2 + 15;
                 }
                 else {
                     egg.x = line3Width * (index - line1Num - line2Num) + (line3Width - egg.width) / 2;
-                    egg.y = 512 + (256 - egg.height) / 2;
-                    if(line3Num >= 3 && index == eggs.length - 1) {
-                        egg.y -= 20;
-                    }
+                    egg.y = (lineHeight-upHeight)*2 + (lineHeight - egg.height) / 2;
+                    // if(line3Num >= 3 && index == eggs.length - 1) {
+                    //     egg.y -= 20;
+                    // }
                 }
                 this.addChild(egg);
             }

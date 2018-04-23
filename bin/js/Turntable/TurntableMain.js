@@ -33,7 +33,7 @@ var TurntableMain = /** @class */ (function (_super) {
         if (Turntable.currentTurn < totalLength && !Turntable.gameChecking) {
             Laya.SoundManager.playSound("res/audio/turnTable.wav", 1);
             var _index = Turntable.randomTurn[Turntable.currentTurn];
-            var _rotation = 1800 * _index + (_index * 360) / totalLength;
+            var _rotation = 1800 * (Turntable.currentTurn + 1) + (_index * 360) / totalLength;
             Laya.Tween.to(this.table, { rotation: _rotation }, 3500, Laya.Ease.quartOut);
             Laya.timer.once(3500, this, function () {
                 Turntable.currentTurn++;

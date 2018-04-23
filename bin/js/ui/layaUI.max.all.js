@@ -12,6 +12,22 @@ var View = laya.ui.View;
 var Dialog = laya.ui.Dialog;
 var ui;
 (function (ui) {
+    var BOBalloonUI = /** @class */ (function (_super) {
+        __extends(BOBalloonUI, _super);
+        function BOBalloonUI() {
+            return _super.call(this) || this;
+        }
+        BOBalloonUI.prototype.createChildren = function () {
+            View.regComponent("Text", laya.display.Text);
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.BOBalloonUI.uiView);
+        };
+        BOBalloonUI.uiView = { "type": "View", "props": { "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "var": "ball0", "skin": "BalloonOpposites/left-1-0.png", "centerY": 0, "centerX": 0 } }, { "type": "Image", "props": { "var": "ball1", "skin": "BalloonOpposites/left-1-1.png", "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "y": 50, "x": 28, "width": 124, "skin": "template/Text/TextBox.png", "height": 60 } }, { "type": "Text", "props": { "y": 54, "x": 38, "width": 100, "var": "ballword", "text": "text", "height": 50, "fontSize": 40, "font": "FF", "color": "#000", "align": "center" } }] }] };
+        return BOBalloonUI;
+    }(View));
+    ui.BOBalloonUI = BOBalloonUI;
+})(ui || (ui = {}));
+(function (ui) {
     var BalloonDisappearUI = /** @class */ (function (_super) {
         __extends(BalloonDisappearUI, _super);
         function BalloonDisappearUI() {
@@ -42,22 +58,6 @@ var ui;
         return BalloonOppositesUI;
     }(View));
     ui.BalloonOppositesUI = BalloonOppositesUI;
-})(ui || (ui = {}));
-(function (ui) {
-    var BOBalloonUI = /** @class */ (function (_super) {
-        __extends(BOBalloonUI, _super);
-        function BOBalloonUI() {
-            return _super.call(this) || this;
-        }
-        BOBalloonUI.prototype.createChildren = function () {
-            View.regComponent("Text", laya.display.Text);
-            _super.prototype.createChildren.call(this);
-            this.createView(ui.BOBalloonUI.uiView);
-        };
-        BOBalloonUI.uiView = { "type": "View", "props": { "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "var": "ball0", "skin": "BalloonOpposites/left-1-0.png", "centerY": 0, "centerX": 0 } }, { "type": "Image", "props": { "var": "ball1", "skin": "BalloonOpposites/left-1-1.png", "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "y": 50, "x": 28, "width": 124, "skin": "template/Text/TextBox.png", "height": 60 } }, { "type": "Text", "props": { "y": 54, "x": 38, "width": 100, "var": "ballword", "text": "text", "height": 50, "fontSize": 40, "font": "FF", "color": "#000", "align": "center" } }] }] };
-        return BOBalloonUI;
-    }(View));
-    ui.BOBalloonUI = BOBalloonUI;
 })(ui || (ui = {}));
 (function (ui) {
     var BubbleUI = /** @class */ (function (_super) {
