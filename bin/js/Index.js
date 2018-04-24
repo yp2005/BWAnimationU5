@@ -1,6 +1,6 @@
 // 程序入口，本工程仅用于切换各个动画进行测试
 // 游戏名称，修改这个变量值来切换不同游戏，
-var gameName = "egg";
+var gameName = "opposites";
 if (gameName == "balloon") {
     //气球爆炸消失游戏
     var config = {
@@ -20,6 +20,10 @@ else if (gameName == "opposites") {
     // 气球反义词
     var config = {
         gameModel: false,
+        type: "balloon",
+        typeNum: 14,
+        // leftWords: ["sad"],
+        // rightWords: ["happy"]
         leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
         rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
     };

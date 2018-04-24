@@ -8,40 +8,46 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-// 气球类
 var BOBalloon = /** @class */ (function (_super) {
     __extends(BOBalloon, _super);
-    function BOBalloon(side, num, word) {
+    function BOBalloon(type, num, word, name) {
+        if (type === void 0) { type = "balloon"; }
+        if (num === void 0) { num = 1; }
+        if (word === void 0) { word = "text"; }
         var _this = _super.call(this) || this;
-        _this.ballword.text = word;
-        _this.ball0.skin = "BalloonOpposites/" + side + "-" + num + "-0.png";
-        _this.ball1.skin = "BalloonOpposites/" + side + "-" + num + "-1.png";
-        _this.ball0.visible = true;
+        _this.name = name;
+        _this.ball0.skin = "BalloonOpposites/" + type + "-" + num + "-0.png";
+        _this.ball1.skin = "BalloonOpposites/" + type + "-" + num + "-1.png";
+        _this.word.text = word;
+        if (word.length > 7) {
+            _this.wordbg.width = 150;
+            _this.word.width = 145;
+        }
         _this.ball1.visible = false;
-        _this.on(Laya.Event.CLICK, _this, _this.ballTap);
+        _this.wordbg.visible = false;
         return _this;
+        // this.word.visible = false;
+        // this.ball0.on(Laya.Event.CLICK, this, this.hit);
     }
-    // 气球受到拍打
-    BOBalloon.prototype.ballTap = function () {
+    BOBalloon.prototype.setPos = function (x, y) {
+        this.pos(x, y);
+        this.initY = y;
+        // 让延迟0-1秒随机时间开始晃动
+        Laya.timer.once(Math.random() * 1000, this, this.shake1);
+    };
+    // 被砸
+    BOBalloon.prototype.hit = function () {
         this.ball0.visible = false;
         this.ball1.visible = true;
-    };
-    // 显示爆炸效果图片
-    BOBalloon.prototype.showBlast = function () {
-        // this.picture.visible = false;
-        // this.blastImg.visible = true;
-        // Laya.SoundManager.playSound("res/audio/blast.mp3", 1);
-        // Laya.timer.once(300, this, this.showWord);
-    };
-    // 显示单词
-    BOBalloon.prototype.showWord = function () {
-        // this.blastImg.visible = false;
+        this.wordbg.visible = true;
         // this.word.visible = true;
-        // this.state = 0;
     };
-    // 晃动气球
-    BOBalloon.prototype.doShake = function () {
-        // this.shake.play(0, true);
+    // 晃动
+    BOBalloon.prototype.shake1 = function () {
+        Laya.Tween.to(this, { y: this.initY - 10 }, Math.random() * 2000 + 1000, null, Laya.Handler.create(this, this.shake2));
+    };
+    BOBalloon.prototype.shake2 = function () {
+        Laya.Tween.to(this, { y: this.initY }, Math.random() * 2000 + 1000, null, Laya.Handler.create(this, this.shake1));
     };
     return BOBalloon;
 }(ui.BOBalloonUI));

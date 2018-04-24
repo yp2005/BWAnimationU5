@@ -6,6 +6,7 @@ var BOConfigView = /** @class */ (function () {
         // 初始化配置页面元素
         this.leftInput = configBox.getChildByName("leftInput");
         this.rightInput = configBox.getChildByName("rightInput");
+        this.bgInput = configBox.getChildByName("bgInput");
         this.submitBtn = configBox.getChildByName("submitBtn");
         this.closeBtn = configBox.getChildByName("closeBtn");
         // 添加事件监听
@@ -16,6 +17,7 @@ var BOConfigView = /** @class */ (function () {
     BOConfigView.prototype.init = function () {
         this.leftInput.text = BalloonOpposites.gameConfig.leftWords.join(",");
         this.rightInput.text = BalloonOpposites.gameConfig.rightWords.join(",");
+        this.bgInput.text = BalloonOpposites.gameConfig.type + "-" + BalloonOpposites.gameConfig.typeNum;
     };
     // 显示配置
     BOConfigView.prototype.show = function () {
@@ -33,6 +35,7 @@ var BOConfigView = /** @class */ (function () {
         var _map = {};
         var leftTexts = this.leftInput.text.split(",");
         var rightTexts = this.rightInput.text.split(",");
+        var typeTexts = this.bgInput.text.split("-");
         var leftLength = leftTexts.length, rightLength = rightTexts.length;
         if (leftLength < 1 || leftLength > 7 || rightLength < 1 || rightLength > 7) {
             BalloonOpposites.balloonOppositesMain.showTip("左右两边的单词数量必须都在1-7之间！");
@@ -71,7 +74,11 @@ var BOConfigView = /** @class */ (function () {
             BalloonOpposites.balloonOppositesMain.showTip("单词重复！");
             return;
         }
+        var type = typeTexts[0] || "balloon";
+        var num = typeTexts[0] || "1";
         BalloonOpposites.ballWordMap = _map;
+        BalloonOpposites.gameConfig.type = type;
+        BalloonOpposites.gameConfig.typeNum = parseInt(num);
         BalloonOpposites.gameConfig.leftWords = leftTexts;
         BalloonOpposites.gameConfig.rightWords = rightTexts;
         BalloonOpposites.init();
