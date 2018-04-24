@@ -60,7 +60,7 @@ var ThrowDice = /** @class */ (function () {
             ThrowDice.currentDice.body.off(Laya.Event.CLICK, this, this.doThrow);
             ThrowDice.currentDice.playAction('dice_throw');
             Laya.SoundManager.playSound("res/audio/dice.mp3", 1);
-            Laya.timer.once(2000, this, function () {
+            Laya.timer.once(3000, this, function () {
                 ThrowDice.currentDice.playAction('dice_' + ThrowDice.diceArr[ThrowDice.diceNum]);
                 Laya.timer.once(1000, this, function () {
                     var mask = ThrowDice.throwDiceMain.getChildByName('mask' + ThrowDice.diceArr[ThrowDice.diceNum]);

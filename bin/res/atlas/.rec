@@ -1,5 +1,8 @@
 D .
+R FE94AB5B .DS_Store
+R D6AFB7DA .gitignore
 D BalloonOpposites
+R 6D88006A .DS_Store
 P 27DA8A81 balloon-1-0.png
 P 25E72C0E balloon-1-1.png
 P A1FACE49 balloon-10-0.png
@@ -31,6 +34,7 @@ P 4DAE8032 balloon-9-1.png
 R 672A3162 bg.jpg
 P C362DC6D bg_welldone.png
 D common
+R 6D88006A .DS_Store
 P 96015AC9 btn_start.png
 P 5A05FAAE configBG.png
 P 18FAF2E0 gameover.png
@@ -42,6 +46,7 @@ P EA6A5058 replay.png
 P 6F2E1E3C setting.png
 P 5097AE90 well-done.png
 D FishAndWord
+R 6D88006A .DS_Store
 R C87E8CBF bg-1.jpeg
 R DFBE4436 bg-2.png
 R 1E438580 bg-3.png
@@ -62,6 +67,7 @@ P B379FD62 word-bg-1.png
 P 17545409 word-bg-2-big.png
 P 8419D019 word-bg-2.png
 D HitBalloonDisappear
+R D6AFB7DA .gitignore
 P 0DF6FC46 balloon-1.png
 P 735D276D balloon-2.png
 P 5575E700 balloon-3.png
@@ -113,7 +119,10 @@ P F3BB03B9 text4.png
 P CC2C7948 tiger.png
 P 730057DF tigers.png
 D template
+R 5E486ECF .DS_Store
+R D6AFB7DA .gitignore
 D ThrowDice
+R 6D88006A .DS_Store
 R FAC052C7 bg1.png
 R E877F99F bg2.png
 P CF51AC5D dice-face-1.png

@@ -190,7 +190,7 @@ var BalloonOpposites = /** @class */ (function () {
             }
             else {
                 BalloonOpposites.shake(ball);
-                Laya.timer.once(2000, this, function () {
+                Laya.timer.once(1000, this, function () {
                     ball0.visible = true;
                     ball1.visible = false;
                     wordbg.visible = false;
