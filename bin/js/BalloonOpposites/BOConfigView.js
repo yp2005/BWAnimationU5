@@ -75,7 +75,7 @@ var BOConfigView = /** @class */ (function () {
             return;
         }
         var type = typeTexts[0] || "balloon";
-        var num = typeTexts[0] || "1";
+        var num = typeTexts[1] || "1";
         BalloonOpposites.ballWordMap = _map;
         BalloonOpposites.gameConfig.type = type;
         BalloonOpposites.gameConfig.typeNum = parseInt(num);

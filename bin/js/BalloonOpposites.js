@@ -88,6 +88,7 @@ var BalloonOpposites = /** @class */ (function () {
     };
     // 初始化
     BalloonOpposites.init = function () {
+        BalloonOpposites.balloonOppositesMain.ballbox.destroyChildren();
         BalloonOpposites.initOpposites();
         BalloonOpposites.initSideBall('left');
         BalloonOpposites.initSideBall('right');

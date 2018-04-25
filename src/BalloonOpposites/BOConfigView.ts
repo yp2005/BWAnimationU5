@@ -89,7 +89,7 @@ class BOConfigView {
         }
 
         let type = typeTexts[0] || "balloon";
-        let num = typeTexts[0] || "1";
+        let num = typeTexts[1] || "1";
 
         BalloonOpposites.ballWordMap = _map;
 

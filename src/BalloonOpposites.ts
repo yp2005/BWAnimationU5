@@ -105,6 +105,7 @@ class BalloonOpposites {
 
     // 初始化
     public static init() {
+        BalloonOpposites.balloonOppositesMain.ballbox.destroyChildren();
         BalloonOpposites.initOpposites();
         BalloonOpposites.initSideBall('left');
         BalloonOpposites.initSideBall('right');

@@ -12,6 +12,22 @@ var View = laya.ui.View;
 var Dialog = laya.ui.Dialog;
 var ui;
 (function (ui) {
+    var BOBalloonUI = /** @class */ (function (_super) {
+        __extends(BOBalloonUI, _super);
+        function BOBalloonUI() {
+            return _super.call(this) || this;
+        }
+        BOBalloonUI.prototype.createChildren = function () {
+            View.regComponent("Text", laya.display.Text);
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.BOBalloonUI.uiView);
+        };
+        BOBalloonUI.uiView = { "type": "View", "props": {}, "child": [{ "type": "Box", "props": { "width": 200, "height": 200 }, "child": [{ "type": "Image", "props": { "var": "ball0", "skin": "BalloonOpposites/balloon-1-0.png", "centerY": 0, "centerX": 0 } }, { "type": "Image", "props": { "var": "ball1", "skin": "BalloonOpposites/balloon-1-1.png", "centerY": 0, "centerX": 0 } }, { "type": "Image", "props": { "y": 8, "x": 100, "width": 130, "var": "wordbg", "skin": "template/Text/TextBox.png", "pivotY": 30, "pivotX": 65, "height": 60, "centerY": 0, "centerX": 0 }, "child": [{ "type": "Text", "props": { "y": 0, "x": 0, "width": 125, "var": "word", "text": "beautiful", "pivotY": -5, "pivotX": -3, "height": 50, "fontSize": 40, "font": "FF", "color": "#000", "align": "center" } }] }] }] };
+        return BOBalloonUI;
+    }(View));
+    ui.BOBalloonUI = BOBalloonUI;
+})(ui || (ui = {}));
+(function (ui) {
     var BalloonDisappearUI = /** @class */ (function (_super) {
         __extends(BalloonDisappearUI, _super);
         function BalloonDisappearUI() {
@@ -42,22 +58,6 @@ var ui;
         return BalloonOppositesUI;
     }(View));
     ui.BalloonOppositesUI = BalloonOppositesUI;
-})(ui || (ui = {}));
-(function (ui) {
-    var BOBalloonUI = /** @class */ (function (_super) {
-        __extends(BOBalloonUI, _super);
-        function BOBalloonUI() {
-            return _super.call(this) || this;
-        }
-        BOBalloonUI.prototype.createChildren = function () {
-            View.regComponent("Text", laya.display.Text);
-            _super.prototype.createChildren.call(this);
-            this.createView(ui.BOBalloonUI.uiView);
-        };
-        BOBalloonUI.uiView = { "type": "View", "props": {}, "child": [{ "type": "Box", "props": { "width": 200, "height": 200 }, "child": [{ "type": "Image", "props": { "var": "ball0", "skin": "BalloonOpposites/balloon-1-0.png", "centerY": 0, "centerX": 0 } }, { "type": "Image", "props": { "var": "ball1", "skin": "BalloonOpposites/balloon-1-1.png", "centerY": 0, "centerX": 0 } }, { "type": "Image", "props": { "y": 8, "x": 100, "width": 130, "var": "wordbg", "skin": "template/Text/TextBox.png", "pivotY": 30, "pivotX": 65, "height": 60, "centerY": 0, "centerX": 0 }, "child": [{ "type": "Text", "props": { "y": 0, "x": 0, "width": 125, "var": "word", "text": "beautiful", "pivotY": -5, "pivotX": -3, "height": 50, "fontSize": 40, "font": "FF", "color": "#000", "align": "center" } }] }] }] };
-        return BOBalloonUI;
-    }(View));
-    ui.BOBalloonUI = BOBalloonUI;
 })(ui || (ui = {}));
 (function (ui) {
     var BubbleUI = /** @class */ (function (_super) {
