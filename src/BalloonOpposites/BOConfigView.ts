@@ -4,6 +4,7 @@ class BOConfigView {
     private leftInput: Laya.TextInput; // 输入框
     private rightInput: Laya.TextInput; // 输入框
     private bgInput: Laya.TextInput; // 输入框
+    private textbgInput: Laya.TextInput; // 输入框
     private submitBtn: Laya.Image; // 提交按钮
     private closeBtn: Laya.Text; // 关闭按钮
 
@@ -14,6 +15,7 @@ class BOConfigView {
         this.leftInput = configBox.getChildByName("leftInput") as Laya.TextInput;
         this.rightInput = configBox.getChildByName("rightInput") as Laya.TextInput;
         this.bgInput = configBox.getChildByName("bgInput") as Laya.TextInput;
+        this.textbgInput = configBox.getChildByName("textbgInput") as Laya.TextInput;
         this.submitBtn = configBox.getChildByName("submitBtn") as Laya.Image;
         this.closeBtn = configBox.getChildByName("closeBtn") as Laya.Text;
         // 添加事件监听
@@ -25,7 +27,8 @@ class BOConfigView {
     private init() {
         this.leftInput.text = BalloonOpposites.gameConfig.leftWords.join(",");
         this.rightInput.text = BalloonOpposites.gameConfig.rightWords.join(",");
-        this.bgInput.text = BalloonOpposites.gameConfig.type+"-"+BalloonOpposites.gameConfig.typeNum;
+        this.bgInput.text = BalloonOpposites.gameConfig.bg;
+        this.textbgInput.text = BalloonOpposites.gameConfig.type+"-"+BalloonOpposites.gameConfig.typeNum;
     }
 
     // 显示配置
@@ -47,7 +50,7 @@ class BOConfigView {
         let _map = {};
         let leftTexts = this.leftInput.text.split(",");
         let rightTexts = this.rightInput.text.split(",");
-        let typeTexts = this.bgInput.text.split("-");
+        let typeTexts = this.textbgInput.text.split("-");
         let leftLength = leftTexts.length,rightLength = rightTexts.length;
         if(leftLength <1 || leftLength > 7 || rightLength <1 || rightLength > 7){
             BalloonOpposites.balloonOppositesMain.showTip("左右两边的单词数量必须都在1-7之间！");
@@ -93,6 +96,7 @@ class BOConfigView {
 
         BalloonOpposites.ballWordMap = _map;
 
+        BalloonOpposites.gameConfig.bg = this.bgInput.text;
         BalloonOpposites.gameConfig.type = type;
         BalloonOpposites.gameConfig.typeNum = parseInt(num);
         BalloonOpposites.gameConfig.leftWords = leftTexts;

@@ -22,6 +22,7 @@ else if(gameName == "opposites") {
     // 气球反义词
     let config: any = {
         gameModel: false,
+        bg: "bg.jpg",
         type: "balloon",
         typeNum: 14,
         leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],

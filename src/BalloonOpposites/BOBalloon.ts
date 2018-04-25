@@ -4,6 +4,8 @@ class BOBalloon extends ui.BOBalloonUI {
     constructor(type:string = "balloon",num:number = 1,word: string = "text",name: string) {
         super();
         this.name = name;
+        // this.ball0.skin = "BalloonOpposites/balloon-2-0.png";
+        // this.ball1.skin = "BalloonOpposites/balloon-2-1.png";
         this.ball0.skin = "BalloonOpposites/"+type+"-"+num+"-0.png";
         this.ball1.skin = "BalloonOpposites/"+type+"-"+num+"-1.png";
         this.word.text = word;
@@ -15,6 +17,17 @@ class BOBalloon extends ui.BOBalloonUI {
         this.wordbg.visible = false;
         // this.word.visible = false;
         // this.ball0.on(Laya.Event.CLICK, this, this.hit);
+
+        // test
+        // this.ball0.on(Laya.Event.ERROR,this,this.error);
+        // this.ball0.on(Laya.Event.LOADED,this,this.loaded);
+    }
+
+    public error(){
+        console.log("error::"+this.ball0.skin)
+    }
+    public loaded(){
+        console.log("loaded::"+this.ball0.skin)
     }
 
     public setPos(x:number,y:number){

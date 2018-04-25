@@ -21,6 +21,7 @@ class BalloonOpposites {
         if(!config) {
             config = {
                 gameModel: false,
+                bg: "bg.jpg",
                 type: "balloon",
                 typeNum: 14,
                 leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
@@ -105,6 +106,7 @@ class BalloonOpposites {
 
     // 初始化
     public static init() {
+        BalloonOpposites.balloonOppositesMain.bg.skin = "BalloonOpposites/"+BalloonOpposites.gameConfig.bg;
         BalloonOpposites.balloonOppositesMain.ballbox.destroyChildren();
         BalloonOpposites.initOpposites();
         BalloonOpposites.initSideBall('left');

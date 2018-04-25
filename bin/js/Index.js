@@ -20,7 +20,7 @@ else if (gameName == "opposites") {
     // 气球反义词
     var config = {
         gameModel: false,
-        type: "balloon",
+        type: "balloon1",
         typeNum: 14,
         leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
         rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
