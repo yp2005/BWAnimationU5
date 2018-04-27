@@ -10,6 +10,7 @@ var BalloonOpposites = /** @class */ (function () {
         if (!config) {
             config = {
                 gameModel: false,
+                bg: "bg.jpg",
                 type: "balloon",
                 typeNum: 14,
                 leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
@@ -88,6 +89,7 @@ var BalloonOpposites = /** @class */ (function () {
     };
     // 初始化
     BalloonOpposites.init = function () {
+        BalloonOpposites.balloonOppositesMain.bg.skin = "BalloonOpposites/" + BalloonOpposites.gameConfig.bg;
         BalloonOpposites.balloonOppositesMain.ballbox.destroyChildren();
         BalloonOpposites.initOpposites();
         BalloonOpposites.initSideBall('left');

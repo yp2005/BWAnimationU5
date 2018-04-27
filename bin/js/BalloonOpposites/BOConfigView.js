@@ -7,6 +7,7 @@ var BOConfigView = /** @class */ (function () {
         this.leftInput = configBox.getChildByName("leftInput");
         this.rightInput = configBox.getChildByName("rightInput");
         this.bgInput = configBox.getChildByName("bgInput");
+        this.textbgInput = configBox.getChildByName("textbgInput");
         this.submitBtn = configBox.getChildByName("submitBtn");
         this.closeBtn = configBox.getChildByName("closeBtn");
         // 添加事件监听
@@ -17,7 +18,8 @@ var BOConfigView = /** @class */ (function () {
     BOConfigView.prototype.init = function () {
         this.leftInput.text = BalloonOpposites.gameConfig.leftWords.join(",");
         this.rightInput.text = BalloonOpposites.gameConfig.rightWords.join(",");
-        this.bgInput.text = BalloonOpposites.gameConfig.type + "-" + BalloonOpposites.gameConfig.typeNum;
+        this.bgInput.text = BalloonOpposites.gameConfig.bg;
+        this.textbgInput.text = BalloonOpposites.gameConfig.type + "-" + BalloonOpposites.gameConfig.typeNum;
     };
     // 显示配置
     BOConfigView.prototype.show = function () {
@@ -35,7 +37,7 @@ var BOConfigView = /** @class */ (function () {
         var _map = {};
         var leftTexts = this.leftInput.text.split(",");
         var rightTexts = this.rightInput.text.split(",");
-        var typeTexts = this.bgInput.text.split("-");
+        var typeTexts = this.textbgInput.text.split("-");
         var leftLength = leftTexts.length, rightLength = rightTexts.length;
         if (leftLength < 1 || leftLength > 7 || rightLength < 1 || rightLength > 7) {
             BalloonOpposites.balloonOppositesMain.showTip("左右两边的单词数量必须都在1-7之间！");
@@ -77,6 +79,7 @@ var BOConfigView = /** @class */ (function () {
         var type = typeTexts[0] || "balloon";
         var num = typeTexts[1] || "1";
         BalloonOpposites.ballWordMap = _map;
+        BalloonOpposites.gameConfig.bg = this.bgInput.text;
         BalloonOpposites.gameConfig.type = type;
         BalloonOpposites.gameConfig.typeNum = parseInt(num);
         BalloonOpposites.gameConfig.leftWords = leftTexts;

@@ -74,8 +74,8 @@ class ThrowDice {
         if(ThrowDice.diceNum !== 6){
             ThrowDice.currentDice.body.off(Laya.Event.CLICK,this,this.doThrow);
             ThrowDice.currentDice.playAction('dice_throw');
-            Laya.SoundManager.playSound("res/audio/dice.mp3", 1);
-            Laya.timer.once(3000,this,function(){
+            Laya.SoundManager.playSound("res/audio/dice1.mp3", 1);
+            Laya.timer.once(1500,this,function(){
                 ThrowDice.currentDice.playAction('dice_'+ThrowDice.diceArr[ThrowDice.diceNum]);
                 Laya.timer.once(1000,this,function(){
                     let mask = ThrowDice.throwDiceMain.getChildByName('mask'+ThrowDice.diceArr[ThrowDice.diceNum]) as Laya.Image;

@@ -16,8 +16,8 @@ var BOBalloon = /** @class */ (function (_super) {
         if (word === void 0) { word = "text"; }
         var _this = _super.call(this) || this;
         _this.name = name;
-        _this.ball0.skin = "BalloonOpposites/balloon-2-0.png";
-        _this.ball1.skin = "BalloonOpposites/balloon-2-1.png";
+        // this.ball0.skin = "BalloonOpposites/balloon-2-0.png";
+        // this.ball1.skin = "BalloonOpposites/balloon-2-1.png";
         _this.ball0.skin = "BalloonOpposites/" + type + "-" + num + "-0.png";
         _this.ball1.skin = "BalloonOpposites/" + type + "-" + num + "-1.png";
         _this.word.text = word;
@@ -27,11 +27,12 @@ var BOBalloon = /** @class */ (function (_super) {
         }
         _this.ball1.visible = false;
         _this.wordbg.visible = false;
+        return _this;
         // this.word.visible = false;
         // this.ball0.on(Laya.Event.CLICK, this, this.hit);
-        _this.ball0.on(Laya.Event.ERROR, _this, _this.error);
-        _this.ball0.on(Laya.Event.LOADED, _this, _this.loaded);
-        return _this;
+        // test
+        // this.ball0.on(Laya.Event.ERROR,this,this.error);
+        // this.ball0.on(Laya.Event.LOADED,this,this.loaded);
     }
     BOBalloon.prototype.error = function () {
         console.log("error::" + this.ball0.skin);
