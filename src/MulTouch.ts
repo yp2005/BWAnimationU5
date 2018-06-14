@@ -82,6 +82,7 @@ class MulTouch {
 
     // 初始化单词
     public static initWords() { 
+        MulTouch.allWords = [];
         let totalY = 600;
         let leftLength = MulTouch.gameConfig.leftWords.length;
         let rightLength = MulTouch.gameConfig.rightWords.length;

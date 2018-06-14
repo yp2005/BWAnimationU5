@@ -59,6 +59,7 @@ var MulTouch = /** @class */ (function () {
     };
     // 初始化单词
     MulTouch.initWords = function () {
+        MulTouch.allWords = [];
         var totalY = 600;
         var leftLength = MulTouch.gameConfig.leftWords.length;
         var rightLength = MulTouch.gameConfig.rightWords.length;

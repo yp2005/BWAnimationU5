@@ -10,7 +10,8 @@ var Turntable = /** @class */ (function () {
                 gameModel: false,
                 words: ["sad", "young", "ugly", "big", "empty", "good", "low"],
                 pics: ["bomb.png"],
-                fontSize: "35"
+                fontSize: "35",
+                bg: "bg.png"
             };
         }
         Turntable.gameConfig = config;
@@ -56,6 +57,7 @@ var Turntable = /** @class */ (function () {
         Turntable.turntableMain.table.visible = true;
         Turntable.turntableMain.stop.visible = true;
         // Turntable.turntableMain.startTable();
+        Turntable.turntableMain.gameBg.skin = "Turntable/" + Turntable.gameConfig.bg;
     };
     Turntable.initTable = function () {
         Turntable.turntableMain.table.rotation = 0;
