@@ -38,7 +38,21 @@ var TConfigView = /** @class */ (function () {
         var fontSize = this.fontInput.text;
         var bg = this.bgInput.text;
         var leftLength = words.length, rightLength = pics.length;
+        // 空字符串split之后返回[""];
+        if (leftLength === 1) {
+            if (words[0] === "") {
+                leftLength = 0;
+            }
+        }
+        if (rightLength === 1) {
+            if (pics[0] === "") {
+                rightLength = 0;
+            }
+        }
         var total = leftLength + rightLength;
+        console.log(JSON.stringify(words));
+        console.log(JSON.stringify(pics));
+        console.log(leftLength + "--" + rightLength + "--" + total);
         if (!/\d+/.test(fontSize)) {
             Turntable.turntableMain.showTip("字号必须为正整数！");
             return;

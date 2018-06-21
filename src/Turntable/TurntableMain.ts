@@ -24,7 +24,19 @@ class TurntableMain extends ui.TurntableUI {
         if(Turntable.gameChecking) return;
         let wordLength = Turntable.gameConfig.words.length;
         let picLength = Turntable.gameConfig.pics.length;
+        // 空字符串split之后返回[""];
+        if(wordLength === 1){
+            if(Turntable.gameConfig.words[0] === ""){
+                wordLength = 0;
+            }
+        }
+        if(picLength === 1){
+            if(Turntable.gameConfig.pics[0] === ""){
+                picLength = 0;
+            }
+        }
         let totalLength = wordLength+picLength;
+
         if(Turntable.currentTurn<totalLength ){
             Turntable.gameChecking = true;
             Laya.SoundManager.playSound("res/audio/turnTable.wav", 1);

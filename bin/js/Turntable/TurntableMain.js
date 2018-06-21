@@ -32,6 +32,17 @@ var TurntableMain = /** @class */ (function (_super) {
             return;
         var wordLength = Turntable.gameConfig.words.length;
         var picLength = Turntable.gameConfig.pics.length;
+        // 空字符串split之后返回[""];
+        if (wordLength === 1) {
+            if (Turntable.gameConfig.words[0] === "") {
+                wordLength = 0;
+            }
+        }
+        if (picLength === 1) {
+            if (Turntable.gameConfig.pics[0] === "") {
+                picLength = 0;
+            }
+        }
         var totalLength = wordLength + picLength;
         if (Turntable.currentTurn < totalLength) {
             Turntable.gameChecking = true;
