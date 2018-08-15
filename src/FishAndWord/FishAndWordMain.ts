@@ -23,6 +23,8 @@ class FishAndWordMain extends ui.FishAndWordUI {
     public showTip(text: string) {
         this.tip.text = text;
         this.tip.visible = true;
+        this.tip.removeSelf();
+        this.addChild(this.tip);
         Laya.timer.once(1500, this, this.hideTip);
     }
 
@@ -50,7 +52,8 @@ class FishAndWordMain extends ui.FishAndWordUI {
     }
 
     // 将游戏元素添加到游戏主页面
-    private addElement(fish?: Fish1[], bubbles?: Bubble[], shells?: Shell[]) {
+    private addElement(fish?: Fish1[], bubbles?: Bubble[], shells?: Shell[], longBubbles?: LongBubble[]) {
+        let wordPositon = FishAndWord.wordPositon;
         if(fish) {
             this.words = fish;
         }
@@ -60,8 +63,12 @@ class FishAndWordMain extends ui.FishAndWordUI {
         else if(shells) {
             this.words = shells;
         }
+        else if(longBubbles) {
+            this.words = longBubbles;
+            wordPositon = FishAndWord.wordPositon1;
+        }
         let indexes: number[] = new Array<number>();
-        for(let i = 0; i < 16; i++) {
+        for(let i = 0; i < wordPositon.length; i++) {
             indexes.push(i);
         }
         for(let word of this.words) {
@@ -70,8 +77,8 @@ class FishAndWordMain extends ui.FishAndWordUI {
             indexes.splice(i, 1);
             
             // 设置单词在有界面的位置
-            word.x = FishAndWord.wordPositon[index].x;
-            word.y = FishAndWord.wordPositon[index].y;
+            word.x = wordPositon[index].x;
+            word.y = wordPositon[index].y;
             // 让延迟0-1秒随机时间开始晃动
             Laya.timer.once(Math.floor(Math.random() * 1000), word, word.shake1);
             
@@ -126,6 +133,14 @@ class FishAndWordMain extends ui.FishAndWordUI {
                 shells.push(shell);
             }
             this.addElement(null, null, shells);
+        }
+        else if(FishAndWord.gameConfig.type == "longBubble") {
+            let longBubbles: LongBubble[] = new Array<LongBubble>();
+            for(let word of FishAndWord.gameConfig.words) {
+                let longBubble = new LongBubble(word);
+                longBubbles.push(longBubble);
+            }
+            this.addElement(null, null, null, longBubbles);
         }
     }
 

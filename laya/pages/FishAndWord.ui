@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":26,
-    "selecteID":43,
+    "selectedBox":1,
+    "selecteID":27,
     "props":{"width":1024,"sceneWidth":1024,"sceneHeight":768,"sceneColor":"#ffffff","height":768},
     "nodeParent":-1,
     "label":"View",
@@ -50,7 +50,8 @@
                     "compId":30,
                     "child":[
                         ],
-                    "$LOCKED":true
+                    "$LOCKED":true,
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -250,7 +251,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":167,"x":634,"text":"注：\bfish、bubble、shell三种","fontSize":17,"font":"FF","color":"#666666"},
+                    "props":{"y":167,"x":634,"text":"注：\bfish、bubble、longBubble、shell三种","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":26,
                     "label":"Text",
                     "isDirectory":false,
@@ -259,12 +260,13 @@
                     "compId":46,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Text",
-            "props":{"y":123,"x":152,"width":300,"var":"tip","text":"操作不正确！","pivotY":2,"pivotX":8,"height":30,"fontSize":30,"font":"FF","color":"#17a817","align":"center"},
+            "props":{"y":123,"x":152,"width":300,"var":"tip","text":"操作不正确！","pivotY":2,"pivotX":8,"height":30,"fontSize":30,"font":"FF","color":"#ee1613","align":"center"},
             "nodeParent":1,
             "label":"Text(tip)",
             "isDirectory":false,
@@ -272,7 +274,8 @@
             "hasChild":false,
             "compId":27,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
