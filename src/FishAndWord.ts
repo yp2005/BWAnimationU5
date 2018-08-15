@@ -3,13 +3,16 @@ import Stage = Laya.Stage;
 import WebGL   = Laya.WebGL;
 import Sprite = Laya.Sprite;
 class FishAndWord {
-    public static fishAndWordMain: FishAndWordMain; // 拍气球主界面
+    public static fishAndWordMain: FishAndWordMain; // 触摸小鱼游戏主界面
     public static gameConfig: any; // 游戏配置
+    // 单词位置集合，用于随机位置
     public static wordPositon: any[] = [{x: 62,y: 82}, {x: 90,y: 289}, {x: 56,y: 482}, {x: 298,y: 137}, {x: 265,y: 287},
                                         {x: 321,y: 433}, {x: 274,y: 586}, {x: 520,y: 148}, {x: 486,y: 307}, {x: 490,y: 522},
                                         {x: 690,y: 216}, {x: 653,y: 378}, {x: 701,y: 519}, {x: 799,y: 70}, {x: 867,y: 248},
                                         {x: 853,y: 440}];
-
+    // 单词位置集合1，用于随机位置，长泡泡使用
+    public static wordPositon1: any[] = [{x: 54,y: 123}, {x: 380,y: 174}, {x: 735,y: 129}, {x: 15,y: 266}, {x: 353,y: 315},
+                                         {x: 724,y: 351}, {x: 96,y: 467}, {x: 435,y: 449}, {x: 748,y: 498}, {x: 348,y: 572}];
     constructor(config: any)
     {
         // 如果没有传入配置，使用默认配置
