@@ -24,7 +24,7 @@ var Egg = /** @class */ (function (_super) {
         _this.wordBg.height = _this.word.height > 48 ? _this.word.fontSize : 48;
         _this.wordBg.x = (_this.width - _this.wordBg.width) / 2;
         _this.wordBg.y = 160;
-        _this.word.y = 160 + (_this.wordBg.height - _this.word.height) / 2 + 2;
+        _this.word.y = 160 + (_this.wordBg.height - _this.word.height) / 2 - 2;
         // 初始化蛋的显示元素
         _this.picture.visible = true;
         _this.wordBg.visible = false;

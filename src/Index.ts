@@ -1,7 +1,7 @@
 // 程序入口，本工程仅用于切换各个动画进行测试
 
 // 游戏名称，修改这个变量值来切换不同游戏，
-let gameName = "multouch"; 
+let gameName = "turntable"; 
 
 if(gameName == "balloon") {
     //气球爆炸消失游戏
@@ -22,6 +22,9 @@ else if(gameName == "opposites") {
     // 气球反义词
     let config: any = {
         gameModel: false,
+        bg: "bg.jpg",
+        type: "balloon",
+        typeNum: 14,
         leftWords: ["sad", "young", "ugly", "big", "empty", "good", "low"],
         rightWords: ["happy", "old", "beautiful", "small", "full", "bad", "high"]
     };
@@ -54,7 +57,8 @@ else if(gameName == "turntable") {
         gameModel: false,
         words: ["sad", "young", "ugly", "big"],
         pics: ["star.png","bomb2.png"],
-        fontSize: "35"
+        fontSize: "35",
+        bg:"bg.png"
     };
     new Turntable(config);
 }

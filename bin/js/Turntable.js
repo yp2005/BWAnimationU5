@@ -10,7 +10,8 @@ var Turntable = /** @class */ (function () {
                 gameModel: false,
                 words: ["sad", "young", "ugly", "big", "empty", "good", "low"],
                 pics: ["bomb.png"],
-                fontSize: "35"
+                fontSize: "35",
+                bg: "bg.png"
             };
         }
         Turntable.gameConfig = config;
@@ -56,12 +57,25 @@ var Turntable = /** @class */ (function () {
         Turntable.turntableMain.table.visible = true;
         Turntable.turntableMain.stop.visible = true;
         // Turntable.turntableMain.startTable();
+        Turntable.turntableMain.gameBg.skin = "Turntable/" + Turntable.gameConfig.bg;
     };
     Turntable.initTable = function () {
+        Turntable.turntableMain.table.rotation = 0;
         // 清空
         Turntable.turntableMain.table.removeChildren(0, Turntable.turntableMain.table.numChildren);
         var wordLength = Turntable.gameConfig.words.length;
         var picLength = Turntable.gameConfig.pics.length;
+        // 空字符串split之后返回[""];
+        if (wordLength === 1) {
+            if (Turntable.gameConfig.words[0] === "") {
+                wordLength = 0;
+            }
+        }
+        if (picLength === 1) {
+            if (Turntable.gameConfig.pics[0] === "") {
+                picLength = 0;
+            }
+        }
         var totalLength = wordLength + picLength;
         Turntable.randomTurn = Turntable.getRandomArr(totalLength);
         Turntable.currentTurn = 0;

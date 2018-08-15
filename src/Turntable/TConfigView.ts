@@ -4,6 +4,7 @@ class TConfigView {
     private wordInput: Laya.TextInput; // 输入框
     private picInput: Laya.TextInput; // 输入框
     private fontInput: Laya.TextInput; // 输入框
+    private bgInput: Laya.TextInput; // 输入框
     private submitBtn: Laya.Image; // 提交按钮
     private closeBtn: Laya.Text; // 关闭按钮
 
@@ -14,6 +15,7 @@ class TConfigView {
         this.wordInput = configBox.getChildByName("wordInput") as Laya.TextInput;
         this.picInput = configBox.getChildByName("picInput") as Laya.TextInput;
         this.fontInput = configBox.getChildByName("fontInput") as Laya.TextInput;
+        this.bgInput = configBox.getChildByName("bgInput") as Laya.TextInput;
         this.submitBtn = configBox.getChildByName("submitBtn") as Laya.Image;
         this.closeBtn = configBox.getChildByName("closeBtn") as Laya.Text;
         // 添加事件监听
@@ -26,6 +28,7 @@ class TConfigView {
         this.wordInput.text = Turntable.gameConfig.words.join(",");
         this.picInput.text = Turntable.gameConfig.pics.join(",");
         this.fontInput.text = Turntable.gameConfig.fontSize;
+        this.bgInput.text = Turntable.gameConfig.bg;
     }
 
     // 显示配置
@@ -45,8 +48,23 @@ class TConfigView {
         let words = this.wordInput.text.split(",");
         let pics = this.picInput.text.split(",");
         let fontSize = this.fontInput.text;
+        let bg = this.bgInput.text;
         let leftLength = words.length,rightLength = pics.length;
+        // 空字符串split之后返回[""];
+        if(leftLength === 1){
+            if(words[0] === ""){
+                leftLength = 0;
+            }
+        }
+        if(rightLength === 1){
+            if(pics[0] === ""){
+                rightLength = 0;
+            }
+        }
         let total = leftLength + rightLength;
+        // console.log(JSON.stringify(words));
+        // console.log(JSON.stringify(pics));
+        // console.log(leftLength+"--"+rightLength+"--"+total);
         if(!/\d+/.test(fontSize)) {
             Turntable.turntableMain.showTip("字号必须为正整数！");
             return;
@@ -55,6 +73,7 @@ class TConfigView {
             Turntable.gameConfig.words = words;
             Turntable.gameConfig.pics = pics;
             Turntable.gameConfig.fontSize = fontSize;
+            Turntable.gameConfig.bg = bg;
             Turntable.turntableMain.showTip("提交成功！");
             this.hide();
             Turntable.init();

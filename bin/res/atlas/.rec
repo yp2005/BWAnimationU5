@@ -1,35 +1,35 @@
 D .
 D BalloonOpposites
+P 27DA8A81 balloon-1-0.png
+P 25E72C0E balloon-1-1.png
+P A1FACE49 balloon-10-0.png
+P B8BF799C balloon-10-1.png
+P 9A96D747 balloon-11-0.png
+P 0248916F balloon-11-1.png
+P A5E0BB47 balloon-12-0.png
+P 0CE8F42A balloon-12-1.png
+P 314D0763 balloon-13-0.png
+P 0AD55EE1 balloon-13-1.png
+P C9E92F29 balloon-14-0.png
+P 4DAE8032 balloon-14-1.png
+P CD713ADE balloon-2-0.png
+P 3D9A3DCC balloon-2-1.png
+P A3A8A630 balloon-3-0.png
+P 8E8CE38F balloon-3-1.png
+P 23AB9D11 balloon-4-0.png
+P FD3E805F balloon-4-1.png
+P 4F0FA580 balloon-5-0.png
+P 45DC193D balloon-5-1.png
+P 23AB9D11 balloon-6-0.png
+P FD3E805F balloon-6-1.png
+P F099C072 balloon-7-0.png
+P AD6299AC balloon-7-1.png
+P 9F49995A balloon-8-0.png
+P 21CD68B5 balloon-8-1.png
+P C9E92F29 balloon-9-0.png
+P 4DAE8032 balloon-9-1.png
 R 672A3162 bg.jpg
 P C362DC6D bg_welldone.png
-P E8716165 left-1-0.png
-P 93F36580 left-1-1.png
-P 0C8F79FD left-2-0.png
-P 14429A2B left-2-1.png
-P 3C335A32 left-3-0.png
-P CE7431BE left-3-1.png
-P 6E6919E9 left-4-0.png
-P 77A6EEF4 left-4-1.png
-P C654D648 left-5-0.png
-P 62F79FCA left-5-1.png
-P 66CAD10C left-6-0.png
-P CE5DCA7A left-6-1.png
-P E3113C80 left-7-0.png
-P 6531AF1A left-7-1.png
-P 2211A06F right-1-0.png
-P 29AF6502 right-1-1.png
-P 95AAAE10 right-2-0.png
-P 4AF407A4 right-2-1.png
-P B1D2EFAC right-3-0.png
-P AB9EB66D right-3-1.png
-P F53CA3D5 right-4-0.png
-P 52FCFD6D right-4-1.png
-P F1DA60F0 right-5-0.png
-P 24C37191 right-5-1.png
-P CF857F31 right-6-0.png
-P E62D4916 right-6-1.png
-P 95AAAE10 right-7-0.png
-P 4AF407A4 right-7-1.png
 D common
 P 96015AC9 btn_start.png
 P 5A05FAAE configBG.png
@@ -115,7 +115,7 @@ P 730057DF tigers.png
 D template
 D ThrowDice
 R FAC052C7 bg1.png
-R 78D5C4D4 bg2.png
+R E877F99F bg2.png
 P CF51AC5D dice-face-1.png
 P EA793FDA dice-face-2.png
 P 2C4A6E6E dice-face-3.png
@@ -148,6 +148,7 @@ P F48C43CE pic-2-5.png
 P AC773555 pic-2-6.png
 D Turntable
 R 1FAD5228 bg.png
+R 2DE2857A bg2.png
 P 3F6FB269 bomb.png
 P 66185A6D bomb2.png
 P CF3BCEBB circle1.png

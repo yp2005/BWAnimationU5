@@ -7,6 +7,7 @@ var TConfigView = /** @class */ (function () {
         this.wordInput = configBox.getChildByName("wordInput");
         this.picInput = configBox.getChildByName("picInput");
         this.fontInput = configBox.getChildByName("fontInput");
+        this.bgInput = configBox.getChildByName("bgInput");
         this.submitBtn = configBox.getChildByName("submitBtn");
         this.closeBtn = configBox.getChildByName("closeBtn");
         // 添加事件监听
@@ -18,6 +19,7 @@ var TConfigView = /** @class */ (function () {
         this.wordInput.text = Turntable.gameConfig.words.join(",");
         this.picInput.text = Turntable.gameConfig.pics.join(",");
         this.fontInput.text = Turntable.gameConfig.fontSize;
+        this.bgInput.text = Turntable.gameConfig.bg;
     };
     // 显示配置
     TConfigView.prototype.show = function () {
@@ -34,8 +36,23 @@ var TConfigView = /** @class */ (function () {
         var words = this.wordInput.text.split(",");
         var pics = this.picInput.text.split(",");
         var fontSize = this.fontInput.text;
+        var bg = this.bgInput.text;
         var leftLength = words.length, rightLength = pics.length;
+        // 空字符串split之后返回[""];
+        if (leftLength === 1) {
+            if (words[0] === "") {
+                leftLength = 0;
+            }
+        }
+        if (rightLength === 1) {
+            if (pics[0] === "") {
+                rightLength = 0;
+            }
+        }
         var total = leftLength + rightLength;
+        console.log(JSON.stringify(words));
+        console.log(JSON.stringify(pics));
+        console.log(leftLength + "--" + rightLength + "--" + total);
         if (!/\d+/.test(fontSize)) {
             Turntable.turntableMain.showTip("字号必须为正整数！");
             return;
@@ -44,6 +61,7 @@ var TConfigView = /** @class */ (function () {
             Turntable.gameConfig.words = words;
             Turntable.gameConfig.pics = pics;
             Turntable.gameConfig.fontSize = fontSize;
+            Turntable.gameConfig.bg = bg;
             Turntable.turntableMain.showTip("提交成功！");
             this.hide();
             Turntable.init();

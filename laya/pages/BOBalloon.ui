@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":3,
+    "selectedBox":5,
     "selecteID":4,
-    "props":{"sceneColor":"#000000","centerY":0,"centerX":0},
+    "props":{"sceneColor":"#000000"},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,57 +14,69 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"var":"ball0","skin":"BalloonOpposites/left-1-0.png","centerY":0,"centerX":0},
+            "type":"Box",
+            "props":{"width":200,"height":200},
             "nodeParent":1,
-            "label":"Image(ball0)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":2,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"var":"ball1","skin":"BalloonOpposites/left-1-1.png","centerY":0,"centerX":0},
-            "nodeParent":1,
-            "label":"Image(ball1)",
+            "label":"Box",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":3,
+            "compId":8,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":50,"x":28,"width":124,"skin":"template/Text/TextBox.png","height":60},
-                    "nodeParent":3,
-                    "label":"Image",
+                    "props":{"var":"ball0","skin":"BalloonOpposites/balloon-1-0.png","centerY":0,"centerX":0},
+                    "nodeParent":8,
+                    "label":"Image(ball0)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":5,
+                    "compId":6,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
-                    "type":"Text",
-                    "props":{"y":54,"x":38,"width":100,"var":"ballword","text":"text","height":50,"fontSize":40,"font":"FF","color":"#000","align":"center"},
-                    "nodeParent":3,
-                    "label":"Text(ballword)",
+                    "type":"Image",
+                    "props":{"var":"ball1","skin":"BalloonOpposites/balloon-1-1.png","centerY":0,"centerX":0},
+                    "nodeParent":8,
+                    "label":"Image(ball1)",
+                    "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":4,
+                    "compId":7,
                     "child":[
                         ]
-                }],
-            "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":8,"x":100,"width":130,"var":"wordbg","skin":"template/Text/TextBox.png","pivotY":30,"pivotX":65,"height":60,"centerY":0,"centerX":0},
+                    "nodeParent":8,
+                    "label":"Image(wordbg)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":5,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Text",
+                            "props":{"y":0,"x":0,"width":125,"var":"word","text":"beautiful","pivotY":-5,"pivotX":-3,"height":50,"fontSize":40,"font":"FF","color":"#000","align":"center"},
+                            "nodeParent":5,
+                            "label":"Text(word)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":4,
+                            "child":[
+                                ]
+                        }]
+                }]
         }],
     "animations":[
         {

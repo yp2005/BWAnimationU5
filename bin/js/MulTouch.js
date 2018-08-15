@@ -59,6 +59,7 @@ var MulTouch = /** @class */ (function () {
     };
     // 初始化单词
     MulTouch.initWords = function () {
+        MulTouch.allWords = [];
         var totalY = 600;
         var leftLength = MulTouch.gameConfig.leftWords.length;
         var rightLength = MulTouch.gameConfig.rightWords.length;
@@ -73,10 +74,12 @@ var MulTouch = /** @class */ (function () {
             img.x = 50;
             // img.x = 836;
             img.y = leftHeight * i + (leftHeight - img.height) / 2;
+            img.autoSize = true;
             img.on(Laya.Event.CLICK, this, this.touchImage, [img, false]);
             var textimg = new Laya.Image("MulTouch/text" + textImgRandom[0] + ".png");
             textimg.x = 280;
             textimg.y = leftHeight * i + (leftHeight - textimg.height) / 2;
+            textimg.autoSize = true;
             var text = new Laya.Text();
             text.text = MulTouch.gameConfig.leftWords[arr2[i] - 1];
             text.width = 160;
@@ -99,10 +102,12 @@ var MulTouch = /** @class */ (function () {
             var img = new Laya.Image("MulTouch/" + MulTouch.gameConfig.rightWords[arr[i] - 1] + ".png");
             img.x = 50 + 512;
             img.y = rightHeight * i + (rightHeight - img.height) / 2;
+            img.autoSize = true;
             img.on(Laya.Event.CLICK, this, this.touchImage, [img, false]);
             var textimg = new Laya.Image("MulTouch/text" + textImgRandom[1] + ".png");
             textimg.x = 280 + 512;
             textimg.y = rightHeight * i + (rightHeight - textimg.height) / 2;
+            textimg.autoSize = true;
             var text = new Laya.Text();
             text.text = MulTouch.gameConfig.rightWords[arr2[i] - 1];
             text.width = 160;
@@ -121,6 +126,8 @@ var MulTouch = /** @class */ (function () {
         MulTouch.soundRandom = MulTouch.getRandomArr(MulTouch.allWords.length);
     };
     MulTouch.touchImage = function (picture, isword) {
+        if (!MulTouch.gameChecking)
+            return;
         var word = MulTouch.allWords[(MulTouch.soundRandom[MulTouch.wordContext] - 1)];
         var _word = "";
         if (isword) {
@@ -134,11 +141,23 @@ var MulTouch = /** @class */ (function () {
             // console.log("_word:::"+_word);
         }
         if (word == _word) {
-            if (isword) {
+            if (isword && !this.wordOk) {
+                Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
+                picture.width = picture.width + 20;
+                var addheight = 20 * picture.height / picture.width;
+                picture.height = picture.height + addheight;
+                picture.x = picture.x - 10;
+                picture.y = picture.y - addheight / 2;
                 this.currentWord = picture;
                 this.wordOk = true;
             }
-            else {
+            if (!isword && !this.imageOk) {
+                Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
+                picture.width = picture.width + 20;
+                var addheight = 20 * picture.height / picture.width;
+                picture.height = picture.height + addheight;
+                picture.x = picture.x - 10;
+                picture.y = picture.y - addheight / 2;
                 this.currentImage = picture;
                 this.imageOk = true;
             }
@@ -154,6 +173,9 @@ var MulTouch = /** @class */ (function () {
             else {
                 // MulTouch.gameChecking = true;
                 // MulTouch.mulTouchMain.speak.skin = "MulTouch/sound-disabled.png";
+            }
+            if (MulTouch.soundRandom.length == MulTouch.wordContext) {
+                MulTouch.mulTouchMain.replayBtn.skin = "common/replay-abled.png";
             }
         }
         else {
