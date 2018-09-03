@@ -12,10 +12,14 @@ class MulTouch {
     public static allWords:any = [];
     public static soundRandom:any = [];
     public static wordContext:number = 0;
-    private static wordOk:boolean = false;
-    private static imageOk:boolean = false;
-    private static currentWord:Laya.Image;
-    private static currentImage:Laya.Image;
+    public static leftwordOk:boolean = false;
+    public static leftimageOk:boolean = false;
+    public static rightwordOk:boolean = false;
+    public static rightimageOk:boolean = false;
+    public static currentLeftWord:Laya.Image;
+    public static currentLeftImage:Laya.Image;
+    public static currentRightWord:Laya.Image;
+    public static currentRightImage:Laya.Image;
     
     constructor(config: any)
     {
@@ -119,7 +123,10 @@ class MulTouch {
 
             MulTouch.mulTouchMain.mainbox.addChild(img);
             MulTouch.mulTouchMain.mainbox.addChild(textimg);
-            MulTouch.allWords.push(MulTouch.gameConfig.leftWords[i]);
+            // MulTouch.allWords.push(MulTouch.gameConfig.leftWords[i]);
+            if(!MulTouch.allWords.includes(MulTouch.gameConfig.leftWords[i])){
+                MulTouch.allWords.push(MulTouch.gameConfig.leftWords[i]);
+            }
         }
 
         // 初始化右边
@@ -150,16 +157,19 @@ class MulTouch {
 
             MulTouch.mulTouchMain.mainbox.addChild(img);
             MulTouch.mulTouchMain.mainbox.addChild(textimg);
-            MulTouch.allWords.push(MulTouch.gameConfig.rightWords[i]);
+            // MulTouch.allWords.push(MulTouch.gameConfig.rightWords[i]);
+            if(!MulTouch.allWords.includes(MulTouch.gameConfig.rightWords[i])){
+                MulTouch.allWords.push(MulTouch.gameConfig.rightWords[i]);
+            }
         }
 
         MulTouch.soundRandom = MulTouch.getRandomArr(MulTouch.allWords.length);
     }
 
     private static touchImage(picture:Laya.Image,isword:boolean){
-        if(!MulTouch.gameChecking) return;
+        // if(!MulTouch.gameChecking) return;
 
-        let word = MulTouch.allWords[(MulTouch.soundRandom[MulTouch.wordContext]-1)];
+        let word = MulTouch.allWords[(MulTouch.soundRandom[MulTouch.wordContext-1]-1)];
         let _word = "";
         if(isword){
             let text = picture.getChildAt(0) as Laya.Text;
@@ -172,43 +182,75 @@ class MulTouch {
         }
 
         if(word == _word){
-            if(isword && !this.wordOk){
-                Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
-                picture.width = picture.width+20;
-                let addheight = 20 * picture.height / picture.width;
-                picture.height = picture.height + addheight;
-                picture.x = picture.x - 10;
-                picture.y = picture.y - addheight/2;
-                this.currentWord = picture;
-                this.wordOk = true;
-            }
-            if(!isword && !this.imageOk){
-                Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
-                picture.width = picture.width+20;
-                let addheight = 20 * picture.height / picture.width;
-                picture.height = picture.height + addheight;
-                picture.x = picture.x - 10;
-                picture.y = picture.y - addheight/2;
-                this.currentImage = picture;
-                this.imageOk = true;
-            }
-
-            if(this.wordOk && this.imageOk){
-                this.currentImage.removeSelf();
-                this.currentWord.removeSelf();
-                MulTouch.wordContext++;
-                MulTouch.gameChecking = false;
-                MulTouch.mulTouchMain.speak.skin = "MulTouch/sound.png";
-                this.wordOk = false;
-                this.imageOk = false;
+            if(picture.x <500){
+                // 左边
+                if(isword && !this.leftwordOk){
+                    Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
+                    let addheight = 20 * picture.height / picture.width;
+                    picture.width = picture.width+20;
+                    picture.height = picture.height + addheight;
+                    picture.x = picture.x - 10;
+                    picture.y = picture.y - addheight/2;
+                    this.currentLeftWord = picture;
+                    this.leftwordOk = true;
+                }
+                if(!isword && !this.leftimageOk){
+                    Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
+                    let addheight = 20 * picture.height / picture.width;
+                    picture.width = picture.width+20;
+                    picture.height = picture.height + addheight;
+                    picture.x = picture.x - 10;
+                    picture.y = picture.y - addheight/2;
+                    this.currentLeftImage = picture;
+                    this.leftimageOk = true;
+                }
             }else{
-                // MulTouch.gameChecking = true;
-                // MulTouch.mulTouchMain.speak.skin = "MulTouch/sound-disabled.png";
+                // 右边
+                if(isword && !this.rightwordOk){
+                    Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
+                    picture.width = picture.width+20;
+                    let addheight = 20 * picture.height / picture.width;
+                    picture.height = picture.height + addheight;
+                    picture.x = picture.x - 10;
+                    picture.y = picture.y - addheight/2;
+                    this.currentRightWord = picture;
+                    this.rightwordOk = true;
+                }
+                if(!isword && !this.rightimageOk){
+                    Laya.SoundManager.playSound("res/audio/bo-success.mp3", 1);
+                    picture.width = picture.width+20;
+                    let addheight = 20 * picture.height / picture.width;
+                    picture.height = picture.height + addheight;
+                    picture.x = picture.x - 10;
+                    picture.y = picture.y - addheight/2;
+                    this.currentRightImage = picture;
+                    this.rightimageOk = true;
+                }
+            }
+            
+            if(this.leftwordOk && this.leftimageOk){
+                this.currentLeftImage.removeSelf();
+                this.currentLeftWord.removeSelf();
+                // MulTouch.wordContext++;
+                // MulTouch.gameChecking = false;
+                // MulTouch.mulTouchMain.speak.skin = "MulTouch/sound.png";
+                this.leftwordOk = false;
+                this.leftimageOk = false;
+            }
+            
+            if(this.rightwordOk && this.rightimageOk){
+                this.currentRightImage.removeSelf();
+                this.currentRightWord.removeSelf();
+                // MulTouch.wordContext++;
+                // MulTouch.gameChecking = false;
+                // MulTouch.mulTouchMain.speak.skin = "MulTouch/sound.png";
+                this.rightwordOk = false;
+                this.rightimageOk = false;
             }
 
-            if(MulTouch.soundRandom.length == MulTouch.wordContext){
-                MulTouch.mulTouchMain.replayBtn.skin = "common/replay-abled.png";
-            }
+            // if(MulTouch.soundRandom.length == MulTouch.wordContext){
+            //     MulTouch.mulTouchMain.replayBtn.skin = "common/replay-abled.png";
+            // }
         }else{
             this.shake(picture);
         }

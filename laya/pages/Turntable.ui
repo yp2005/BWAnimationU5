@@ -54,7 +54,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":381,"x":618,"var":"table","skin":"Turntable/table8.png","pivotY":301,"pivotX":302},
+            "props":{"y":380,"x":616,"var":"table","skin":"Turntable/pie6.png","pivotY":301.5,"pivotX":301.5},
             "nodeParent":1,
             "label":"Image(table)",
             "isOpen":true,
@@ -62,20 +62,6 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":31,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":381,"x":618,"skin":"Turntable/circle1.png","pivotY":30.5,"pivotX":30},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":42,
             "child":[
                 ],
             "$HIDDEN":false
@@ -119,7 +105,6 @@
             "compId":15,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":131,"x":446,"width":495,"skin":"template/Text/TextBox.png","height":39},
                     "nodeParent":15,
@@ -132,7 +117,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":9,"x":331,"width":654,"skin":"common/configBG.png","height":459,"alpha":1},
                     "nodeParent":15,
@@ -146,7 +130,6 @@
                     "$LOCKED":true
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":55,"x":378,"text":"单词：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":15,
@@ -159,7 +142,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":46,"x":446,"width":495,"skin":"template/Text/TextBox.png","height":39},
                     "nodeParent":15,
@@ -173,7 +155,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":140,"x":378,"text":"图片：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":15,
@@ -186,7 +167,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"TextInput",
                     "props":{"y":49,"x":461,"width":466,"name":"wordInput","height":31,"fontSize":16,"color":"#3b3232"},
                     "nodeParent":15,
@@ -199,7 +179,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"TextInput",
                     "props":{"y":134,"x":461,"width":466,"name":"picInput","height":31,"fontSize":16,"color":"#3b3232"},
                     "nodeParent":15,
@@ -212,7 +191,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":367,"x":465,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32},
                     "nodeParent":15,
@@ -225,7 +203,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "props":{"y":3,"x":947,"width":40,"text":"+","rotation":45,"pivotY":-1,"pivotX":-10,"name":"closeBtn","height":40,"fontSize":40,"color":"#5d5454","bold":false,"align":"center"},
                     "nodeParent":15,
@@ -238,7 +215,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "props":{"y":100,"x":465,"text":"示例：happy,young","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":15,
@@ -251,7 +227,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "props":{"y":180,"x":465,"text":"示例：bomb1.png, bomb2.png, star.png","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":15,
@@ -264,7 +239,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":230,"x":378,"text":"字号：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":15,
@@ -277,7 +251,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":221,"x":446,"width":495,"skin":"template/Text/TextBox.png","height":39},
                     "nodeParent":15,
@@ -290,7 +263,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"TextInput",
                     "props":{"y":224,"x":461,"width":466,"name":"fontInput","height":31,"fontSize":16,"color":"#3b3232"},
                     "nodeParent":15,
@@ -303,7 +275,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":290,"x":378,"text":"背景图：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":15,
@@ -316,7 +287,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":281,"x":446,"width":495,"skin":"template/Text/TextBox.png","height":39},
                     "nodeParent":15,
@@ -329,7 +299,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"TextInput",
                     "props":{"y":284,"x":461,"width":466,"name":"bgInput","height":31,"fontSize":16,"color":"#3b3232"},
                     "nodeParent":15,
@@ -342,7 +311,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "props":{"y":330,"x":465,"text":"示例：bg.png, bg2.png","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":15,

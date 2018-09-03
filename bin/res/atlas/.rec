@@ -50,6 +50,7 @@ P 487E5BD0 bubble-2.png
 P 9FF44211 bubble-3.png
 P 20B6CCA2 bubble-4.png
 P B3897451 fish-1.png
+P 4662A0E4 long-bubble.png
 P 26FD9C29 shell-1-big.png
 P 0FA69D3A shell-1.png
 P 603A346A shell-2-big.png
@@ -152,6 +153,10 @@ R 2DE2857A bg2.png
 P 3F6FB269 bomb.png
 P 66185A6D bomb2.png
 P CF3BCEBB circle1.png
+R 7704C702 pie10.png
+R BDFC7778 pie4.png
+R F6FAD8F5 pie6.png
+R AA563D0D pie8.png
 P ACA51528 star.png
 P AF24D764 stop.png
 R 253F1626 table10.png

@@ -22,6 +22,41 @@ class MulTouchMain extends ui.MulTouchUI {
             Laya.SoundManager.playSound("res/audio/multouch/"+word+".mp3", 1);
             MulTouch.gameChecking = true;
             MulTouch.mulTouchMain.speak.skin = "MulTouch/sound-disabled.png";
+            MulTouch.wordContext++;
+
+            MulTouch.leftimageOk = false;
+            MulTouch.leftwordOk = false;
+            MulTouch.rightwordOk = false;
+            MulTouch.rightimageOk = false;
+                    // let addheight = 20 * picture.height / picture.width;
+                    // picture.width = picture.width+20;
+                    // picture.height = picture.height + addheight;
+                    // picture.x = picture.x - 10;
+                    // picture.y = picture.y - addheight/2;
+            for(var i = 0;i<MulTouch.mulTouchMain.mainbox.numChildren;i++){
+                let img = MulTouch.mulTouchMain.mainbox.getChildAt(i) as Laya.Image;
+                
+                // if((img.x !== 50) || (img.x !== 280) ||(img.x != 562) ||(img.x != 792){
+
+                // }
+                if(![50, 280, 562,792].includes(img.x)){
+                    let addheight = 20 * img.height / img.width;
+                    img.width = img.width-20;
+                    img.height = img.height - addheight;
+                    img.x = img.x + 10;
+                    img.y = img.y + addheight/2;
+                }
+            }
+            Laya.timer.once(1000,this,function(){
+                // 播放到最后一个单词音频的时候replay亮起，播放再也不能点了；
+                if(MulTouch.soundRandom.length == MulTouch.wordContext){
+                    MulTouch.gameChecking = true;
+                    MulTouch.mulTouchMain.replayBtn.skin = "common/replay-abled.png";
+                }else{
+                    MulTouch.gameChecking = false;
+                    MulTouch.mulTouchMain.speak.skin = "MulTouch/sound.png";
+                }
+            });
         }
     }
 

@@ -53,8 +53,12 @@ var FWConfigView = /** @class */ (function () {
             return;
         }
         var texts = this.word.text.split(",");
-        if (texts.length < 1 || texts.length > 16) {
-            FishAndWord.fishAndWordMain.showTip("单词个数在1-8之间！");
+        if (this.type.text != "longBubble" && (texts.length < 1 || texts.length > 16)) {
+            FishAndWord.fishAndWordMain.showTip("单词个数在1-16之间！");
+            return;
+        }
+        else if (this.type.text == "longBubble" && (texts.length < 1 || texts.length > 10)) {
+            FishAndWord.fishAndWordMain.showTip("单词个数在1-10之间！");
             return;
         }
         var words = [];

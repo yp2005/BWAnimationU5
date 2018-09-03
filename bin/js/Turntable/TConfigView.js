@@ -50,9 +50,9 @@ var TConfigView = /** @class */ (function () {
             }
         }
         var total = leftLength + rightLength;
-        console.log(JSON.stringify(words));
-        console.log(JSON.stringify(pics));
-        console.log(leftLength + "--" + rightLength + "--" + total);
+        // console.log(JSON.stringify(words));
+        // console.log(JSON.stringify(pics));
+        // console.log(leftLength+"--"+rightLength+"--"+total);
         if (!/\d+/.test(fontSize)) {
             Turntable.turntableMain.showTip("字号必须为正整数！");
             return;

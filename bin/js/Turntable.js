@@ -80,7 +80,7 @@ var Turntable = /** @class */ (function () {
         Turntable.randomTurn = Turntable.getRandomArr(totalLength);
         Turntable.currentTurn = 0;
         console.log(JSON.stringify(Turntable.randomTurn));
-        Turntable.turntableMain.table.skin = 'Turntable/table' + totalLength + '.png';
+        Turntable.turntableMain.table.skin = 'Turntable/pie' + totalLength + '.png';
         var randArr = Turntable.getRandomArr(totalLength);
         for (var i = 0; i < randArr.length; i++) {
             var _child = null;
@@ -88,12 +88,12 @@ var Turntable = /** @class */ (function () {
             if (i < wordLength) {
                 _child = new Laya.Text();
                 _child.font = 'FF';
-                _child.width = 134;
+                _child.width = 220;
                 _child.height = 44;
                 _child.fontSize = parseInt(Turntable.gameConfig.fontSize);
                 _child.bold = true;
                 _child.align = 'center';
-                _child.pivotX = 67;
+                _child.pivotX = 110;
                 // _child.pivotX = 22;
                 _child.text = Turntable.gameConfig.words[i];
             }
@@ -103,8 +103,8 @@ var Turntable = /** @class */ (function () {
             }
             var randi = randArr[i] - 1;
             _child.rotation = (360 / totalLength) * randi;
-            _child.x = 302 + Math.sin((2 * Math.PI) * (randi / totalLength)) * 250;
-            _child.y = 301 - Math.cos((2 * Math.PI) * (randi / totalLength)) * 250;
+            _child.x = 301.5 + Math.sin((2 * Math.PI) * (randi / totalLength)) * 250;
+            _child.y = 301.5 - Math.cos((2 * Math.PI) * (randi / totalLength)) * 250;
             Turntable.turntableMain.table.addChild(_child);
         }
     };

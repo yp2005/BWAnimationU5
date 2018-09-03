@@ -31,6 +31,8 @@ var FishAndWordMain = /** @class */ (function (_super) {
     FishAndWordMain.prototype.showTip = function (text) {
         this.tip.text = text;
         this.tip.visible = true;
+        this.tip.removeSelf();
+        this.addChild(this.tip);
         Laya.timer.once(1500, this, this.hideTip);
     };
     FishAndWordMain.prototype.hideTip = function () {
@@ -54,7 +56,8 @@ var FishAndWordMain = /** @class */ (function (_super) {
         }
     };
     // 将游戏元素添加到游戏主页面
-    FishAndWordMain.prototype.addElement = function (fish, bubbles, shells) {
+    FishAndWordMain.prototype.addElement = function (fish, bubbles, shells, longBubbles) {
+        var wordPositon = FishAndWord.wordPositon;
         if (fish) {
             this.words = fish;
         }
@@ -64,8 +67,12 @@ var FishAndWordMain = /** @class */ (function (_super) {
         else if (shells) {
             this.words = shells;
         }
+        else if (longBubbles) {
+            this.words = longBubbles;
+            wordPositon = FishAndWord.wordPositon1;
+        }
         var indexes = new Array();
-        for (var i = 0; i < 16; i++) {
+        for (var i = 0; i < wordPositon.length; i++) {
             indexes.push(i);
         }
         for (var _i = 0, _a = this.words; _i < _a.length; _i++) {
@@ -74,8 +81,8 @@ var FishAndWordMain = /** @class */ (function (_super) {
             var index = indexes[i];
             indexes.splice(i, 1);
             // 设置单词在有界面的位置
-            word.x = FishAndWord.wordPositon[index].x;
-            word.y = FishAndWord.wordPositon[index].y;
+            word.x = wordPositon[index].x;
+            word.y = wordPositon[index].y;
             // 让延迟0-1秒随机时间开始晃动
             Laya.timer.once(Math.floor(Math.random() * 1000), word, word.shake1);
             // 不同类型的单词背景图片需要不同的设置
@@ -131,6 +138,15 @@ var FishAndWordMain = /** @class */ (function (_super) {
                 shells.push(shell);
             }
             this.addElement(null, null, shells);
+        }
+        else if (FishAndWord.gameConfig.type == "longBubble") {
+            var longBubbles = new Array();
+            for (var _f = 0, _g = FishAndWord.gameConfig.words; _f < _g.length; _f++) {
+                var word = _g[_f];
+                var longBubble = new LongBubble(word);
+                longBubbles.push(longBubble);
+            }
+            this.addElement(null, null, null, longBubbles);
         }
     };
     return FishAndWordMain;
