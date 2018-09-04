@@ -233,17 +233,19 @@ var MulTouch = /** @class */ (function () {
     MulTouch.shake = function (picture) {
         Laya.SoundManager.playSound("res/audio/bo-fail.mp3", 1);
         var _x = picture.x;
-        Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-            Laya.Tween.to(picture, { x: _x + 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-                Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-                    Laya.Tween.to(picture, { x: _x + 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-                        Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
-                            Laya.Tween.to(picture, { x: _x }, 50, Laya.Ease.elasticInOut);
+        if ([50, 280, 562, 792].includes(_x)) {
+            Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
+                Laya.Tween.to(picture, { x: _x + 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
+                    Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
+                        Laya.Tween.to(picture, { x: _x + 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
+                            Laya.Tween.to(picture, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
+                                Laya.Tween.to(picture, { x: _x }, 50, Laya.Ease.elasticInOut);
+                            }));
                         }));
                     }));
                 }));
             }));
-        }));
+        }
     };
     MulTouch.gameChecking = false; // 正在验证对错
     MulTouch.leftWords = [];

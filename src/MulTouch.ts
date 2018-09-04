@@ -271,16 +271,18 @@ class MulTouch {
     private static shake(picture:Laya.Image) {
         Laya.SoundManager.playSound("res/audio/bo-fail.mp3", 1);
         let _x = picture.x;
-        Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
-            Laya.Tween.to(picture, {x:_x+15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
-                Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
-                    Laya.Tween.to(picture, {x:_x+15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
-                        Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
-                            Laya.Tween.to(picture, {x:_x}, 50, Laya.Ease.elasticInOut)
-                        }))
-                    } ))
+        if([50, 280, 562,792].includes(_x)){
+            Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+                Laya.Tween.to(picture, {x:_x+15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+                    Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+                        Laya.Tween.to(picture, {x:_x+15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+                            Laya.Tween.to(picture, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
+                                Laya.Tween.to(picture, {x:_x}, 50, Laya.Ease.elasticInOut)
+                            }))
+                        } ))
+                    }))
                 }))
-            }))
-        }));
+            }));
+        }
     }
 }
